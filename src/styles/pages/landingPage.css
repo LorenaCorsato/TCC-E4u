@@ -1,0 +1,35 @@
+.landingPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.objetivos {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+}
+
+.beneficios {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+    justify-content: center;
+    align-items: center;
+}
+
+.botoesBeneficios {
+    display: flex;
+    flex-direction: row;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.alunos {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1%;
+}

@@ -1,0 +1,52 @@
+.inicio{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+.E4{
+    display: flex;
+    flex-direction: row;
+}
+
+.conteudoE4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5%;
+    text-align: center;
+}
+
+.tituloE4 {
+    text-align: left;
+    margin-left: 1rem;
+}
+
+.textoE4 {
+    text-align: left;
+    padding: 1rem;
+}
+
+.imgE4 {
+    height: 30vw;
+    width: 30vw;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.vizualizar {
+    height: 3vw;
+    width: 10vw;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 0px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #50D002;
+    transition: 0.5s all;
+}
+
+.vizualizar:hover{
+    background-color:blueviolet
+}

@@ -1,0 +1,33 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 40vh;
+    margin: 1%;
+    background-color: aquamarine;
+}
+
+.imagemCard {
+    height: 40%;
+    width: 100%;
+}
+
+.conteudoCard {
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 100%;
+    background-color:blueviolet
+}
+
+.tituloCard {
+
+}
+
+.textoCard {
+    height: 25%;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #241212;
+}

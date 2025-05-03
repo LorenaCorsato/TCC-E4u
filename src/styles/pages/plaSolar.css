@@ -1,0 +1,23 @@
+.pagPlaSolar{
+    margin-left: 1%;
+}
+
+.textoSolar{
+    width: 30%;
+    float: left;
+    display: block;
+    margin-bottom: 10%;
+}
+
+.textoSolar p{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.calculoSolar{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}

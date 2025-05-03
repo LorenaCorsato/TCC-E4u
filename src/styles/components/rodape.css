@@ -1,0 +1,37 @@
+.rodape {
+    height: 30vh;
+    width: 100%;
+    bottom: 0;
+    background-color:#638400;
+    display: flex;
+    flex-direction: column;
+}
+
+.parteSuperior {
+
+}
+
+.parteInferior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.direitosReservados {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.duvidas {
+    display: flex;
+    flex-direction: column;
+}
+
+.duvidas a {
+    color: aquamarine;
+}
+
+.redesSociais {
+}

@@ -1,0 +1,108 @@
+.navBar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-image: linear-gradient(to right,#ACEF04, #83AC06);
+}
+
+.navLogo {
+    display: inline-block;
+    margin: 1%;
+    height: 4vh;
+    width: 4vh;
+}
+
+.navLogo img {
+    height: 4vh;
+    width: 4vh;
+}
+
+.navDropdown {
+    display: inline-block;
+    margin: 1%;
+    position: relative;
+}
+
+.dropEquipe, .dropArtigos {
+    display: none;
+}
+
+.dropEquipe a, .dropArtigos a {
+    display: block;
+}
+
+.navDropdown:hover .dropEquipe, .navDropdown:hover .dropArtigos {
+    position: absolute;
+    display: block;
+    top: 100%;
+    background-image: linear-gradient(to right,#ACEF04, #83AC06);
+  }
+
+.navPSolar, .navPCarbono {
+    display: inline-block;
+    margin: 1%;
+}
+
+.navLogin {
+    display: inline-block;
+    margin: 1%;
+}
+
+.navBar a {
+    text-decoration: none;
+    font-size: 3vh;
+    color: #FFFFFF;
+}
+
+.hamburger {
+    display: none;
+    font-size: 4vh;
+    color: white;
+    cursor: pointer;
+    margin: 1vh;
+}
+
+.navLinks {
+    display: flex;
+    gap: 2vh;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navLinks {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #83AC06;
+        padding: 10px;
+    }
+
+    .navLinks.ativo {
+        display: flex;
+    }
+
+    .navDropdown, .navPSolar, .navPCarbono, .navLogin {
+        margin: 1vh 0;
+      }
+    
+      .dropEquipe, .dropArtigos {
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+      }
+    
+      .dropEquipe a, .dropArtigos a {
+        color: black;
+        padding-left: 15px;
+      }
+    
+      .navBar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+}
