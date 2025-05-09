@@ -54,12 +54,12 @@ export default function LandingPage() {
                 </div>
 
                 <div className="alunos">
-                    <Aluno src="" alt="" nome="Gabriela" funcao="Revisão" />
-                    <Aluno src="" alt="" nome="Gustavo" funcao="Designer" />
-                    <Aluno src="" alt="" nome="Lavínia" funcao="Documentação" />
-                    <Aluno src="" alt="" nome="Lorena" funcao="Programação" />
-                    <Aluno src="" alt="" nome="Lyncon" funcao="Banco de dados" />
-                    <Aluno src="" alt="" nome="Raphael" funcao="Programação" />
+                    <Aluno srcAluno="src/assets/energia.jpg" alt="" nome="Gabriela" funcao="Revisão" />
+                    <Aluno srcAluno="src/assets/energia.jpg" alt="" nome="Gustavo" funcao="Designer" />
+                    <Aluno srcAluno="src/assets/energia.jpg" alt="" nome="Lavínia" funcao="Documentação" />
+                    <Aluno srcAluno="src/assets/energia.jpg" alt="" nome="Lorena" funcao="Programação" />
+                    <Aluno srcAluno="src/assets/energia.jpg" alt="" nome="Lyncon" funcao="Banco de dados" />
+                    <Aluno srcAluno="src/assets/energia.jpg" alt="" nome="Raphael" funcao="Programação" />
                 </div>
             </div>
             <Footer />

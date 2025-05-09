@@ -1,20 +1,8 @@
-.bb {
-    height: 6vh;
-    width: 50vh;
-    margin-bottom: 10px;
-    border-radius: 25px;
-    border: 2px solid #DCDCDC;
-    font-size: 40px;
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: #36A108;
-}
-
-.pagPegCarbono{
+.pagPegCarbono {
     margin-left: 1%;
 }
 
-.textoCarbono{
+.textoCarbono {
     width: 30%;
     float: left;
     display: block;
@@ -26,11 +14,17 @@
     font-weight: 500;
 }
 
-.questionario{
+.questionario {
     height: auto;
     width: 100%;
     display: flex;
     flex-direction: row;
     margin-top: 10%;
     justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .textoCarbono {
+        width: 100%;
+    }
 }

@@ -19,7 +19,6 @@ export default function Footer() {
 
                     <div className="redesSociais">
                         <p>Nos acompanhe</p>
-
                     </div>
                 </div>
             </div>

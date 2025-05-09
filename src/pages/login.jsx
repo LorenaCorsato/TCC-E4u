@@ -4,7 +4,14 @@ import Button from '../components/botao.jsx'
 import '../styles/pages/login.css'
 
 export default function Login() {
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
 
+    function ValoresLogin() {
+        setEmail(txtemail)
+        setSenha(txtsenha)
+    }
+    
     return (
         <>
             <div className="login">

@@ -4,8 +4,8 @@
     return(
         <>
             <div className="aluno">
-                <div className="fotoAluno">
-                    <img src={srcAluno} alt={altAluno} />
+                <div>
+                    <img className="fotoAluno" src={srcAluno} alt={altAluno} />
                 </div>
 
                 <div className="nomeAluno">

@@ -4,6 +4,16 @@ import Button from '../components/botao.jsx'
 import '../styles/pages/login.css'
 
 export default function CadastroFisico() {
+    const [email, setEmail] = useState('')
+    const [telefone, setTelefone] = useState('')
+    const [senha, setSenha] = useState('')
+
+    function ValoresLogin() {
+        setEmail(txtemail)
+        setTelefone(txttelefone)
+        setSenha(txtsenha)
+    }
+
     return (
         <>
             <div className="login">
@@ -15,10 +25,12 @@ export default function CadastroFisico() {
                 <div className="formulario">
                     <h1>Cadastro</h1>
                     <div className="insertEnter">
-                        <Form type="email" formValor="Email" id="txtemail"/>
-                        <Form type="text" formValor="N° de telefone" id="txttelefone"/>
-                        <Form type="password" formValor="Senha" id="txtsenha"/>
-                        <Button btnNome="entrar" />
+                        <form>
+                            <Form type="email" formValor="Email" id="txtemail" />
+                            <Form type="text" formValor="N° de telefone" id="txttelefone" />
+                            <Form type="password" formValor="Senha" id="txtsenha" />
+                            <Button btnNome="entrar" />
+                        </form>
                     </div>
 
                     <div className="lembrar">
