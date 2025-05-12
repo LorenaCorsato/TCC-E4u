@@ -3,6 +3,7 @@ import Form from '../components/escrever.jsx'
 import Button from '../components/botao.jsx'
 import '../styles/pages/login.css'
 
+
 export default function CadastroFisico() {
     return (
         <>

@@ -12,6 +12,7 @@ import Grafico from './pages/grafico.jsx'
 import Historico from './pages/historico.jsx'
 import './index.css'
 
+
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route element={<ArtigosSol />} path="/artigosSol" />
         <Route element={<Grafico />} path="/grafico" />
         <Route element={<Historico />} path="/historico" />
+
       </Routes>
       </BrowserRouter>
   </>
