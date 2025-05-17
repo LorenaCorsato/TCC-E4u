@@ -5,6 +5,7 @@ import LandingPage from './pages/landingPage.jsx'
 import Login from './pages/login.jsx'
 import PagSolar from './pages/plaSolar.jsx'
 import PagCarbono from './pages/pegCarbono.jsx'
+import Questionario from './pages/questionario.jsx'
 import CadastroFisico from './pages/cadastroFisico.jsx'
 import CadastroJuridico from './pages/cadastroJuridico.jsx'
 import ArtigosSol from './pages/artigosSol.jsx'
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route element={<CadastroJuridico />} path="/cadastroPessoaJuridica" />
         <Route element={<PagSolar />} path="/placaSolar" />
         <Route element={<PagCarbono />} path="/pegadaCarbono" />
+        <Route element={<Questionario />} path="/questionario" />
         <Route element={<ArtigosSol />} path="/artigosSol" />
         <Route element={<Grafico />} path="/grafico" />
         <Route element={<Historico />} path="/historico" />
