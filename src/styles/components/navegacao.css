@@ -4,7 +4,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(to right,#ACEF04, #83AC06);
+    background-image: linear-gradient(to right,#50D002, #66F012);
 }
 
 .navLogo {
@@ -38,7 +38,7 @@
     position: absolute;
     display: block;
     top: 100%;
-    background-color: #ACEF04
+    background-color: #50D002
   }
 
 .navPSolar, .navPCarbono {
@@ -49,6 +49,7 @@
 .navLogin {
     display: inline-block;
     margin: 1%;
+    border: 2px solid white;
 }
 
 .navBar a {
@@ -67,6 +68,8 @@
 
 .navLinks {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
     gap: 2vh;
 }
 
@@ -79,7 +82,7 @@
         display: none;
         flex-direction: column;
         width: 100%;
-        background-color: #83AC06;
+        background-color: #66F012;
         padding: 10px;
     }
 

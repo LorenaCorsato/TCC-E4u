@@ -1,26 +1,25 @@
 .card:hover {
-    display: flex;
-    flex-direction: column;
-    height: 70vh;
-    width: 50vh;
-    margin: 1%;
-    background-color:#798871;
-    transition: 0.5s all
+    width: 50vw;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .card {
     display: flex;
     flex-direction: column;
     height: 70vh;
-    width: 30vh;
-    margin: 1%;
-    background-color:#798871
+    width: 30vw;
+    margin-bottom: 2%;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background-color: #798871
 }
 
 .imagemCard {
     height: 40%;
     width: 100%;
     object-fit: cover;
+    transition: all 0.5s;
 }
 
 .imagemCard.aberto {
@@ -29,19 +28,19 @@
 }
 
 .conteudoCard {
-    display: none;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease 0.5s;
 }
 
 .conteudoCard.aberto {
+    opacity: 1;
     display: flex;
     flex-direction: column;
     height: 60%;
     width: 100%;
 }
 
-.tituloCard {
-
-}
+.tituloCard {}
 
 .textoCard {
     height: 25%;

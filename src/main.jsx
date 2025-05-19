@@ -11,6 +11,7 @@ import CadastroJuridico from './pages/cadastroJuridico.jsx'
 import ArtigosSol from './pages/artigosSol.jsx'
 import Grafico from './pages/grafico.jsx'
 import Historico from './pages/historico.jsx'
+//import ThemeSwitcher from './utils/alterarTema.jsx'
 import './index.css'
 
 import ReactDOM from 'react-dom/client'
@@ -18,7 +19,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
-      <BrowserRouter>
+    <BrowserRouter>
       <Routes>
         <Route element={<Inicio />} path="/" />
         <Route element={<LandingPage />} path="/landingPage" />
@@ -32,6 +33,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route element={<Grafico />} path="/grafico" />
         <Route element={<Historico />} path="/historico" />
       </Routes>
-      </BrowserRouter>
+    </BrowserRouter>
   </>
 )

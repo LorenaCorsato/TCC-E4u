@@ -1,52 +1,40 @@
-.inicio{
+.inicio {
     display: flex;
     flex-direction: column;
-    width: auto;
 }
 
-.E4{
+.objetivos {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+}
+
+.beneficios {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+    justify-content: center;
+    align-items: center;
+}
+
+.botoesBeneficios {
     display: flex;
     flex-direction: row;
 }
 
-.conteudoE4 {
+.cards {
+    display: flex;
+    flex-direction: row; 
+}
+
+.alunos {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    margin: 5%;
-    text-align: center;
+    padding: 1%;
+    background-color: #798871
 }
 
-.tituloE4 {
-    text-align: left;
-    margin-left: 1rem;
-}
+@media (max-width: 768px) {
 
-.textoE4 {
-    text-align: left;
-    padding: 1rem;
-}
-
-.imgE4 {
-    height: 30vw;
-    width: 30vw;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.vizualizar {
-    height: 3vw;
-    width: 10vw;
-    font-size: 1rem;
-    background-color: transparent;
-    border: 0px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #50D002;
-    transition: 0.5s all;
-}
-
-.vizualizar:hover{
-    background-color:#ACEF04
 }
