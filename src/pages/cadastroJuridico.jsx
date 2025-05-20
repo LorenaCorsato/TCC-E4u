@@ -4,6 +4,16 @@ import Button from '../components/botao.jsx'
 import '../styles/pages/login.css'
 
 export default function CadastroJuridico() {
+    const [email, setEmail] = useState('')
+    const [cnpj, setCnpj] = useState('')
+    const [senha, setSenha] = useState('')
+
+    function ValoresLogin() {
+        setEmail(txtemail)
+        setCnpj(txtcnpj)
+        setSenha(txtsenha)
+    }
+
     return (
         <>
             <div className="login">
@@ -14,10 +24,12 @@ export default function CadastroJuridico() {
                 <div className="formulario">
                     <h1>Cadastro</h1>
                     <div className="insertEnter">
-                        <Form type="email" formValor="Email" id="txtemail"/>
-                        <Form type="text" formValor="CNPJ" id="txtcnpj"/>
-                        <Form type="password" formValor="Senha" id="txtsenha"/>
-                        <Button btnNome="entrar" />
+                        <form>
+                            <Form type="email" formValor="Email" id="txtemail" />
+                            <Form type="text" formValor="CNPJ" id="txtcnpj" />
+                            <Form type="password" formValor="Senha" id="txtsenha" />
+                            <Button btnNome="entrar" />
+                        </form>
                     </div>
 
                     <div className="lembrar">

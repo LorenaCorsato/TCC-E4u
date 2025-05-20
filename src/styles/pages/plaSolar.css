@@ -21,3 +21,9 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 768px) {
+    .textoSolar {
+        width: 100%;
+    }
+}

@@ -3,8 +3,7 @@
     width: 100%;
     bottom: 0;
     background-color:#638400;
-    display: flex;
-    flex-direction: column;
+    flex-direction: column
 }
 
 .parteSuperior {
@@ -14,24 +13,26 @@
 .parteInferior {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly
 }
 
 .direitosReservados {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end
 }
 
 .duvidas {
     display: flex;
     flex-direction: column;
+    justify-content: center
 }
 
 .duvidas a {
-    color: aquamarine;
+    color: white
 }
 
 .redesSociais {
+    justify-content: center
 }

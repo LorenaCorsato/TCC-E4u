@@ -5,11 +5,13 @@ import LandingPage from './pages/landingPage.jsx'
 import Login from './pages/login.jsx'
 import PagSolar from './pages/plaSolar.jsx'
 import PagCarbono from './pages/pegCarbono.jsx'
+import Questionario from './pages/questionario.jsx'
 import CadastroFisico from './pages/cadastroFisico.jsx'
 import CadastroJuridico from './pages/cadastroJuridico.jsx'
 import ArtigosSol from './pages/artigosSol.jsx'
 import Grafico from './pages/grafico.jsx'
 import Historico from './pages/historico.jsx'
+//import ThemeSwitcher from './utils/alterarTema.jsx'
 import './index.css'
 
 
@@ -18,7 +20,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
-      <BrowserRouter>
+    <BrowserRouter>
       <Routes>
         <Route element={<Inicio />} path="/" />
         <Route element={<LandingPage />} path="/landingPage" />
@@ -27,11 +29,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route element={<CadastroJuridico />} path="/cadastroPessoaJuridica" />
         <Route element={<PagSolar />} path="/placaSolar" />
         <Route element={<PagCarbono />} path="/pegadaCarbono" />
+        <Route element={<Questionario />} path="/questionario" />
         <Route element={<ArtigosSol />} path="/artigosSol" />
         <Route element={<Grafico />} path="/grafico" />
         <Route element={<Historico />} path="/historico" />
 
       </Routes>
-      </BrowserRouter>
+    </BrowserRouter>
   </>
 )

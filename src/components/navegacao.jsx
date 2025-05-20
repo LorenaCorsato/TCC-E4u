@@ -11,13 +11,15 @@ export default function NavBar() {
     return (
         <>
             <div className="navBar">
-                <div className="navLogo"><img src="src/assets/Logo.png" alt="" /></div>
+                
 
                 <div className="hamburger" onClick={AbrirMenu}>
-                    ☰
+                    H
                 </div>
 
                 <div className={`navLinks ${menuAberto ? 'ativo' : ''}`}>
+                    <div className="navLogo"><img src="src/assets/Logo-nova.png" /></div>
+                    
                     <div className="navDropdown">
                         <div className="navEquipe"><a href="#">Equipe</a></div>
                         <div className="dropEquipe">

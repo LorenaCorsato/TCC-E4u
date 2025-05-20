@@ -19,7 +19,7 @@ export default function Footer() {
 
                     <div className="redesSociais">
                         <p>Nos acompanhe</p>
-
+                        <a href=""><img src="src/assets/instagram.png" style={{height:"2rem"}}/></a>
                     </div>
                 </div>
             </div>

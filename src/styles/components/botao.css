@@ -1,11 +1,12 @@
 .btn{
     height: 6vh;
-    width: 50vh;
+    width: 30vh;
     margin-bottom: 10px;
     border-radius: 25px;
     border: 2px solid #DCDCDC;
-    font-size: 40px;
+    font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
     color: #FFFFFF;
     background-color: #36A108;
 }

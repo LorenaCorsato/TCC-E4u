@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-image: linear-gradient(to right,#ACEF04, #83AC06);
+    align-items: center;
+    background-image: linear-gradient(to right,#50D002, #66F012);
 }
 
 .navLogo {
@@ -14,8 +15,9 @@
 }
 
 .navLogo img {
-    height: 4vh;
-    width: 4vh;
+    height: 3rem;
+    width: 3rem;
+    object-fit: cover
 }
 
 .navDropdown {
@@ -36,7 +38,7 @@
     position: absolute;
     display: block;
     top: 100%;
-    background-image: linear-gradient(to right,#ACEF04, #83AC06);
+    background-color: #50D002
   }
 
 .navPSolar, .navPCarbono {
@@ -47,6 +49,7 @@
 .navLogin {
     display: inline-block;
     margin: 1%;
+    border: 2px solid white;
 }
 
 .navBar a {
@@ -65,6 +68,8 @@
 
 .navLinks {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
     gap: 2vh;
 }
 
@@ -77,7 +82,7 @@
         display: none;
         flex-direction: column;
         width: 100%;
-        background-color: #83AC06;
+        background-color: #66F012;
         padding: 10px;
     }
 
