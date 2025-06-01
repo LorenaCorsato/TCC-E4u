@@ -2,6 +2,7 @@
     height: 30vh;
     width: 100%;
     bottom: 0;
+    color: #FFFFFF;
     background-color:#638400;
     flex-direction: column
 }
@@ -30,9 +31,16 @@
 }
 
 .duvidas a {
-    color: white
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.duvidas a:hover {
+    text-decoration: underline;
 }
 
 .redesSociais {
-    justify-content: center
+    justify-content: center;
+    align-items: center;
 }
