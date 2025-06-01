@@ -1,13 +1,52 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import NavBar from "../components/navegacao"
 import Footer from "../components/rodape"
 import Aluno from "../components/aluno"
 import Card from "../components/card"
 import BotaoIcone from "../components/botaoIcone"
+import Acessibilidade from "../components/acessibilidade"
+import '../styles/pages/inicio.css'
 import { color } from "chart.js/helpers"
 
 export default function Inicio() {
   const [mudar, setMudar] = useState("")
+  const[paragrafos, setParagrafos] = useState(["", "", "", ""])
+
+  useEffect(() => {
+    MudarParagrafo1()
+  }, [])
+
+  function MudarParagrafo1() {
+    setParagrafos(["1Muita coisa escritaMuita coisa escritaMuita coisa escritaMuita coisa escrita Muita coisa escrita Muita coisa escrita Muita coisa escrita",
+      "2Muita coisa escritaMuita coisa escritaMuita coisa escritaMuita coisa escrita Muita coisa escrita Muita coisa escrita Muita coisa escrita",
+      "3Muita coisa escritaMuita coisa escritaMuita coisa escritaMuita coisa escrita Muita coisa escrita Muita coisa escrita Muita coisa escrita",
+      "4Muita coisa escritaMuita coisa escritaMuita coisa escritaMuita coisa escrita Muita coisa escrita Muita coisa escrita Muita coisa escrita"
+    ])
+  }
+
+  function MudarParagrafo2() {
+    setParagrafos(["1Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura",
+      "2Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura",
+      "3Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura",
+      "4Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura Receita de bolo de cenoura"
+    ])
+  }
+
+  function MudarParagrafo3() {
+    setParagrafos(["1Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira",
+      "2Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira",
+      "3Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira",
+      "4Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira Aula de TCC de terça-feira"
+    ])
+  }
+
+  function MudarParagrafo4() {
+    setParagrafos(["1Muitos conteúdos interessantes Muitos conteúdos interessantes Muitos conteúdos interessantes Muitos conteúdos interessantes",
+      "2Muitos conteúdos interessantes Muitos conteúdos interessantes Muitos conteúdos interessantes Muitos conteúdos interessantes",
+      "3Muitos conteúdos interessantes Muitos conteúdos interessantes Muitos conteúdos interessantes Muitos conteúdos interessantes",
+      "4Muitos conteúdos interessantes Muitos conteúdos interessantes Muitos conteúdos interessantes Muitos conteúdos interessantes"
+    ])
+  }
 
   function MudarB1() {
     setMudar("B1")
@@ -36,11 +75,23 @@ export default function Inicio() {
         </div>
 
         <div className="descricoes">
+          <div className="topicos">
+            <a onClick={MudarParagrafo1}><span className="linha">1. Auxiliar de usuário</span></a>
+            <a onClick={MudarParagrafo2}><span className="linha">2. Ambiente limpo e agradável</span></a>
+            <a onClick={MudarParagrafo3}><span className="linha">3. Espalhar conhecimento</span></a>
+            <a onClick={MudarParagrafo4}><span className="linha">4. Seriedade</span></a>
+          </div>
 
+          <div className="paragrafos">
+            <p>{paragrafos[0]}</p>
+            <p>{paragrafos[1]}</p>
+            <p>{paragrafos[2]}</p>
+            <p>{paragrafos[3]}</p>
+          </div>
         </div>
 
         <div className="beneficios">
-          <h1 style={{textAlign: "center"}}>beneficios</h1>
+          <h1 style={{ textAlign: "center" }}>Benefícios</h1>
           <div className="botoesBeneficios">
             <BotaoIcone onBtnIcone={MudarB1} srcBtnIcone="src/assets/icon arvore.png" textoBtnIcone="Para o meio ambiente" />
             <BotaoIcone onBtnIcone={MudarB2} srcBtnIcone="src/assets/icone dinheiro.jpg" textoBtnIcone="Para o seu bolso" />
@@ -67,6 +118,7 @@ export default function Inicio() {
         </div>
       </div>
 
+      <Acessibilidade />
       <Footer />
     </>
   )
