@@ -7,16 +7,24 @@
     background-image: linear-gradient(to right,#50D002, #66F012);
 }
 
+.navLinks {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2vh;
+}
+
 .navLogo {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     margin: 1%;
     height: 4vh;
     width: 4vh;
 }
 
 .navLogo img {
-    height: 3rem;
-    width: 3rem;
+    height: 3.5em;
+    width: 3.5rem;
     object-fit: cover
 }
 
@@ -26,22 +34,22 @@
     position: relative;
 }
 
-.dropEquipe, .dropArtigos {
+.dropArtigos {
     display: none;
 }
 
-.dropEquipe a, .dropArtigos a {
+.dropArtigos a {
     display: block;
 }
 
-.navDropdown:hover .dropEquipe, .navDropdown:hover .dropArtigos {
+.navDropdown:hover .dropArtigos {
     position: absolute;
     display: block;
     top: 100%;
     background-color: #50D002
   }
 
-.navPSolar, .navPCarbono {
+.navInicio, .navPSolar, .navPCarbono {
     display: inline-block;
     margin: 1%;
 }
@@ -64,13 +72,6 @@
     color: white;
     cursor: pointer;
     margin: 1vh;
-}
-
-.navLinks {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    gap: 2vh;
 }
 
 @media (max-width: 768px) {

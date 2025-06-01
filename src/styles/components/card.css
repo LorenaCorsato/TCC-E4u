@@ -12,6 +12,7 @@
     margin-bottom: 2%;
     transition: all 0.5s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
     background-color: #798871
 }
 
@@ -29,23 +30,29 @@
 
 .conteudoCard {
     opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.3s ease 0.5s;
+    transition: opacity 0s;
 }
 
 .conteudoCard.aberto {
     opacity: 1;
     display: flex;
     flex-direction: column;
+    transition: opacity 0.3s ease 0.5s;
     height: 60%;
     width: 100%;
 }
 
-.tituloCard {}
+.tituloCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
 
 .textoCard {
     height: 25%;
     width: 100%;
     font-size: 1rem;
-    font-weight: bold;
-    color: #241212;
+    font-weight: bold
 }
