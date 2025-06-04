@@ -11,24 +11,14 @@ export default function NavBar() {
     return (
         <>
             <div className="navBar">
-                
-
                 <div className="hamburger" onClick={AbrirMenu}>
                     H
                 </div>
 
                 <div className={`navLinks ${menuAberto ? 'ativo' : ''}`}>
                     <div className="navLogo"><img src="src/assets/Logo-nova.png" /></div>
-                    
-                    <div className="navDropdown">
-                        <div className="navEquipe"><a href="#">Equipe</a></div>
-                        <div className="dropEquipe">
-                            <a href="#">Banana</a>
-                            <a href="#">Laranja</a>
-                            <a href="#">Maçã</a>
-                        </div>
-                    </div>
 
+                    <div className="navInicio"><a href="/">Inicio</a></div>
                     <div className="navPSolar"><a href="/placaSolar">Placas solares</a></div>
                     <div className="navPCarbono"><a href="/pegadaCarbono">Pegada de carbono</a></div>
 

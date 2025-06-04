@@ -9,6 +9,32 @@
     margin-left: 1%;
 }
 
+.descricoes {
+    display: flex;
+    flex-direction: column;
+}
+
+.descricoes .topicos {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1%;
+    justify-content: space-evenly
+}
+
+.descricoes .topicos:hover {
+    cursor: pointer;
+}
+
+.descricoes .paragrafos {
+    display: flex;
+    flex-direction: row;
+    background-color: #798871
+}
+
+.descricoes .paragrafos p {
+    margin: 1rem;
+}
+
 .beneficios {
     display: flex;
     flex-direction: column;
