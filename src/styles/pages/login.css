@@ -18,6 +18,7 @@
 .logo h1{
     position: absolute;
     bottom: 0;
+    
 }
 
 .formulario{
@@ -42,15 +43,15 @@
 }
 
 .mantConectado{
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .cadastrar{
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 10px;
-    font-size: 20px;
+    margin-bottom: 5px;
+    font-size: 16px;
 }
 
 .cadastrar a{
