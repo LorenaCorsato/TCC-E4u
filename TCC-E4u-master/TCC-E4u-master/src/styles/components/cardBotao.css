@@ -1,0 +1,38 @@
+.cardBotao {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 40vh;
+    background-image: linear-gradient(to right,#ACEF04, #83AC06);
+}
+
+.imagemCardBotao {
+    height: 60%;
+    width: auto;
+    padding: 0.5%;
+}
+
+.conteudoCardBotao {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5%;
+}
+
+.textoCardBotao {
+    height: 25%;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.botaoCardBotao {
+    height: 1.5vw;
+    width: 40%;
+    border-radius: 25px;
+    border: 2px solid #DCDCDC;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #36A108;
+}

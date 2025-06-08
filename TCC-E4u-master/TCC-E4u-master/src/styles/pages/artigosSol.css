@@ -1,0 +1,13 @@
+.artigosSol {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1%;
+}
+
+.artigosOutros {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1%;
+}

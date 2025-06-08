@@ -1,0 +1,107 @@
+@font-face {
+  font-family: 'Alexandria';
+  src: url('/fonts/Alexandria-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Alexandria', sans-serif;
+}
+
+.inicio {
+    display: flex;
+    flex-direction: column;
+}
+
+.objetivos {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-left: 1rem;
+    margin-bottom: 5rem;
+}
+
+.descricoes {
+    display: flex;
+    flex-direction: column;
+}
+
+.descricoes .topicos {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1%;
+    justify-content: space-evenly
+}
+
+.descricoes .topicos:hover {
+    cursor: pointer;
+}
+
+.descricoes .paragrafos {
+    display: flex;
+    flex-direction: row;
+    min-height: 7.5rem;
+    background-color: #617C4A
+}
+
+.descricoes .paragrafos p {
+    margin: 1rem;
+    color: #FFF;
+}
+
+.beneficios {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+    align-items: center;
+}
+
+.botoesBeneficios {
+    display: flex;
+    flex-direction: row;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+}
+
+.alunos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1%;
+    background-color: #798871
+}
+
+@media (max-width: 768px) {
+    .descricoes .topicos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .descricoes .topicos a {
+        margin: 0.5rem;
+    }
+
+    .descricoes .paragrafos {
+        flex-direction: column;
+    }
+
+    .descricoes .paragrafos p {
+        margin: 1rem;
+    }
+
+    .beneficios {
+        justify-content: space-between;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .alunos {
+        flex-direction: column;
+    }
+}

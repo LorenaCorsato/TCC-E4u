@@ -1,0 +1,22 @@
+.btnIcone {
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    width: 20vh;
+    background-color: transparent;
+    border: solid 0px transparent;
+}
+
+.imgBtnIcone {
+    height: 70%;
+    width: 100%;
+}
+
+.textoBtnIcone {
+    height: 30%;
+    width: 100%;
+    font-size: medium;
+    font-weight: bold;
+    color: #50D002;
+    background-color:azure
+}

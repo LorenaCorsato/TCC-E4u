@@ -1,0 +1,52 @@
+.card:hover {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    width: 50vh;
+    margin: 1%;
+    background-color:#798871;
+    transition: 0.5s all
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    width: 30vh;
+    margin: 1%;
+    background-color:#798871
+}
+
+.imagemCard {
+    height: 40%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.imagemCard.aberto {
+    height: 40%;
+    width: 100%;
+}
+
+.conteudoCard {
+    display: none;
+}
+
+.conteudoCard.aberto {
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 100%;
+}
+
+.tituloCard {
+
+}
+
+.textoCard {
+    height: 25%;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #241212;
+}

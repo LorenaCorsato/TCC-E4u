@@ -1,0 +1,30 @@
+.pagPegCarbono {
+    margin-left: 1%;
+}
+
+.textoCarbono {
+    width: 30%;
+    float: left;
+    display: block;
+    margin-bottom: 10%;
+}
+
+.textoCarbono p{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.questionario {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10%;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .textoCarbono {
+        width: 100%;
+    }
+}
