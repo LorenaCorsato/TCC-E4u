@@ -34,7 +34,6 @@ export default function CadastroFisico() {
                     </div>
 
                     <div className="lembrar">
-                        <Redirect redCaminho="" RedDescricao="Esqueceu a senha?" />
                         <CheckBox />
                     </div>
 

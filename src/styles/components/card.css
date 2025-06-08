@@ -1,7 +1,9 @@
-.card:hover {
-    width: 50vw;
-    position: relative;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+@media(hover: hover) and (pointer: fine) {
+    .card:hover {
+        width: 50vw;
+        position: relative;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
 }
 
 .card {
@@ -13,7 +15,7 @@
     transition: all 0.5s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     color: #FFFFFF;
-    background-color: #798871
+    background-color: #617C4A
 }
 
 .imagemCard {
@@ -23,23 +25,20 @@
     transition: all 0.5s;
 }
 
-.imagemCard.aberto {
-    height: 40%;
-    width: 100%;
-}
-
 .conteudoCard {
     opacity: 0;
     transition: opacity 0s;
 }
 
 .conteudoCard.aberto {
-    opacity: 1;
     display: flex;
     flex-direction: column;
-    transition: opacity 0.3s ease 0.5s;
+    opacity: 1;
     height: 60%;
     width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease 0.5s;
 }
 
 .tituloCard {
@@ -54,5 +53,21 @@
     height: 25%;
     width: 100%;
     font-size: 1rem;
-    font-weight: bold
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        position: static;
+    }
+
+    .conteudoCard {
+        opacity: 1;
+        height: 60%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: none;
+    }
 }

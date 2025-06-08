@@ -4,7 +4,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(to right,#50D002, #66F012);
+    top: 0;
+    position: fixed;
+    z-index: 1000;
+    background-image: linear-gradient(to right,#45B103, #00743B);
 }
 
 .navLinks {
@@ -34,19 +37,42 @@
     position: relative;
 }
 
+.navArtigos a::after {
+    display: inline-block;
+    content: '▼';
+    font-size: 0.8rem;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.navDropdown:hover .navArtigos a::after {
+    transform: rotate(180deg);
+}
+
 .dropArtigos {
-    display: none;
+    position: absolute;
+    top: 100%;
+    background: linear-gradient(135deg, #45B103, #00743B);
+    min-width: 220px;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    margin-top: 8px;
 }
 
 .dropArtigos a {
     display: block;
+    margin-left: 0.4rem;
+}
+
+.dropArtigos a:hover {
+    text-decoration: underline;
 }
 
 .navDropdown:hover .dropArtigos {
-    position: absolute;
-    display: block;
-    top: 100%;
-    background-color: #50D002
+    opacity: 1;
+    transform: translateY(0);
   }
 
 .navInicio, .navPSolar, .navPCarbono {
@@ -60,9 +86,23 @@
     border: 2px solid white;
 }
 
+.navLogin a {
+    margin: 0.5rem;
+}
+
+.navConfig {
+    display: inline-block;
+    margin: 1%;
+}
+
+.navBar .btnIcone {
+    height: 3rem;
+    width: 3rem;
+}
+
 .navBar a {
     text-decoration: none;
-    font-size: 3vh;
+    font-size: 2rem;
     color: #FFFFFF;
 }
 

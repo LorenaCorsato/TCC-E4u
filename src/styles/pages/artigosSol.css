@@ -1,4 +1,9 @@
 .artigosSol {
+    margin-top: 4vh;
+    padding: 1rem;
+}
+
+.artigosCards {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

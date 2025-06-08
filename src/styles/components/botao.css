@@ -10,3 +10,7 @@
     color: #FFFFFF;
     background-color: #36A108;
 }
+
+.btn:hover {
+    cursor: pointer;
+}

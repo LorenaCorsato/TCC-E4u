@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Inicio from './pages/inicio.jsx'
-import LandingPage from './pages/landingPage.jsx'
 import Login from './pages/login.jsx'
 import PagSolar from './pages/plaSolar.jsx'
 import PagCarbono from './pages/pegCarbono.jsx'
@@ -22,7 +21,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Routes>
         <Route element={<Inicio />} path="/" />
-        <Route element={<LandingPage />} path="/landingPage" />
         <Route element={<Login />} path="/login" />
         <Route element={<CadastroFisico />} path="/cadastroPessoaFisica" />
         <Route element={<CadastroJuridico />} path="/cadastroPessoaJuridica" />

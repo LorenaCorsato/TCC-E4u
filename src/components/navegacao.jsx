@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../styles/components/navegacao.css'
+import BotaoIcone from './botaoIcone'
 
 export default function NavBar() {
     const [menuAberto, setMenuAberto] = useState(false)
@@ -23,7 +24,7 @@ export default function NavBar() {
                     <div className="navPCarbono"><a href="/pegadaCarbono">Pegada de carbono</a></div>
 
                     <div className="navDropdown">
-                        <div className="navArtogos"><a href="#">Artigos</a></div>
+                        <div className="navArtigos"><a href="#" onClick={(e) => e.preventDefault()}>Artigos</a></div>
                         <div className="dropArtigos">
                             <a href="/artigosSol">Sol</a>
                             <a href="#">Carbono</a>
@@ -33,6 +34,7 @@ export default function NavBar() {
                     </div>
 
                     <div className="navLogin"><a href="/login">Login</a></div>
+                    {/*<div className="navConfig"><BotaoIcone srcBtnIcone="src/assets/icone-de-configuration-grise.png" /></div> */}
                 </div>
             </div>
         </>

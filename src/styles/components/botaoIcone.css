@@ -1,22 +1,29 @@
 .btnIcone {
     display: flex;
     flex-direction: column;
-    height: 30vh;
-    width: 20vh;
+    height: 15rem;
+    width: 15rem;
     background-color: transparent;
-    border: solid 0px transparent;
+    border: transparent;
+}
+
+.btnIcone:hover {
+    cursor: pointer;
 }
 
 .imgBtnIcone {
-    height: 70%;
-    width: 100%;
+    object-fit: cover;
 }
 
 .textoBtnIcone {
-    height: 30%;
-    width: 100%;
-    font-size: medium;
+    font-size: 1rem;
     font-weight: bold;
     color: #50D002;
-    background-color:azure
+}
+
+@media (max-width: 768px) {
+    .btnIcone {
+        height: 5rem;
+        width: 5rem;
+    }
 }

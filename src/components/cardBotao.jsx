@@ -1,4 +1,5 @@
 import "../styles/components/cardBotao.css"
+import Button from "./botao"
 
 export default function CardBotao( {srcCardBotao, textoCardBotao, hrefCardBotao} ) {
     return (
@@ -7,7 +8,7 @@ export default function CardBotao( {srcCardBotao, textoCardBotao, hrefCardBotao}
                 <div className="conteudoCardBotao">
                     <img className="imagemCardBotao" src={srcCardBotao} />
                     <p className="textoCardBotao">{textoCardBotao}</p>
-                    <button className="botaoCardBotao" href={hrefCardBotao}>Conferir</button>
+                    <Button btnNome="Conferir"/>
                 </div>
             </div>
         </>

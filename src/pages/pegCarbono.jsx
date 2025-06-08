@@ -22,8 +22,8 @@ export default function PagCarbono() {
                 </div>
 
                 <div className="questionario">
-                    <Button href="/" btnNome="Questionário"/>
-                    <Button href="/landingPage" btnNome="Histórico"/>
+                    <Button href="/questionario" btnNome="Questionário"/>
+                    <Button href="/grafico" btnNome="Histórico"/>
                 </div>
             </div>
         </>

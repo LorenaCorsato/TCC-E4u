@@ -31,6 +31,12 @@
     background-color: white;
 }
 
+.insertEnter form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .lembrar{
     display: flex;
     flex-direction: row;

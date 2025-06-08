@@ -6,7 +6,9 @@
 .objetivos {
     display: flex;
     flex-direction: column;
-    margin-left: 1%;
+    width: 30%;
+    margin-left: 1rem;
+    margin-bottom: 5rem;
 }
 
 .descricoes {
@@ -28,18 +30,19 @@
 .descricoes .paragrafos {
     display: flex;
     flex-direction: row;
-    background-color: #798871
+    min-height: 7.5rem;
+    background-color: #617C4A
 }
 
 .descricoes .paragrafos p {
     margin: 1rem;
+    color: #FFF;
 }
 
 .beneficios {
     display: flex;
     flex-direction: column;
     margin-left: 1%;
-    justify-content: center;
     align-items: center;
 }
 
@@ -50,7 +53,7 @@
 
 .cards {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
 }
 
 .alunos {
@@ -62,5 +65,32 @@
 }
 
 @media (max-width: 768px) {
+    .descricoes .topicos {
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .descricoes .topicos a {
+        margin: 0.5rem;
+    }
+
+    .descricoes .paragrafos {
+        flex-direction: column;
+    }
+
+    .descricoes .paragrafos p {
+        margin: 1rem;
+    }
+
+    .beneficios {
+        justify-content: space-between;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .alunos {
+        flex-direction: column;
+    }
 }
