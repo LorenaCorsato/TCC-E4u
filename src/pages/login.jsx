@@ -7,10 +7,7 @@ export default function Login() {
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
 
-    function ValoresLogin() {
-        setEmail(txtemail)
-        setSenha(txtsenha)
-    }
+
     
     return (
         <>
