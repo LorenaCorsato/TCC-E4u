@@ -30,7 +30,7 @@
 .descricoes .paragrafos {
     display: flex;
     flex-direction: row;
-    min-height: 7.5rem;
+    min-height: 12.4rem;
     background-color: #617C4A
 }
 
