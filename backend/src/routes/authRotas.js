@@ -1,4 +1,3 @@
-// src/routes/authRotas.js
 
 const express = require('express');
 const rotas = express.Router();

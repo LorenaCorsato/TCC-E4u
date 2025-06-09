@@ -1,4 +1,4 @@
-const axios = require('axios'); // 1. IMPORTAÇÃO DO AXIOS ADICIONADA
+const axios = require('axios'); 
 const admin = require('../config/firebase');
 const db = require('../config/database');
 
@@ -37,7 +37,7 @@ exports.cadastrarPF = async (req, res) => {
 
         return res.status(500).send({ mensagem: "Ocorreu um erro no servidor ao tentar cadastrar." });
     }
-}; // 2. CHAVE DE FECHAMENTO CORRIGIDA
+}; 
 
 exports.cadastrarPJ = async (req, res) => {
     const { email, cnpj, senha } = req.body;
@@ -74,8 +74,7 @@ exports.cadastrarPJ = async (req, res) => {
 
         return res.status(500).send({ mensagem: "Ocorreu um erro no servidor ao tentar cadastrar." });
     }
-}; // 2. CHAVE DE FECHAMENTO CORRIGIDA
-
+}; 
 exports.loginUsuario = async (req, res) => {
     const { email, senha } = req.body;
 
@@ -84,7 +83,6 @@ exports.loginUsuario = async (req, res) => {
     }
 
     try {
-        // Usa a API REST do Firebase para autenticar o usuário
         const resposta = await axios.post(
             `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.FIREBASE_API_KEY}`,
             {
@@ -94,28 +92,23 @@ exports.loginUsuario = async (req, res) => {
             }
         );
 
-        // Se o login no Firebase foi bem-sucedido, pega o token de ID
         const idToken = resposta.data.idToken;
         const uid = resposta.data.localId;
 
-        // Verifica se o usuário existe no seu banco de dados local
         const consultaSQL = `SELECT * FROM usuario WHERE firebase_uid = $1`;
         const { rows } = await db.query(consultaSQL, [uid]);
 
         if (rows.length === 0) {
-            // Isso não deveria acontecer se o cadastro estiver funcionando bem
             return res.status(404).send({ mensagem: 'Usuário autenticado mas não encontrado no banco de dados.' });
         }
         
-        // Retorna o token para o frontend
         res.status(200).send({ 
             mensagem: 'Login realizado com sucesso!', 
-            token: idToken, // Envia o token para o frontend
+            token: idToken, 
             usuario: rows[0] 
         });
 
     } catch (erro) {
-        // Se o erro vier da API do Firebase (ex: senha errada), ele terá uma estrutura específica
         if (erro.response && erro.response.data && erro.response.data.error) {
             const erroFirebase = erro.response.data.error.message;
             console.error('Erro de autenticação do Firebase:', erroFirebase);
@@ -125,7 +118,6 @@ exports.loginUsuario = async (req, res) => {
             }
         }
         
-        // Para outros erros
         console.error('Erro geral no login:', erro.message);
         return res.status(500).send({ mensagem: 'Ocorreu um erro interno no servidor.' });
     }
