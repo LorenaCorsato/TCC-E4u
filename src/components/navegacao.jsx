@@ -17,7 +17,7 @@ export default function NavBar() {
                 </div>
 
                 <div className={`navLinks ${menuAberto ? 'ativo' : ''}`}>
-                    <div className="navLogo"><img src="src/assets/Logo-nova.png" /></div>
+                    <div className="navLogo"><img src="src/assets/logo.png" /></div>
 
                     <div className="navInicio"><a href="/">Inicio</a></div>
                     <div className="navPSolar"><a href="/placaSolar">Placas solares</a></div>
