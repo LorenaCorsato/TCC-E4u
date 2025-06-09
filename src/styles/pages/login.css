@@ -62,3 +62,36 @@
 .cadastrar a{
     color: blue
 }
+
+input                            {
+    width: 350px;
+    height: 50px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+.input-com-icone {
+    position: relative;
+    width: 100%; /* ou a largura do seu input */
+    display: flex;
+    justify-content: center;
+}
+
+/* Garante que o input dentro do container ocupe todo o espaço */
+.input-com-icone input {
+    width: 100%;
+    padding-right: 40px; /* Adiciona espaço à direita para o ícone não sobrepor o texto */
+}
+
+/* Estiliza e posiciona o ícone */
+.icone-senha {
+    position: absolute;
+    right: 10px; /* Distância da borda direita */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    cursor: pointer;
+    color: #888; /* Cor do ícone */
+}

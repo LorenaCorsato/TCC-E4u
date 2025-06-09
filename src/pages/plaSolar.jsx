@@ -15,7 +15,6 @@ export default function PagSolar() {
     }
     return (
         <>
-            <NavBar />
             <div className="pagPlaSolar">
                 <div className="textoSolar">
                     <h1><span className="linha">Placas solares:</span></h1>

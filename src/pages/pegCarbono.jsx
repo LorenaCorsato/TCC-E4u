@@ -9,7 +9,6 @@ export default function PagCarbono() {
     const navigate = useNavigate();
     return (
         <>
-            <NavBar />
             <div className="pagPegCarbono">
                 <div className="textoCarbono">
                     <h1><span className="linha">Pegada de carbono</span></h1>
