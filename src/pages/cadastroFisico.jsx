@@ -76,7 +76,7 @@ export default function CadastroFisico() {
     return (
         <div className="login">
             <div className="logo">
-                <h1>E4u</h1>
+                <img src='src/assets/logo.png' />
             </div>
 
             <div className="formulario">
