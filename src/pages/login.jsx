@@ -67,10 +67,11 @@ export default function Login() {
 
     return (
         <>
-            <div className="login">
-                <div className="logo">
-                    <img src='src/assets/logo.png' />
-                </div>
+           <div className="login">
+            <div className="logo">
+                    <img src="src/assets/logoFinal.png"  className="logoImg" alt="Logo E4u" />
+            </div>
+               
 
                 <div className="formulario">
                     <h1>Login</h1>

@@ -3,7 +3,8 @@ import axios from 'axios';
 import Button from '../components/botao.jsx';
 import '../styles/pages/login.css';
 
-//  Ícones de Olho 
+
+// Ícones de Olho
 const IconeOlhoAberto = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
@@ -20,7 +21,6 @@ const IconeOlhoFechado = () => (
     </svg>
 );
 
-
 function Redirect({ redCaminho, RedDescricao }) {
     return <a href={redCaminho}>{RedDescricao}</a>;
 }
@@ -30,19 +30,19 @@ export default function CadastroJuridico() {
     const [cnpj, setCnpj] = useState('');
     const [senha, setSenha] = useState('');
     const [mensagem, setMensagem] = useState('');
+    
+    const [tipoMensagem, setTipoMensagem] = useState(''); // 'success' ou 'error'
 
     const formatarCnpj = (valor) => {
-    const valorNumerico = valor.replace(/\D/g, '');
-
-  // Máscara CNPJ
-     return valorNumerico
-    .replace(/^(\d{2})(\d)/, '$1.$2')
-    .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
-    .replace(/\.(\d{3})(\d)/, '.$1/$2')
-    .replace(/(\d{4})(\d)/, '$1-$2')
-    .replace(/(-\d{2})\d+?$/, '$1'); 
+        const valorNumerico = valor.replace(/\D/g, '');
+        return valorNumerico
+            .replace(/^(\d{2})(\d)/, '$1.$2')
+            .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+            .replace(/\.(\d{3})(\d)/, '.$1/$2')
+            .replace(/(\d{4})(\d)/, '$1-$2')
+            .replace(/(-\d{2})\d+?$/, '$1');
     };
-    
+
     const [senhaVisivel, setSenhaVisivel] = useState(false);
 
     const handleCadastroJuridico = async (evento) => {
@@ -50,11 +50,13 @@ export default function CadastroJuridico() {
         
         if (!email || !cnpj || !senha) {
             setMensagem('Por favor, preencha todos os campos.');
+            setTipoMensagem('error');
             return;
         }
 
         if (senha.length < 6) {
             setMensagem('A senha deve ter no mínimo 6 caracteres.');
+            setTipoMensagem('error');
             return;
         }
 
@@ -63,21 +65,27 @@ export default function CadastroJuridico() {
             const resposta = await axios.post('http://localhost:3001/api/auth/cadastrar/pj', {
                 email, cnpj, senha
             });
+            // Sucesso
             setMensagem(resposta.data.mensagem);
+            setTipoMensagem('success');
         } catch (erro) {
+            // Erro
             const msgErro = erro.response?.data?.mensagem || 'Ocorreu um erro. Tente novamente.';
             setMensagem(`Erro: ${msgErro}`);
+            setTipoMensagem('error');
         }
     };
-    
+
     const toggleVisibilidadeSenha = () => {
         setSenhaVisivel(!senhaVisivel);
     };
 
+    const corDaMensagem = tipoMensagem === 'success' ? 'green' : 'red';
+
     return (
         <div className="login">
             <div className="logo">
-                <img src='src/assets/logo.png' />
+                 <img src="src/assets/logoFinal.png"  className="logoImg" alt="Logo E4u" />
             </div>
 
             <div className="formulario">
@@ -94,14 +102,13 @@ export default function CadastroJuridico() {
                             maxLength="254"
                         />
                         
-                         <input
+                        <input
                             type="text"
                             placeholder="CNPJ"
                             value={cnpj}
                             onChange={(e) => setCnpj(formatarCnpj(e.target.value))}
-                            maxLength="18" 
+                            maxLength="18"
                         />
-   
                         
                         <div className="input-com-icone">
                             <input
@@ -123,7 +130,9 @@ export default function CadastroJuridico() {
                 <div className="lembrar" style={{display: 'flex', width: '300px', justifyContent: 'flex-start', marginTop: '15px'}}>
                     <Redirect redCaminho="#" RedDescricao="Esqueceu a senha?" />
                 </div>
-                {mensagem && <p style={{ marginTop: '15px', color: 'red' }}>{mensagem}</p>}
+
+                {/* A cor do estilo agora é dinâmica */}
+                {mensagem && <p style={{ marginTop: '15px', color: corDaMensagem }}>{mensagem}</p>}
 
                 <h3>Ou</h3>
 
@@ -136,8 +145,8 @@ export default function CadastroJuridico() {
                     <Redirect redCaminho="/cadastroPessoaFisica" RedDescricao="Inscreva-se" />
                 </div>
                 <div className="cadastrar">
-                     <p>Já tem uma conta?&nbsp;</p>
-                     <Redirect redCaminho="/login" RedDescricao="Faça login" />
+                    <p>Já tem uma conta?&nbsp;</p>
+                    <Redirect redCaminho="/login" RedDescricao="Faça login" />
                 </div>
             </div>
         </div>
