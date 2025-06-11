@@ -87,7 +87,6 @@ export default function CadastroJuridico() {
             <div className="logo">
                  <img src="src/assets/logoFinal.png"  className="logoImg" alt="Logo E4u" />
             </div>
-
             <div className="formulario">
                 <h1>Cadastro</h1>
                 
