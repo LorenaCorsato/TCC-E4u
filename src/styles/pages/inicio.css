@@ -1,3 +1,22 @@
+@font-face {
+  font-family: 'Alexandria';
+  src: url('/fonts/Alexandria-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Varela';
+  src: url('/fonts/Varela-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2, .titulo-Alexandria {
+  font-family: 'Alexandria', sans-serif;
+  
+}
+
 .inicio {
     display: flex;
     flex-direction: column;
@@ -17,6 +36,7 @@
 .descricoes {
     display: flex;
     flex-direction: column;
+
 }
 
 .descricoes .topicos {
@@ -104,4 +124,9 @@
     .alunos {
         flex-direction: column;
     }
+}
+
+.p{
+      font-family: 'Varela';
+
 }
