@@ -1,20 +1,21 @@
-.pagPlaSolar{
+.pagPlaSolar {
     margin-left: 1%;
 }
 
-.textoSolar{
+.textoSolar {
     width: 30%;
     float: left;
     display: block;
+    margin-top: 4rem;
     margin-bottom: 10%;
 }
 
-.textoSolar p{
+.textoSolar p {
     font-size: 20px;
     font-weight: 500;
 }
 
-.calculoSolar{
+.calculoSolar form {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -23,7 +24,19 @@
 }
 
 @media (max-width: 768px) {
+    .pagPlaSolar {
+        margin: 0.5rem;
+    }
+
     .textoSolar {
         width: 100%;
+    }
+
+    .calculoSolar form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
     }
 }

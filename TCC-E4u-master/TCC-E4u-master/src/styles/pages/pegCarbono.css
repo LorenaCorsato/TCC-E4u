@@ -1,4 +1,6 @@
 .pagPegCarbono {
+    display: flex;
+    flex-direction: column;
     margin-left: 1%;
 }
 
@@ -6,24 +8,26 @@
     width: 30%;
     float: left;
     display: block;
+    margin-top: 4rem;
     margin-bottom: 10%;
 }
 
-.textoCarbono p{
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.questionario {
-    height: auto;
-    width: 100%;
+.pagPegCarbono .questionario {
     display: flex;
     flex-direction: row;
     margin-top: 10%;
     justify-content: center;
 }
 
+.pagPegCarbono .questionario button {
+    margin: 0.2rem;
+}
+
 @media (max-width: 768px) {
+    .pagPegCarbono {
+        margin: 0.5rem;
+    }
+
     .textoCarbono {
         width: 100%;
     }

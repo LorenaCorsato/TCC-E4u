@@ -1,0 +1,46 @@
+/* cabecalho.css */
+
+.container {
+    margin-top: 40px;      /* Menor margem superior */
+    width: 100vw;          /* Ocupa toda a largura da tela */
+    max-width: 100vw;      /* Garante que não fique limitado */
+    padding: 0;            /* Remove espaçamento interno */
+    box-sizing: border-box;
+}
+
+/* É fundamental que o próprio Swiper tenha uma largura e altura definidas */
+.swiper {
+    width: 100vw;          /* Ocupa toda a largura da tela */
+    max-width: 100vw;
+    height: 400px;
+    overflow: hidden;
+    margin: 0;             /* Remove margem lateral */
+    border-radius: 0;      /* Remove bordas arredondadas, se houver */
+}
+
+
+.swiper-slide {
+  /* Não defina largura fixa aqui. Ele deve ocupar 100% da largura do Swiper. */
+  width: 100% !important; /* Cada slide ocupa 100% da largura do Swiper */
+  height: 100% !important; /* Cada slide ocupa 100% da altura do Swiper */
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  /* background: #fff; */ /* Remova ou ajuste, pois a imagem cobrirá */
+}
+
+.slider-item {
+  width: 100%; /* A imagem preenche a largura da slide */
+  height: 100%; /* A imagem preenche a altura da slide */
+  border-radius: 4px;
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer, cortando se necessário */
+  pointer-events: none; /* Mantém como está, útil para evitar arrastar a imagem em vez do Swiper */
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: green !important;
+  fill: green !important;
+}
+.swiper-pagination-bullet {
+  background: green !important; /* Cor dos bullets */
+}

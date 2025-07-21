@@ -1,71 +1,154 @@
-import { useState } from 'react'
-import Form from '../components/escrever.jsx'
-import Button from '../components/botao.jsx'
-import '../styles/pages/login.css'
+import { useState } from 'react';
+import axios from 'axios';
+import Button from '../components/botao.jsx';
+import '../styles/pages/login.css';
 
-export default function CadastroJuridico() {
-    const [email, setEmail] = useState('')
-    const [cnpj, setCnpj] = useState('')
-    const [senha, setSenha] = useState('')
 
-    function ValoresLogin() {
-        setEmail(txtemail)
-        setCnpj(txtcnpj)
-        setSenha(txtsenha)
-    }
+// Ícones de Olho
+const IconeOlhoAberto = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+    </svg>
+);
 
-    return (
-        <>
-            <div className="login">
-                <div className="logo">
-                    <h1>E4u</h1>
-                </div>
-
-                <div className="formulario">
-                    <h1>Cadastro</h1>
-                    <div className="insertEnter">
-                        <form>
-                            <Form type="email" formValor="Email" id="txtemail" />
-                            <Form type="text" formValor="CNPJ" id="txtcnpj" />
-                            <Form type="password" formValor="Senha" id="txtsenha" />
-                            <Button btnNome="entrar" />
-                        </form>
-                    </div>
-
-                    <div className="lembrar">
-                        <Redirect redCaminho="" RedDescricao="Esqueceu a senha?" />
-                        <CheckBox />
-                    </div>
-
-                    <h3>Ou</h3>
-
-                    <div>
-                        GOOGLE
-                    </div>
-
-                    <div className="cadastrar">
-                        <p>Pessoa física?&nbsp;</p>
-                        <Redirect redCaminho="/cadastroPessoaFisica" RedDescricao="Inscreva-se" />
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+const IconeOlhoFechado = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
+        <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path>
+        <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
+        <line x1="2" x2="22" y1="2" y2="22"></line>
+    </svg>
+);
 
 function Redirect({ redCaminho, RedDescricao }) {
-    return (
-        <>
-            <a href={redCaminho}>{RedDescricao}</a>
-        </>
-    )
+    return <a href={redCaminho}>{RedDescricao}</a>;
 }
 
-function CheckBox() {
+export default function CadastroJuridico() {
+    const [email, setEmail] = useState('');
+    const [cnpj, setCnpj] = useState('');
+    const [senha, setSenha] = useState('');
+    const [mensagem, setMensagem] = useState('');
+    
+    const [tipoMensagem, setTipoMensagem] = useState(''); // 'success' ou 'error'
+
+    const formatarCnpj = (valor) => {
+        const valorNumerico = valor.replace(/\D/g, '');
+        return valorNumerico
+            .replace(/^(\d{2})(\d)/, '$1.$2')
+            .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+            .replace(/\.(\d{3})(\d)/, '.$1/$2')
+            .replace(/(\d{4})(\d)/, '$1-$2')
+            .replace(/(-\d{2})\d+?$/, '$1');
+    };
+
+    const [senhaVisivel, setSenhaVisivel] = useState(false);
+
+    const handleCadastroJuridico = async (evento) => {
+        evento.preventDefault();
+        
+        if (!email || !cnpj || !senha) {
+            setMensagem('Por favor, preencha todos os campos.');
+            setTipoMensagem('error');
+            return;
+        }
+
+        if (senha.length < 6) {
+            setMensagem('A senha deve ter no mínimo 6 caracteres.');
+            setTipoMensagem('error');
+            return;
+        }
+
+        setMensagem('');
+        try {
+            const resposta = await axios.post('http://localhost:3001/api/auth/cadastrar/pj', {
+                email, cnpj, senha
+            });
+            // Sucesso
+            setMensagem(resposta.data.mensagem);
+            setTipoMensagem('success');
+        } catch (erro) {
+            // Erro
+            const msgErro = erro.response?.data?.mensagem || 'Ocorreu um erro. Tente novamente.';
+            setMensagem(`Erro: ${msgErro}`);
+            setTipoMensagem('error');
+        }
+    };
+
+    const toggleVisibilidadeSenha = () => {
+        setSenhaVisivel(!senhaVisivel);
+    };
+
+    const corDaMensagem = tipoMensagem === 'success' ? 'green' : 'red';
+
     return (
-        <>
-            <input type="checkbox" id="mantConectado" className="mantConectado" />
-            <div className="descriConectado">Manter conectado</div>
-        </>
-    )
+        <div className="login">
+            <div className="logo">
+                 <img src="src/assets/logoFinal.png"  className="logoImg" alt="Logo E4u" />
+            </div>
+
+            <div className="formulario">
+                <h1>Cadastro</h1>
+                
+                <div className="insertEnter">
+                    <form onSubmit={handleCadastroJuridico} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        
+                        <input
+                            type="email"
+                            placeholder="Email Corporativo"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            maxLength="254"
+                        />
+                        
+                        <input
+                            type="text"
+                            placeholder="CNPJ"
+                            value={cnpj}
+                            onChange={(e) => setCnpj(formatarCnpj(e.target.value))}
+                            maxLength="18"
+                        />
+                        
+                        <div className="input-com-icone">
+                            <input
+                                type={senhaVisivel ? "text" : "password"}
+                                placeholder="Senha"
+                                value={senha}
+                                onChange={(e) => setSenha(e.target.value)}
+                                minLength="6"
+                            />
+                            <span onClick={toggleVisibilidadeSenha} className="icone-senha">
+                                {senhaVisivel ? <IconeOlhoAberto /> : <IconeOlhoFechado />}
+                            </span>
+                        </div>
+
+                        <Button btnNome="Cadastrar" type="submit" />
+                    </form>
+                </div>
+                
+                <div className="lembrar" style={{display: 'flex', width: '300px', justifyContent: 'flex-start', marginTop: '15px'}}>
+                    <Redirect redCaminho="#" RedDescricao="Esqueceu a senha?" />
+                </div>
+
+                {/* A cor do estilo agora é dinâmica */}
+                {mensagem && <p style={{ marginTop: '15px', color: corDaMensagem }}>{mensagem}</p>}
+
+                <h3>Ou</h3>
+
+                <div>
+                    GOOGLE
+                </div>
+
+                <div className="cadastrar">
+                    <p>Pessoa física?&nbsp;</p>
+                    <Redirect redCaminho="/cadastroPessoaFisica" RedDescricao="Inscreva-se" />
+                </div>
+                <div className="cadastrar">
+                    <p>Já tem uma conta?&nbsp;</p>
+                    <Redirect redCaminho="/login" RedDescricao="Faça login" />
+                </div>
+            </div>
+        </div>
+    );
 }

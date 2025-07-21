@@ -3,8 +3,8 @@
 }
 
 .fotoAluno {
-    width: 5vw;
-    height: 5vw;
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -19,4 +19,10 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: white
+}
+
+@media (max-width: 768px) {
+    .aluno {
+        margin-bottom: 4rem;
+    }
 }

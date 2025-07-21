@@ -3,6 +3,7 @@ import { CategoryScale } from "chart.js";
 import { useState } from "react";
 import { Data } from "./../utils/data";
 import { GraficoBarra } from "../components/graficoBarra";
+import '../styles/pages/grafico.css'
 
 
 Chart.register(CategoryScale);
@@ -30,7 +31,7 @@ export default function Grafico() {
     ]})
 
   return (
-    <div className="App">
+    <div>
       <GraficoBarra chartData={chartData} />
     </div>
   )}

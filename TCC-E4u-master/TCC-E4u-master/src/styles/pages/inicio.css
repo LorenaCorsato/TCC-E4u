@@ -1,52 +1,177 @@
-.inicio{
-    display: flex;
-    flex-direction: column;
-    width: auto;
+/* src/styles/pages/inicio.css */
+
+/* Estilos para a div .descricoes, que contém o conteúdo original */
+.descricoes {
+  display: flex;
+  flex-direction: column; /* Define a direção dos itens como coluna */
 }
 
-.E4{
-    display: flex;
-    flex-direction: row;
+/* Estilos para os tópicos dentro da div .descricoes */
+.descricoes .topicos {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1%;
+  justify-content: space-evenly; /* Distribui o espaço igualmente entre os itens */
 }
 
-.conteudoE4 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5%;
-    text-align: center;
+/* Efeito de cursor ao passar o mouse sobre os tópicos */
+.descricoes .topicos:hover {
+  cursor: pointer;
 }
 
-.tituloE4 {
-    text-align: left;
-    margin-left: 1rem;
+/* Estilos para os parágrafos dentro da div .descricoes */
+.descricoes .paragrafos {
+  display: flex;
+  flex-direction: row;
+  min-height: 12.4rem;
+  background-color: #617C4A; /* Cor de fundo específica */
 }
 
-.textoE4 {
-    text-align: left;
-    padding: 1rem;
+/* Margem e cor do texto para os parágrafos */
+.descricoes .paragrafos p {
+  margin: 1rem;
+  color: #FFF;
 }
 
-.imgE4 {
-    height: 30vw;
-    width: 30vw;
-    border-radius: 50%;
-    object-fit: cover;
+
+/* Nova seção para os pop-ups de benefícios */
+.beneficios-popups-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o título e os pop-ups */
+  margin-top: 60px; /* Espaçamento superior */
+  padding: 20px;
 }
 
-.vizualizar {
-    height: 3vw;
-    width: 10vw;
-    font-size: 1rem;
-    background-color: transparent;
-    border: 0px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #50D002;
-    transition: 0.5s all;
+/* Estilos para o título da seção de benefícios */
+.beneficios-titulo {
+  text-align: center;
+  margin-bottom: 30px; /* Espaçamento abaixo do título */
+  font-size: 2.5em; /* Tamanho maior para o título de benefícios */
+  color: #333;
 }
 
-.vizualizar:hover{
-    background-color:#ACEF04
+/* Estilos para o container dos pop-ups de benefícios */
+.beneficios-popups {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+  justify-content: center; /* Centraliza os pop-ups horizontalmente */
+  gap: 20px; /* Espaçamento entre os pop-ups de benefícios */
+}
+
+
+/* Seções existentes do seu CSS (mantidas) */
+@font-face {
+  font-family: 'Alexandria';
+  src: url('/fonts/Alexandria-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Varela';
+  src: url('/fonts/Varela-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Aplica a fonte Alexandria para h1, h2 e elementos com a classe .titulo-Alexandria */
+h1, h2, .titulo-Alexandria {
+  font-family: 'Alexandria', sans-serif;
+}
+
+/* Estilos para o container principal da página */
+.inicio {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para a seção de objetivos */
+.objetivos {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-bottom: 5rem;
+}
+
+/* Largura do parágrafo na seção de objetivos */
+.objetivos p {
+  width: 30%;
+}
+
+/* Estilos para a seção de cards */
+.cards {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Estilos para a seção de alunos */
+.alunos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1%;
+  background-color: #798871; /* Cor de fundo específica */
+}
+
+/* Media queries para telas menores (até 768px de largura) */
+@media (max-width: 768px) {
+  .objetivos {
+    width: 100%; /* Ocupa a largura total */
+  }
+  .descricoes .topicos {
+    flex-direction: column; /* Altera para coluna em telas menores */
+    align-items: center; /* Centraliza os itens */
+  }
+
+  .descricoes .topicos a {
+    margin: 0.5rem; /* Margem entre os links */
+  }
+
+  .descricoes .paragrafos {
+    flex-direction: column; /* Altera para coluna em telas menores */
+  }
+
+  .descricoes .paragrafos p {
+    margin: 1rem; /* Margem entre os parágrafos */
+  }
+
+  .cards {
+    flex-direction: column; /* Altera para coluna em telas menores */
+  }
+
+  .alunos {
+    flex-direction: column; /* Altera para coluna em telas menores */
+  }
+}
+
+/* Aplica a fonte Varela para elementos com a classe .p */
+.p{
+  font-family: 'Varela';
+}
+
+/* Estilos para a linha nos títulos */
+.linha {
+  position: relative;
+  display: inline-block;
+}
+
+/* Estilos para o pseudo-elemento que cria a linha */
+.linha::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Ajuste conforme necessário */
+  width: 100%;
+  height: 2px; /* Espessura da linha */
+  background-color: currentColor; /* Usa a cor do texto */
+  transform: scaleX(0); /* Inicialmente escondida */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out; /* Transição para a animação da linha */
+}
+
+/* Animação da linha ao passar o mouse */
+.linha:hover::after {
+  transform: scaleX(1); /* Expande a linha */
+  transform-origin: bottom left;
 }

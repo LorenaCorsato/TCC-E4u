@@ -9,7 +9,6 @@ export default function PagCarbono() {
     const navigate = useNavigate();
     return (
         <>
-            <NavBar />
             <div className="pagPegCarbono">
                 <div className="textoCarbono">
                     <h1><span className="linha">Pegada de carbono</span></h1>
@@ -22,8 +21,8 @@ export default function PagCarbono() {
                 </div>
 
                 <div className="questionario">
-                    <Button href="/" btnNome="Questionário"/>
-                    <Button href="/landingPage" btnNome="Histórico"/>
+                    <Button href="/questionario" btnNome="Questionário"/>
+                    <Button href="/grafico" btnNome="Histórico"/>
                 </div>
             </div>
         </>
