@@ -8,13 +8,15 @@
 }
 
 .parteSuperior {
+font-family: "Alexandria", sans-serif;
 
 }
 
 .parteInferior {
     display: flex;
     align-items: center;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    font-family: "Varela", sans-serif;
 }
 
 .direitosReservados {

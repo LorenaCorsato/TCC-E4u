@@ -7,7 +7,7 @@ import Aluno from "../components/aluno"
 import Card from "../components/card"
 import BotaoIcone from "../components/botaoIcone"
 import Acessibilidade from "../components/acessibilidade"
-import Popup from "../components/Popup" // Importe o componente Popup
+import Popup from "../components/Popup"
 import '../styles/pages/inicio.css'
 import { color } from "chart.js/helpers"
 import {motion} from "framer-motion"
@@ -15,10 +15,12 @@ import logo from "../assets/logo.png"
 
 
 
+
 export default function Inicio() {
   const[paragrafos, setParagrafos] = useState(["", "", "", ""])
   const[titulo, setTitulo] = useState(["", "", "", ""])
   const [mudar, setMudar] = useState("")
+  const [openPopup, setOpenPopup] = useState(null);
 
   // Dados para os novos pop-ups na seção de Benefícios
   const beneficiosPopups = [
@@ -191,6 +193,9 @@ export default function Inicio() {
                 title={item.title}
                 initialContent={item.initialContent}
                 fullContent={item.fullContent}
+                isOpen={openPopup === index}
+                onToggle={() => setOpenPopup(openPopup === index ? null : index)}
+                onClose={() => openPopup === index && setOpenPopup(null)}
               />
             ))}
           </div>

@@ -1,5 +1,5 @@
 // src/components/Popup.js
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/components/Popup.css'; // Importa os estilos CSS para o componente
 
 /**
@@ -9,19 +9,11 @@ import '../styles/components/Popup.css'; // Importa os estilos CSS para o compon
  * @param {string} props.initialContent - O conteúdo visível quando o pop-up está fechado.
  * @param {string} props.fullContent - O conteúdo completo visível quando o pop-up está aberto.
  */
-const Popup = ({ title, initialContent, fullContent }) => {
-  // Estado para controlar se o pop-up está aberto ou fechado
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Função para alternar o estado do pop-up (abrir/fechar)
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Popup = ({ title, initialContent, fullContent, isOpen, onToggle, onClose }) => {
   return (
     <div className="popup-container">
       {/* O card do pop-up, com a classe 'expanded' adicionada quando está aberto */}
-      <div className={`popup-card ${isOpen ? 'expanded' : ''}`} onClick={togglePopup}>
+      <div className={`popup-card ${isOpen ? 'expanded' : ''}`} onClick={onToggle} onMouseLeave={onClose} >
         <h3>{title}</h3>
         {/* Conteúdo inicial visível apenas quando o pop-up está fechado */}
         {!isOpen && <p>{initialContent}</p>}

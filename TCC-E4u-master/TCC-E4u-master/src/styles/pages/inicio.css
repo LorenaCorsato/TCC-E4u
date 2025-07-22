@@ -4,6 +4,7 @@
 .descricoes {
   display: flex;
   flex-direction: column; /* Define a direção dos itens como coluna */
+   font-family: 'Alexandria', sans-serif;
 }
 
 /* Estilos para os tópicos dentro da div .descricoes */
@@ -12,6 +13,7 @@
   flex-direction: row;
   margin-bottom: 1%;
   justify-content: space-evenly; /* Distribui o espaço igualmente entre os itens */
+
 }
 
 /* Efeito de cursor ao passar o mouse sobre os tópicos */
@@ -25,12 +27,15 @@
   flex-direction: row;
   min-height: 12.4rem;
   background-color: #617C4A; /* Cor de fundo específica */
+  font-family: 'Varela', sans-serif;
+
 }
 
 /* Margem e cor do texto para os parágrafos */
 .descricoes .paragrafos p {
   margin: 1rem;
   color: #FFF;
+ font-family: 'Varela', sans-serif;
 }
 
 
@@ -49,6 +54,7 @@
   margin-bottom: 30px; /* Espaçamento abaixo do título */
   font-size: 2.5em; /* Tamanho maior para o título de benefícios */
   color: #333;
+  font-family: 'Varela', sans-serif; /* Fonte Alexandria para o título */
 }
 
 /* Estilos para o container dos pop-ups de benefícios */
@@ -57,28 +63,13 @@
   flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
   justify-content: center; /* Centraliza os pop-ups horizontalmente */
   gap: 20px; /* Espaçamento entre os pop-ups de benefícios */
+  font-family: 'Varela', sans-serif;
 }
 
 
-/* Seções existentes do seu CSS (mantidas) */
-@font-face {
-  font-family: 'Alexandria';
-  src: url('/fonts/Alexandria-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: 'Varela';
-  src: url('/fonts/Varela-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
-/* Aplica a fonte Alexandria para h1, h2 e elementos com a classe .titulo-Alexandria */
-h1, h2, .titulo-Alexandria {
-  font-family: 'Alexandria', sans-serif;
-}
+
 
 /* Estilos para o container principal da página */
 .inicio {
@@ -92,6 +83,7 @@ h1, h2, .titulo-Alexandria {
   flex-direction: column;
   margin-left: 1rem;
   margin-bottom: 5rem;
+  font-family: 'Alexandria', sans-serif;
 }
 
 /* Largura do parágrafo na seção de objetivos */
@@ -103,6 +95,7 @@ h1, h2, .titulo-Alexandria {
 .cards {
   display: flex;
   flex-direction: row;
+ font-family: "Varela";
 }
 
 /* Estilos para a seção de alunos */
@@ -112,6 +105,7 @@ h1, h2, .titulo-Alexandria {
   justify-content: space-between;
   padding: 1%;
   background-color: #798871; /* Cor de fundo específica */
+  font-family: 'Varela', sans-serif;
 }
 
 /* Media queries para telas menores (até 768px de largura) */
@@ -122,10 +116,12 @@ h1, h2, .titulo-Alexandria {
   .descricoes .topicos {
     flex-direction: column; /* Altera para coluna em telas menores */
     align-items: center; /* Centraliza os itens */
+     --font--varela: 'Varela', sans-serif;
   }
 
   .descricoes .topicos a {
     margin: 0.5rem; /* Margem entre os links */
+    
   }
 
   .descricoes .paragrafos {
@@ -138,6 +134,7 @@ h1, h2, .titulo-Alexandria {
 
   .cards {
     flex-direction: column; /* Altera para coluna em telas menores */
+    font-family: "Varela";
   }
 
   .alunos {

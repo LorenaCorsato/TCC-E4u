@@ -22,13 +22,29 @@ p {
 }
 
 :root {
-  --corFundo: #FFFFFF;
-  --corLetra: #000000
+  --font--alexandria: 'Alexandria', sans-serif;
+  --font--varela: 'Varela', sans-serif;
 }
 
 .temaEscuro {
   --corFundo: #000000;
-  --corLetra: #FFFFFF
+  --corLetra: #FFFFFF;
+}
+
+/* Importando a fonte Alexandria */
+@font-face {
+  font-family: 'Alexandria';
+  src: url('./fonts/Alexandria-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Importando a fonte Varela */
+@font-face {
+  font-family: 'Varela';
+  src: url('./fonts/Varela-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @media (max-width: 768px) {
