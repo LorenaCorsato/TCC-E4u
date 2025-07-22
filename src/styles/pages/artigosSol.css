@@ -16,3 +16,13 @@
     justify-content: space-between;
     margin: 1%;
 }
+
+.artigosCards .btnIcone {
+    height: 20rem;
+    width: 10rem;
+}
+
+.artigosCards .btnIcone .imgBtnIcone {
+    height: 100%;
+    width: 100%;
+}

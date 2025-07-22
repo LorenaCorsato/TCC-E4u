@@ -1,6 +1,6 @@
 .cardBotao {
     height: auto;
-    width: 40vh;
+    width: 40vw;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -13,6 +13,7 @@
     width: auto;
     border-radius: 5px;
     padding: 0.5%;
+    object-fit: cover;
 }
 
 .conteudoCardBotao {
@@ -40,4 +41,15 @@
     padding: 1%;
     color: #FFFFFF;
     background-color: #36A108;
+}
+
+@media (max-width: 768px) {
+    .cardBotao {
+        margin: 0.5rem;
+    }
+
+    .cardBotao .btn {
+        width: 80%;
+        align-self: center;
+    }
 }

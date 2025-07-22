@@ -30,3 +30,9 @@ p {
   --corFundo: #000000;
   --corLetra: #FFFFFF
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+}

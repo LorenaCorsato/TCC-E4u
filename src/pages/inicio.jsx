@@ -145,7 +145,7 @@ export default function Inicio() {
             <BotaoIcone onBtnIcone={MudarB3} srcBtnIcone="src/assets/icon - interrogação.png" textoBtnIcone="Para o seu conhecimento" />
             <BotaoIcone onBtnIcone={MudarB4} srcBtnIcone="src/assets/icon - casa.png" textoBtnIcone="Para o seu estilo de vida" />
           </div>
-          <p style={{margin: '4rem'}}>{mudar}</p>
+          <p style={{display: 'flex', margin:'4rem'}}>{mudar}</p>
         </div>
 
         <div className="cards">

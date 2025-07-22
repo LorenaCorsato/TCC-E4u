@@ -25,9 +25,12 @@ h1, h2, .titulo-Alexandria {
 .objetivos {
     display: flex;
     flex-direction: column;
-    width: 30%;
     margin-left: 1rem;
     margin-bottom: 5rem;
+}
+
+.objetivos p {
+    width: 30%;
 }
 
 .descricoes {
@@ -85,6 +88,9 @@ h1, h2, .titulo-Alexandria {
 }
 
 @media (max-width: 768px) {
+    .objetivos {
+        width: 100%;
+    }
     .descricoes .topicos {
         flex-direction: column;
         align-items: center;
@@ -103,6 +109,11 @@ h1, h2, .titulo-Alexandria {
     }
 
     .beneficios {
+        justify-content: space-between;
+    }
+
+    .botoesBeneficios {
+        align-items: baseline;
         justify-content: space-between;
     }
 
