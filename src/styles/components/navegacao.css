@@ -79,11 +79,19 @@
     display: inline-block;
     margin: 1%;
 }
+.navLogin, .navLogout {
+    margin-right: 5rem;
+    display: flex;
+    align-items: center; 
+}
 
 .navLogin {
     display: inline-block;
     margin: 1%;
     border: 2px solid white;
+    margin-right: 5rem;
+
+
 }
 
 .navLogin a {

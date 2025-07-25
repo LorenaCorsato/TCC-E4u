@@ -1,18 +1,15 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; 
+import { useState, useEffect  } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext'; 
 import Button from '../components/botao.jsx';
 import '../styles/pages/login.css';
 
-
-//  Ícones de Olho 
 const IconeOlhoAberto = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
         <circle cx="12" cy="12" r="3"></circle>
     </svg>
 );
-
 const IconeOlhoFechado = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
@@ -23,18 +20,31 @@ const IconeOlhoFechado = () => (
 );
 
 function Redirect({ redCaminho, RedDescricao }) {
-    return (
-        <a href={redCaminho}>{RedDescricao}</a>
-    );
+    return <a href={redCaminho}>{RedDescricao}</a>;
 }
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [mensagem, setMensagem] = useState('');
-    const [senhaVisivel, setSenhaVisivel] = useState(false); 
+    const [senhaVisivel, setSenhaVisivel] = useState(false);
     
-    const navigate = useNavigate();
+     const { login, usuario, signInWithGoogle } = useAuth();
+     const navigate = useNavigate();
+
+     const handleGoogleLogin = async () => {
+        try {
+            await signInWithGoogle();
+    }   catch (error) {
+            setMensagem(error.message); 
+    }
+};
+    useEffect(() => {
+        if (usuario) {
+            // Navega para a landing page
+            navigate('/landingPage');
+        }
+    }, [usuario, navigate]); 
 
     const handleLogin = async (evento) => {
         evento.preventDefault(); 
@@ -45,33 +55,23 @@ export default function Login() {
         }
 
         try {
-            const resposta = await axios.post('http://localhost:3001/api/auth/login', {
-                email,
-                senha,
-            });
-
-            const { token } = resposta.data;
-            localStorage.setItem('authToken', token);
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            
-            navigate('/landingPage'); 
+            setMensagem('Entrando...');
+            await login(email, senha); 
         } catch (erro) {
-            const msgErro = erro.response?.data?.mensagem || 'Email ou senha inválidos. Tente novamente.';
-            setMensagem(msgErro);
+            setMensagem('Email ou senha inválidos. Tente novamente.');
         }
     };
     
     const toggleVisibilidadeSenha = () => {
         setSenhaVisivel(!senhaVisivel);
     };
-
     return (
         <>
            <div className="login">
             <div className="logo">
                     <img src="src/assets/logoFinal.png"  className="logoImg" alt="Logo E4u" />
             </div>
-               
+              
 
                 <div className="formulario">
                     <h1>Login</h1>
@@ -107,14 +107,17 @@ export default function Login() {
                     {mensagem && <p style={{ color: 'red', marginTop: '10px' }}>{mensagem}</p>}
 
                     <div className="lembrar">
-                        <Redirect redCaminho="#" RedDescricao="Esqueceu a senha?" />
+                        <Link to="/esqueceuSenha">Esqueceu a senha?</Link>
                     </div>
 
                     <h3>Ou</h3>
 
                     <div>
-                        GOOGLE
-                    </div>
+                   <button type="button" onClick={handleGoogleLogin}>
+                        Login com Google
+                    </button>
+
+                </div>
 
                     <div className="cadastrar">
                         <p>Não possui uma conta?&nbsp;</p>

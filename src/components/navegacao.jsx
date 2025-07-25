@@ -1,45 +1,61 @@
-import { useState } from 'react'
-import '../styles/components/navegacao.css'
-import BotaoIcone from './botaoIcone'
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom'; 
+import { useAuth } from '../context/AuthContext'; 
+import '../styles/components/navegacao.css';
 
 export default function NavBar() {
-    const [menuAberto, setMenuAberto] = useState(false)
+    const [menuAberto, setMenuAberto] = useState(false);
+    
+    const { usuario, logout } = useAuth(); 
+    const navigate = useNavigate();
 
     const AbrirMenu = () => {
-        setMenuAberto(!menuAberto)
+        setMenuAberto(!menuAberto);
+    };
+
+  const handleLogout = async (evento) => {
+    evento.preventDefault(); 
+    try {
+        await logout();
+    } catch (erro) {
+        console.error("Erro ao fazer logout:", erro);
     }
+};
 
     return (
         <>
             <div className="navBar">
                 <div className="hamburger" onClick={AbrirMenu}>
-                    H
+                    H {}
                 </div>
 
                 <div className={`navLinks ${menuAberto ? 'ativo' : ''}`}>
-                    <div className="navLogo"><img src="src/assets/logoFinal.png" /></div>
+                    <div className="navLogo"><img src="/src/assets/logoFinal.png" alt="Logo" /></div>
 
-
-
-
-                    <div className="navInicio"><a href="/">Inicio</a></div>
-                    <div className="navPSolar"><a href="/placaSolar">Placas solares</a></div>
-                    <div className="navPCarbono"><a href="/pegadaCarbono">Pegada de carbono</a></div>
+                    {/* Usando <Link> em vez de <a> para navegação interna do React */}
+                    <div className="navInicio"><Link to="/">Inicio</Link></div>
+                    <div className="navPSolar"><Link to="/placaSolar">Placas solares</Link></div>
+                    <div className="navPCarbono"><Link to="/pegadaCarbono">Pegada de carbono</Link></div>
 
                     <div className="navDropdown">
                         <div className="navArtigos"><a href="#" onClick={(e) => e.preventDefault()}>Artigos</a></div>
                         <div className="dropArtigos">
-                            <a href="/artigosSol">Sol</a>
+                            <Link to="/artigosSol">Sol</Link>
                             <a href="#">Carbono</a>
                             <a href="#">Energia</a>
                             <a href="#">Sustentabilidade</a>
                         </div>
                     </div>
 
-                    <div className="navLogin"><a href="/login">Login</a></div>
-                    {/*<div className="navConfig"><BotaoIcone srcBtnIcone="src/assets/icone-de-configuration-grise.png" /></div> */}
+                    {usuario ? (
+                        <>
+                            <div className="navLogout"><a href="#" onClick={handleLogout}>Sair</a></div>
+                        </>
+                    ) : (
+                        <div className="navLogin"><Link to="/login">Login</Link></div>
+                    )}
                 </div>
-            </div>
+            </div> 
         </>
-    )
+    );
 }

@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../context/AuthContext';
 import Button from '../components/botao.jsx';
-import '../styles/pages/login.css';
+import '../styles/pages/login.css'; 
+import { auth } from '../firebase';
 
 
-// Ícones do Olho
+
+// Ícones de Olho
 const IconeOlhoAberto = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
         <circle cx="12" cy="12" r="3"></circle>
     </svg>
 );
-
 const IconeOlhoFechado = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
@@ -30,53 +33,91 @@ export default function CadastroFisico() {
     const [cpf, setCpf] = useState('');
     const [senha, setSenha] = useState('');
     const [mensagem, setMensagem] = useState('');
+    const [senhaVisivel, setSenhaVisivel] = useState(false);
+    const [usuarioGoogle, setUsuarioGoogle] = useState(null);
+
+    const { login, startGoogleSignUp, setToken, usuario } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (usuario) {
+            navigate('/landingPage');
+        }
+    }, [usuario, navigate]); 
 
     const formatarCpf = (valor) => {
-     const valorNumerico = valor.replace(/\D/g, '');
+        const valorNumerico = valor.replace(/\D/g, '');
+        return valorNumerico
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d{1,2})/, '$1-$2')
+            .replace(/(-\d{2})\d+?$/, '$1'); 
+    };
 
-    // Máscara CPF
-     return valorNumerico
-    .replace(/(\d{3})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d{1,2})/, '$1-$2')
-    .replace(/(-\d{2})\d+?$/, '$1'); 
-     };
-
-    const [senhaVisivel, setSenhaVisivel] = useState(false);
+    const handleGoogleSignUp = async () => {
+        try {
+            const usuarioFirebase = await startGoogleSignUp();
+            setUsuarioGoogle(usuarioFirebase);
+            setEmail(usuarioFirebase.email);
+            setMensagem('Google conectado! Por favor, complete seu cadastro com o CPF.');
+        } catch (error) {
+            setMensagem('Falha ao autenticar com o Google.');
+        }
+    };
 
     const handleCadastroFisico = async (evento) => {
         evento.preventDefault();
-
-        if (!email || !cpf || !senha) {
-            setMensagem('Por favor, preencha todos os campos.');
-            return;
+        
+        let payload;
+        if (usuarioGoogle) {
+            if (!cpf) {
+                setMensagem('Por favor, preencha seu CPF para completar o cadastro.');
+                return;
+            }
+            payload = {
+                email: usuarioGoogle.email,
+                cpf: cpf,
+                nome: usuarioGoogle.displayName,
+                googleUid: usuarioGoogle.uid
+            };
+        } else {
+            if (!email || !cpf || !senha) {
+                setMensagem('Por favor, preencha todos os campos.');
+                return;
+            }
+            if (senha.length < 6) {
+                setMensagem('A senha deve ter no mínimo 6 caracteres.');
+                return;
+            }
+            payload = { email, cpf, senha };
         }
 
-        if (senha.length < 6) {
-            setMensagem('A senha deve ter no mínimo 6 caracteres.');
-            return;
-        }
-
-        setMensagem('');
+        setMensagem('Cadastrando...');
         try {
-            const resposta = await axios.post('http://localhost:3001/api/auth/cadastrar/pf', {
-                email, cpf, senha
-            });
-            setMensagem(resposta.data.mensagem);
+            await axios.post('http://localhost:3001/api/auth/cadastrar/pf', payload);
+            setMensagem("Cadastro realizado! Fazendo login...");
+            
+        if (usuarioGoogle) {
+            const novoToken = await auth.currentUser.getIdToken();
+            localStorage.setItem('authToken', novoToken);
+            setToken(novoToken);
+        } else
+             {
+                await login(email, senha);
+            }
+            
         } catch (erro) {
-            const msgErro = erro.response?.data?.mensagem || 'Ocorreu um erro. Tente novamente.';
+            const msgErro = erro.response?.data?.mensagem || 'Ocorreu um erro.';
             setMensagem(`Erro: ${msgErro}`);
         }
     };
     
-    const toggleVisibilidadeSenha = () => {
-        setSenhaVisivel(!senhaVisivel);
-    };
+    const toggleVisibilidadeSenha = () => { setSenhaVisivel(!senhaVisivel); };
 
     return (
         <div className="login">
             <div className="logo">
-                 <img src="src/assets/logoFinal.png"  className="logoImg" alt="Logo E4u" />
+                <img src="src/assets/logoFinal.png"  className="logoImg" alt="Logo E4u" />
             </div>
 
             <div className="formulario">
@@ -84,23 +125,21 @@ export default function CadastroFisico() {
                 
                 <div className="insertEnter">
                     <form onSubmit={handleCadastroFisico} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        
                         <input
                             type="email"
                             placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             maxLength="254"
+                            disabled={!!usuarioGoogle}
                         />
-                        
-                       <input
+                        <input
                             type="text"
                             placeholder="CPF"
                             value={cpf}
                             onChange={(e) => setCpf(formatarCpf(e.target.value))}
                             maxLength="14" 
                         />
-                        
                         <div className="input-com-icone">
                             <input
                                 type={senhaVisivel ? "text" : "password"}
@@ -108,37 +147,32 @@ export default function CadastroFisico() {
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
                                 minLength="6"
+                                disabled={!!usuarioGoogle}
                             />
                             <span onClick={toggleVisibilidadeSenha} className="icone-senha">
                                 {senhaVisivel ? <IconeOlhoAberto /> : <IconeOlhoFechado />}
                             </span>
                         </div>
-
-
-
-                        <Button btnNome="Cadastrar" type="submit" />
+                        <Button btnNome={usuarioGoogle ? "Completar Cadastro" : "Cadastrar"} type="submit" />
                     </form>
                 </div>
                 
-                <div className="lembrar" style={{display: 'flex', width: '300px', justifyContent: 'flex-start', marginTop: '15px'}}>
-                    <Redirect redCaminho="#" RedDescricao="Esqueceu a senha?" />
-                </div>
-
                 {mensagem && <p style={{ marginTop: '15px', color: 'red' }}>{mensagem}</p>}
 
                 <h3>Ou</h3>
-
                 <div>
-                    GOOGLE
+                   <button type="button" onClick={handleGoogleSignUp}> 
+                       Cadastrar com Google
+                   </button>
                 </div>
 
                 <div className="cadastrar">
                     <p>Pessoa jurídica?&nbsp;</p>
                     <Redirect redCaminho="/cadastroPessoaJuridica" RedDescricao="Inscreva-se" />
                 </div>
-                 <div className="cadastrar">
-                     <p>Já tem uma conta?&nbsp;</p>
-                     <Redirect redCaminho="/login" RedDescricao="Faça login" />
+                <div className="cadastrar">
+                    <p>Já tem uma conta?&nbsp;</p>
+                    <Redirect redCaminho="/login" RedDescricao="Faça login" />
                 </div>
             </div>
         </div>
