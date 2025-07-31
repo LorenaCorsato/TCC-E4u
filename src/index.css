@@ -31,6 +31,21 @@ p {
   --corLetra: #FFFFFF
 }
 
+@font-face {
+  font-family: 'Alexandria';
+  src: url('./fonts/Alexandria-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Importando a fonte Varela */
+@font-face {
+  font-family: 'Varela';
+  src: url('./fonts/Varela-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 3rem;

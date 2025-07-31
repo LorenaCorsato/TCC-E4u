@@ -14,9 +14,9 @@ app.use(express.json());
 app.use('/api/auth', authRotas);
 
 app.get('/', (req, res) => {
-  res.send('API está funcionando! 🚀');
+  res.send('API está funcionando!');
 });
 
 app.listen(PORTA, () => {
-  console.log(`🚀 Servidor rodando na porta ${PORTA}`);
+  console.log(`Servidor rodando na porta ${PORTA}`);
 });
