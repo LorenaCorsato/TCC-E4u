@@ -1,0 +1,72 @@
+/* Container dos popups - pode manter do jeito que está */
+.popup-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  /* position: relative;  - Remova essa linha. Se você tiver vários popups, não é ideal que eles sejam posicionados em relação a este container */
+}
+
+/* Estilos do card - Mantenha a maioria do que já estava */
+.popup-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  cursor: pointer;
+  width: 22vw;
+  min-height: 22vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  /* Adicione um position: relative; aqui. Ele é útil para elementos internos, mas não deve ser o contêiner de posicionamento global para o popup expandido. */
+  position: relative;
+}
+
+/* Estilos quando o pop-up está expandido */
+.popup-card.expanded {
+  /* Altere para position: fixed; para que ele se posicione em relação à viewport */
+  position: fixed; 
+  /* Centralize o popup na tela. */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 50vw; /* Use um valor fixo ou um percentual maior. 40vw pode ser pequeno dependendo da tela. */
+  height: auto; /* Altere para 'auto' para que a altura se ajuste ao conteúdo */
+  max-height: 80vh; /* Use 'vh' para limitar a altura à viewport, evitando que ele saia da tela */
+  overflow-y: auto; /* Adiciona uma barra de rolagem se o conteúdo for muito grande */
+
+  background-color: #f0f8ff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Use um z-index maior para garantir que ele fique na frente de tudo */
+}
+
+/* Mantenha os estilos do título e parágrafo */
+.popup-card h3 {
+  /* ... */
+}
+
+.popup-card p {
+  /* ... */
+}
+
+/* Estilos para o conteúdo completo (ajustes na transição) */
+.full-content {
+  opacity: 0;
+  max-height: 0; /* Altere para max-height: 0; para que a transição de altura funcione */
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+}
+
+/* Estilos para o conteúdo completo quando o pop-up está expandido */
+.popup-card.expanded .full-content {
+  opacity: 1;
+  max-height: 80vh; /* Use um valor alto o suficiente para mostrar todo o conteúdo */
+  transition: opacity 0.5s ease-in-out 0.2s, max-height 0.5s ease-in-out;
+}

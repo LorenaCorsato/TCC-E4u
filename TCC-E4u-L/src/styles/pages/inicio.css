@@ -1,0 +1,178 @@
+/* src/styles/pages/inicio.css */
+
+/* --- Layout Principal da Página --- */
+.inicio {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Seção de Objetivos --- */
+.objetivos {
+  display: flex;
+  flex-direction: column; /* Coloca o título em cima e o conteúdo embaixo */
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  text-align: center;
+  margin-left: 1rem;
+  margin-bottom: 5rem;
+}
+
+/* Nova classe para envolver o parágrafo e o iframe */
+.objetivos-conteudo {
+  display: flex; /* Habilita o Flexbox */
+  flex-direction: row; /* Coloca os itens lado a lado (texto e vídeo) */
+  gap: 10rem; /* Aumenta o espaço entre texto e vídeo */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  margin-top: 2rem;
+  width: 80%; /* Define a largura para controlar o layout */
+  max-width: 1200px; /* Impede que o contêiner fique muito largo em telas gigantes */
+  padding: 0 1rem;
+}
+
+/* Estilos para o parágrafo e o vídeo dentro do novo contêiner */
+.objetivos-conteudo p {
+  flex: 1; /* Permite que o parágrafo ocupe o espaço disponível */
+  max-width: 50%; /* Garante que o parágrafo não ocupe toda a largura */
+  text-align: left; /* Alinha o texto à esquerda para melhor leitura */
+  margin-bottom: 0; /* Remove a margem extra na parte inferior */
+}
+
+.objetivos-conteudo iframe {
+  flex: 1; /* Permite que o iframe ocupe o espaço disponível */
+  max-width: 50%; /* Garante que o iframe não ocupe toda a largura */
+  border-radius: 8px; /* Adiciona bordas arredondadas ao vídeo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Estilos Existentes (sem alterações) --- */
+
+.descricoes {
+  display: flex;
+  flex-direction: column;
+}
+
+.descricoes .topicos {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1%;
+  justify-content: space-evenly;
+}
+
+.descricoes .topicos:hover {
+  cursor: pointer;
+}
+
+.descricoes .paragrafos {
+  display: flex;
+  flex-direction: row;
+  min-height: 12.4rem;
+  background-color: #617c4a;
+}
+
+.descricoes .paragrafos p {
+  margin: 1rem;
+  color: #fff;
+}
+
+.beneficios-popups-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.beneficios-titulo {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  color: #333;
+}
+
+.beneficios-popups {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+}
+
+.alunos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1%;
+  background-color: #798871;
+}
+
+.topicos .linha {
+  border-color: transparent;
+}
+
+.topicos .linha::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #50d002;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.linha:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* --- Media Query para Responsividade --- */
+
+@media (max-width: 768px) {
+  .objetivos-conteudo {
+    flex-direction: column; /* Em telas pequenas, os elementos ficam um abaixo do outro */
+    width: 90%;
+  }
+
+  .objetivos-conteudo p,
+  .objetivos-conteudo iframe {
+    max-width: 100%; /* Ocupa a largura total */
+    margin: 1rem 0; /* Adiciona margem entre os elementos */
+  }
+
+  .objetivos h1 {
+    font-size: 1.5em; /* Ajusta o tamanho do título em telas menores */
+  }
+
+  /* ... o restante das suas media queries */
+  .descricoes .topicos {
+    flex-direction: column;
+    align-items: center;
+    --font--varela: 'Varela', sans-serif;
+  }
+
+  .descricoes .topicos a {
+    margin: 0.5rem;
+  }
+
+  .descricoes .paragrafos {
+    flex-direction: column;
+  }
+
+  .descricoes .paragrafos p {
+    margin: 1rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    font-family: "Varela";
+  }
+
+  .alunos {
+    flex-direction: column;
+  }
+}

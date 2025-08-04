@@ -1,0 +1,138 @@
+@font-face {
+  font-family: 'Alexandria';
+  src: url('/fonts/Alexandria-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Varela';
+  src: url('/fonts/Varela-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.login{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #45B103, #00743B);
+}
+
+.logo{
+    float: left;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    object-fit: cover;
+    height: 40rem;
+    width: 50rem;
+}
+
+.logo h1{
+    position: absolute;
+    bottom: 0;
+      font-family: 'Alexandria', sans-serif;
+
+}
+
+.formulario{
+    float: right;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.insertEnter form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lembrar{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+          font-family: 'Varela';
+
+}
+
+.lembrar a{
+    color: blue;
+          font-family: 'Varela';
+
+}
+
+.mantConectado{
+    margin-left: 15px;
+}
+
+.cadastrar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+          font-family: 'Varela';
+
+}
+
+.cadastrar a{
+    color: blue;
+      font-family: 'Varela';
+
+}
+
+input                            {
+    width: 350px;
+    height: 50px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+      font-family: 'Varela';
+
+}
+
+
+.input-com-icone {
+    position: relative;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+      font-family: 'Varela';
+
+}
+
+.input-com-icone input {
+    width: 100%;
+    padding-right: 40px; 
+}
+
+.icone-senha {
+    position: absolute;
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    cursor: pointer;
+    color: #888; 
+}
+.logoImg{
+    width: 90%;
+    height: 70%;
+    object-fit: cover;
+    margin-left: 10%;
+        margin-bottom: 10%;
+
+}
