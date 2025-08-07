@@ -1,0 +1,29 @@
+.form {
+    margin-bottom: 20px;
+}
+
+.input {
+    margin-bottom: 0.5vh;
+    border-radius: 10px;
+    border: 2px solid #DCDCDC;
+    height: 6vh;
+    width: 25vw;
+}
+
+.form p {
+    font-size: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .form {
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+    }
+    .input {
+        height: 3rem;
+        width: 100%;
+    }
+}

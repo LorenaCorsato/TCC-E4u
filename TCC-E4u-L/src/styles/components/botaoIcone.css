@@ -1,0 +1,54 @@
+.btnIcone {
+    display: flex;
+    flex-direction: column;
+    height: 18rem;
+    width: 15rem;
+    background-color: transparent;
+    border: 1px solid gray;
+    margin: 0.5rem;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btnIcone:hover {
+    height: 18rem;
+    cursor: pointer;
+    border: 2px solid black;
+    transform: translateY(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.imgBtnIcone {
+    object-fit: cover;
+}
+
+.textoBtnIcone {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #50D002;
+}
+
+@media (max-width: 768px) {
+    .btnIcone {
+        height: 4rem;
+        width: 4rem;
+    }
+
+    .textoBtnIcone {
+        margin-bottom: 8rem;
+    }
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--swiper-theme-color);
+}
