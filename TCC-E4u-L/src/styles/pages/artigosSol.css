@@ -1,0 +1,28 @@
+.artigosSol {
+    margin-top: 4vh;
+    padding: 1rem;
+}
+
+.artigosCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1%;
+}
+
+.artigosOutros {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1%;
+}
+
+.artigosCards .btnIcone {
+    height: 20rem;
+    width: 10rem;
+}
+
+.artigosCards .btnIcone .imgBtnIcone {
+    height: 100%;
+    width: 100%;
+}
