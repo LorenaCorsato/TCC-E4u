@@ -18,14 +18,14 @@
 }
 
 .card-pergunta {
-    background: #fff;
+    background: #f3f6f2;
     border-radius: 12px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.458);
+    box-shadow: 0 10px 10px rgba(78, 78, 78, 0.271);
     padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    border: 2px solid #0a6c2777;
+    border: 2px solid #a2a2a277;
 }
 
 /* Exemplo de CSS para centralizar e espaçar as alternativas */
@@ -41,7 +41,7 @@
 .alternativa {
     display: flex;
     align-items: center;
-    gap: 0.7rem; /* Espaço entre checkbox/radio e o texto */
+    gap: 0.0rem; /* Espaço entre checkbox/radio e o texto */
     width: 100%;
     justify-content: center; /* Centraliza o conteúdo da alternativa */
 }
@@ -61,3 +61,78 @@ padding: "0.7rem 1rem";
 width: 100vh;
 
     }
+
+/* Adicione ao final do seu questionario.css ou perguntasCarb.css */
+
+/* Container dos selects e botão */
+.veiculo-tempo-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+/* Select customizado */
+.veiculo-tempo-container select {
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1.1rem;
+    background: #fff;
+    min-width: 180px;
+    outline: none;
+    transition: border 0.2s;
+}
+.veiculo-tempo-container select:focus {
+    border: 1.5px solid #46e549;
+}
+
+/* Botão adicionar */
+.veiculo-tempo-container button {
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    background: #46e549;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.veiculo-tempo-container button:hover {
+    background: #36b93a;
+}
+
+/* Lista dos veículos e tempos adicionados */
+.veiculo-tempo-lista {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    width: 100%;
+    max-width: 400px;
+}
+.veiculo-tempo-lista li {
+    background: #eafbe7;
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.05rem;
+}
+.veiculo-tempo-lista button {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.2rem 0.7rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-left: 1rem;
+}
+.veiculo-tempo-lista button:hover {
+    background: #c0392b;
+}

@@ -1,113 +1,201 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import PerguntasCarb from "../components/perguntasCarb";
 import Button from "../components/botao";
 import NavBar from "../components/navegacao";
 import '../styles/pages/questionario.css';
 
 export default function Questionario() {
+    const [valorGas, setValorGas] = useState("");
+    const [valorEletricidade, setValorEletricidade] = useState("");
     const [respostaPergunta5, setRespostaPergunta5] = useState("");
+    const [respostas, setRespostas] = useState({
+        pergunta6: "",
+        numeroPessoas: ""
+    });
 
+    // Novos estados para veículos e tempos
+    const [veiculoSelecionado, setVeiculoSelecionado] = useState("");
+    const [tempoSelecionado, setTempoSelecionado] = useState("");
+    const [veiculosTempos, setVeiculosTempos] = useState([]);
 
+    const veiculos = ["Carro", "Moto", "Caminhão", "Ônibus", "Bicicleta"];
+    const tempos = [
+        " -30 minutos",
+        "30 minutos",
+        "1-3 horas",
+        "4-6 horas",
+        "7-9 horas",
+        "10 horas ou mais"
+    ];
+
+    function formatarReais(valor) {
+        let v = valor.replace(/\D/g, "");
+        v = v.padStart(3, "0");
+        v = v.replace(/(\d+)(\d{2})$/, "$1,$2");
+        v = v.replace(/^0+(\d)/, "$1");
+        return v;
+    }
+
+    function adicionarVeiculoTempo(e) {
+        e.preventDefault();
+        if (!veiculoSelecionado || !tempoSelecionado) {
+            alert("Selecione um veículo e um tempo médio!");
+            return;
+        }
+        setVeiculosTempos(list => [
+            ...list,
+            { veiculo: veiculoSelecionado, tempo: tempoSelecionado }
+        ]);
+        setVeiculoSelecionado("");
+        setTempoSelecionado("");
+    }
+
+    function removerVeiculoTempo(idx) {
+        setVeiculosTempos(list => list.filter((_, i) => i !== idx));
+    }
+
+    function validarFormulario(event) {
+        event.preventDefault();
+
+        if (
+            veiculosTempos.length === 0 ||
+            !valorGas ||
+            !valorEletricidade ||
+            !respostaPergunta5 ||
+            (respostaPergunta5 === "Sim" && (!respostas.pergunta6 || !respostas.numeroPessoas))
+        ) {
+            alert("Por favor, responda todas as perguntas obrigatórias.");
+            return;
+        }
+
+        console.log("Formulário enviado com sucesso!");
+        window.location.reload(); // Recarrega a página
+    }
 
     return (
         <>
-        <NavBar />
+            <NavBar />
             <div className="questionario">
                 <div className="questionario-titulo">
-                     <h1>Questionario</h1>
+                    <h1>Questionário</h1>
                 </div>
-                <form className="perguntas" action="">
-                    <PerguntasCarb
-                      name="pergunta1"
-                      enunciadoPergunta="Quais veículos você utiliza no seu dia a dia?"
-                      alternativas={[
-                        "Carro",
-                        "Moto",
-                        "Caminhão",
-                        "Ônibus",
-                        "Bicicleta",
-                        "Outro"
-                      ]}
-                      onChange={e => {
-                        scrollToNext(0);
-                      }}
-                    />
-                    <PerguntasCarb
-                      name="pergunta2"
-                      enunciadoPergunta="Qual o tempo médio de utilização diária desses veículos no total?"
-                      alternativas={[
-                        " -30 minutos",
-                        "30 minutos",
-                        "1-3 horas",
-                        "4-6 horas",
-                        "7-9 horas",   
-                        "10 horas ou mais"
-                      ]}
-                    />
-
+                <form className="perguntas" onSubmit={validarFormulario}>
                     <div className="card-pergunta">
-                      <label htmlFor="valorGas" className="pergunta-enunciado" style={{marginBottom: "1rem"}}>
-                        Informe o valor gasto em gás (R$):
-                      </label>
-                      <input
-                        type="number"
-                        id="valorGas"
-                        name="valorGas"
-                        placeholder="Digite o valor em reais"
-                        min="0"
-                        step="0.01"
-                        className="pergunta-texto"
-                      />
+                        <div className="pergunta-content">
+                            <p className="pergunta-enunciado">Selecione o veículo e o tempo médio de uso:</p>
+                            <div className="veiculo-tempo-container">
+                                <select
+                                    value={veiculoSelecionado}
+                                    onChange={e => setVeiculoSelecionado(e.target.value)}
+                                    className="pergunta-texto"
+                                >
+                                    <option value="">Selecione o veículo</option>
+                                    {veiculos.map((v, idx) => (
+                                        <option key={idx} value={v}>{v}</option>
+                                    ))}
+                                </select>
+                                <select
+                                    value={tempoSelecionado}
+                                    onChange={e => setTempoSelecionado(e.target.value)}
+                                    className="pergunta-texto"
+                                >
+                                    <option value="">Tempo médio</option>
+                                    {tempos.map((t, idx) => (
+                                        <option key={idx} value={t}>{t}</option>
+                                    ))}
+                                </select>
+                                <button type="button" onClick={adicionarVeiculoTempo}>
+                                    Adicionar
+                                </button>
+                            </div>
+                            {/* Lista de veículos e tempos adicionados */}
+                            {veiculosTempos.length > 0 && (
+                                <ul className="veiculo-tempo-lista">
+                                    {veiculosTempos.map((item, idx) => (
+                                        <li key={idx}>
+                                            <span>
+                                                <strong>{item.veiculo}</strong> — {item.tempo}
+                                            </span>
+                                            <button
+                                                type="button"
+                                                onClick={() => removerVeiculoTempo(idx)}
+                                            >
+                                                Remover
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
                     </div>
 
                     <div className="card-pergunta">
-                      <label htmlFor="valorEletricidade" className="pergunta-enunciado" style={{marginBottom: "1rem"}}>
-                        Informe o valor gasto em eletricidade (R$):
-                      </label>
-                      <input
-                        type="number"
-                        id="valorEletricidade"
-                        name="valorEletricidade"
-                        placeholder="Digite o valor em reais"
-                        min="0"
-                        step="0.01"
-                        className="pergunta-texto"
-                      />
+                        <label htmlFor="valorGas" className="pergunta-enunciado" style={{ marginBottom: "1rem" }}>
+                            Informe o valor gasto em gás (R$):
+                        </label>
+                        <input
+                            type="text"
+                            id="valorGas"
+                            name="valorGas"
+                            placeholder="Digite o valor em reais"
+                            value={valorGas}
+                            onChange={e => setValorGas(formatarReais(e.target.value))}
+                            className="pergunta-texto"
+                            inputMode="numeric"
+                        />
+                    </div>
+
+                    <div className="card-pergunta">
+                        <label htmlFor="valorEletricidade" className="pergunta-enunciado" style={{ marginBottom: "1rem" }}>
+                            Informe o valor gasto em eletricidade (R$):
+                        </label>
+                        <input
+                            type="text"
+                            id="valorEletricidade"
+                            name="valorEletricidade"
+                            placeholder="Digite o valor em reais"
+                            value={valorEletricidade}
+                            onChange={e => setValorEletricidade(formatarReais(e.target.value))}
+                            className="pergunta-texto"
+                            inputMode="numeric"
+                        />
                     </div>
 
                     <PerguntasCarb
-                      name="pergunta5"
-                      enunciadoPergunta="Realizou alguma viagem aérea esse mês?"
-                      alternativas={["Sim", "Nao"]}
-                      onChange={e => setRespostaPergunta5(e.target.value)}
+                        name="pergunta5"
+                        enunciadoPergunta="Realizou alguma viagem aérea esse mês?"
+                        alternativas={["Sim", "Nao"]}
+                        onChange={e => setRespostaPergunta5(e.target.value)}
                     />
 
                     {respostaPergunta5 === "Sim" && (
-                      <PerguntasCarb
-                        name="pergunta6"
-                        enunciadoPergunta="Tipo de viagem:"
-                        alternativas={["Somente ida", "Somente volta", "Ida e volta"]}
-                      />
-                    )
-                    }
+                        <PerguntasCarb
+                            name="pergunta6"
+                            enunciadoPergunta="Tipo de viagem:"
+                            alternativas={["Somente ida", "Somente volta", "Ida e volta"]}
+                            onChange={e => setRespostas(r => ({ ...r, pergunta6: e.target.value }))}
+                        />
+                    )}
 
-                    {respostaPergunta5 === "Sim" && (                    <div className="card-pergunta">
-                      <label htmlFor="numeroPessoas" className="pergunta-enunciado" style={{marginBottom: "1rem"}}>
-                        Informe quantas viajaram com você?:
-                      </label>
-                      <input
-                        type="number"
-                        id="numeroPessoas"
-                        name="numeroPessoas"
-                        placeholder="Digite o número de pessoas"
-                        min="0"
-                        className="pergunta-texto"
-                      />
-                    </div>)}
+                    {respostaPergunta5 === "Sim" && (
+                        <div className="card-pergunta">
+                            <label htmlFor="numeroPessoas" className="pergunta-enunciado" style={{ marginBottom: "1rem" }}>
+                                Informe quantas viajaram com você?:
+                            </label>
+                            <input
+                                type="number"
+                                id="numeroPessoas"
+                                name="numeroPessoas"
+                                placeholder="Digite o número de pessoas"
+                                min="0"
+                                className="pergunta-texto"
+                                value={respostas.numeroPessoas}
+                                onChange={e => setRespostas(r => ({ ...r, numeroPessoas: e.target.value }))}
+                            />
+                        </div>
+                    )}
 
-
-                    
-                    <Button btnNome="Enviar" />
+                    <Button btnNome="Enviar" type="submit" />
                 </form>
             </div>
         </>
