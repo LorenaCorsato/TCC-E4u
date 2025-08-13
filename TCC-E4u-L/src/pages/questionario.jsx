@@ -28,6 +28,9 @@ export default function Questionario() {
         "10 horas ou mais"
     ];
 
+    const destinos = ["Oceania", "América do Norte", "América do Sul", "Europa", "África", "Ásia", "Antártida", "América Central"];
+
+
     function formatarReais(valor) {
         let v = valor.replace(/\D/g, "");
         v = v.padStart(3, "0");
@@ -184,6 +187,27 @@ export default function Questionario() {
                             alternativas={["Somente ida", "Somente volta", "Ida e volta"]}
                             onChange={e => setRespostas(r => ({ ...r, pergunta6: e.target.value }))}
                         />
+                    )}
+
+                
+                    {respostaPergunta5 === "Sim" && (
+                    <div className="card-pergunta2">
+                        <label htmlFor="destinoViagem" className="pergunta-enunciado" style={{ marginBottom: "1rem" }}>
+                            Informe o seu destino da viagem aérea:
+                        </label>
+                        <div className="veiculo-tempo-container">
+                        <select
+                            id="destinoViagem"
+                            name="destinoViagem"
+                            className="pergunta-texto"
+                        >
+                            <option value="">Selecione o destino</option>
+                            {destinos.map((destino, idx) => (
+                                <option key={idx} value={destino}>{destino}</option>
+                            ))}
+                        </select>
+                        </div>
+                    </div>
                     )}
 
                     {respostaPergunta5 === "Sim" && (

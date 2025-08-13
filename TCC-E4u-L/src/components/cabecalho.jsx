@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import '../styles/components/cabecalho.css'
 import energia from "../assets/img1.png"
-import economia from "../assets/img5.png"
-import eficiencia from "../assets/img4.png"
-import ecologia from "../assets/img3.png"
+import economia from "../assets/img2.png"
+import eficiencia from "../assets/img3.png"
+import ecologia from "../assets/img4.png"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
