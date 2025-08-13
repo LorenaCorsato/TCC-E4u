@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../firebase'; 
 import { sendPasswordResetEmail } from 'firebase/auth'; 
-import '../styles/pages/login.css'; // Reutilizando o  estilo do login
+import '../styles/pages/esqueceuSenha.css';
 
 export default function EsqueceuSenha() {
     const [email, setEmail] = useState('');
@@ -36,15 +36,15 @@ export default function EsqueceuSenha() {
     };
 
     return (
-        <div className="login-container">
-            <div className="login-box">
-                <h1 className="login-title" style={{ fontSize: '32px' }}>Redefinir Senha</h1>
-                <p style={{ textAlign: 'center', marginBottom: '20px', color: '#555' }}>
+        <div className="esqueceu-container">
+            <div className="esqueceu-popup">
+                <h1 className="esqueceu-title">Redefinir Senha</h1>
+                <p className="esqueceu-text">
                     Digite seu email e enviaremos um link para você voltar a acessar sua conta.
                 </p>
                 
-                <form onSubmit={handleResetPassword}>
-                    <div className="input-group">
+                <form className="esqueceu-form" onSubmit={handleResetPassword}>
+                    <div className="esqueceu-input-group">
                         <label htmlFor="email">Email</label>
                         <input
                             id="email"
@@ -54,25 +54,30 @@ export default function EsqueceuSenha() {
                             placeholder="seu.email@exemplo.com"
                         />
                     </div>
-                    <button type="submit" className="login-button">
+                    <button type="submit" className="esqueceu-button">
                         Enviar Link de redefinição
                     </button>
                 </form>
 
                 {mensagem && 
-                    <p style={{ 
-                        textAlign: 'center', 
-                        color: tipoMensagem === 'success' ? 'green' : 'red', 
-                        marginTop: '20px' 
-                    }}>
+                    <p className="esqueceu-mensagem" style={{ color: tipoMensagem === 'success' ? 'green' : 'red' }}>
                         {mensagem}
                     </p>
                 }
 
-                <div className="signup-link" style={{ marginTop: '25px' }}>
+                <div className="esqueceu-link">
                     <Link to="/login">Voltar para o Login</Link>
                 </div>
             </div>
+
+            <div className="logo">
+                <img src="src\assets\logoFinal.png" alt="Logo E4U" className='logo img' />
+                                <p className="esqueceu-text">
+                    Patente E4u.
+                </p>
+            </div>
         </div>
+
+        
     );
 }

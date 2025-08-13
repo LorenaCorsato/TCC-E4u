@@ -5,6 +5,14 @@
     margin-top: 4rem;
     height: auto;
 }
+.texto h1 {
+    font-size: 1rem;
+    color: #222;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 .perguntas {
     display: flex;
@@ -21,11 +29,24 @@
     background: #f3f6f2;
     border-radius: 12px;
     box-shadow: 0 10px 10px rgba(78, 78, 78, 0.271);
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     border: 2px solid #a2a2a277;
+}
+
+.card-pergunta2 {
+    background: #f3f6f2;
+    border-radius: 12px;
+    box-shadow: 0 10px 10px rgba(78, 78, 78, 0.271);
+    padding: 10vh 13vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 2px solid #a2a2a277;
+    font-family: 'Varela', Arial, sans-serif;
+    font-size: 1.1rem;
 }
 
 /* Exemplo de CSS para centralizar e espaçar as alternativas */
@@ -50,7 +71,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2px;
 }
 
    .pergunta-texto {
@@ -86,7 +107,7 @@ width: 100vh;
     transition: border 0.2s;
 }
 .veiculo-tempo-container select:focus {
-    border: 1.5px solid #46e549;
+    border: 1.5px solid #175018;
 }
 
 /* Botão adicionar */
@@ -94,7 +115,7 @@ width: 100vh;
     padding: 0.7rem 1.5rem;
     border-radius: 8px;
     border: none;
-    background: #46e549;
+    background: #218323;
     color: #fff;
     font-weight: 600;
     font-size: 1.1rem;
@@ -102,7 +123,7 @@ width: 100vh;
     transition: background 0.2s;
 }
 .veiculo-tempo-container button:hover {
-    background: #36b93a;
+    background: #1b611d;
 }
 
 /* Lista dos veículos e tempos adicionados */
@@ -114,7 +135,7 @@ width: 100vh;
     max-width: 400px;
 }
 .veiculo-tempo-lista li {
-    background: #eafbe7;
+    background: #d0e7d0;
     border-radius: 6px;
     padding: 0.6rem 1rem;
     margin-bottom: 0.5rem;
@@ -124,7 +145,7 @@ width: 100vh;
     font-size: 1.05rem;
 }
 .veiculo-tempo-lista button {
-    background: #e74c3c;
+    background: #ca4a3c;
     color: #fff;
     border: none;
     border-radius: 4px;

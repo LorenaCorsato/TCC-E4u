@@ -1,83 +1,130 @@
-/* src/styles/pages/inicio.css */
-
-/* --- Layout Principal da Página --- */
 .inicio {
   display: flex;
   flex-direction: column;
 }
 
-/* --- Seção de Objetivos --- */
+.artigosInicial {
+  display: flex;
+  height: 50vh;
+}
+
 .objetivos {
   display: flex;
-  flex-direction: column; /* Coloca o título em cima e o conteúdo embaixo */
-  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin-left: 1rem;
   margin-bottom: 5rem;
 }
 
-/* Nova classe para envolver o parágrafo e o iframe */
 .objetivos-conteudo {
-  display: flex; /* Habilita o Flexbox */
-  flex-direction: row; /* Coloca os itens lado a lado (texto e vídeo) */
-  gap: 10rem; /* Aumenta o espaço entre texto e vídeo */
-  align-items: center; /* Alinha os itens verticalmente ao centro */
-  justify-content: center; /* Centraliza os itens horizontalmente */
+  display: flex;
+  flex-direction: row;
+  gap: 10rem;
+  align-items: center;
+  justify-content: center;
   margin-top: 2rem;
-  width: 80%; /* Define a largura para controlar o layout */
-  max-width: 1200px; /* Impede que o contêiner fique muito largo em telas gigantes */
+  width: 80%;
+  max-width: 1200px;
   padding: 0 1rem;
 }
 
-/* Estilos para o parágrafo e o vídeo dentro do novo contêiner */
 .objetivos-conteudo p {
-  flex: 1; /* Permite que o parágrafo ocupe o espaço disponível */
-  max-width: 50%; /* Garante que o parágrafo não ocupe toda a largura */
-  text-align: left; /* Alinha o texto à esquerda para melhor leitura */
-  margin-bottom: 0; /* Remove a margem extra na parte inferior */
+  flex: 1;
+  max-width: 50%;
+  text-align: left;
+  margin-bottom: 0;
 }
 
 .objetivos-conteudo iframe {
-  flex: 1; /* Permite que o iframe ocupe o espaço disponível */
-  max-width: 50%; /* Garante que o iframe não ocupe toda a largura */
-  border-radius: 8px; /* Adiciona bordas arredondadas ao vídeo */
+  flex: 1;
+  max-width: 50%;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-/* --- Estilos Existentes (sem alterações) --- */
 
 .descricoes {
   display: flex;
   flex-direction: column;
+  
 }
 
 .descricoes .topicos {
   display: flex;
-  flex-direction: row;
-  margin-bottom: 1%;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 2rem;
+  border-bottom: 2px solid #ddd;
+  
 }
 
 .descricoes .topicos:hover {
   cursor: pointer;
+  
+}
+
+.topicos .topico {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 0;
+  position: relative;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.topicos .topico .linha {
+  border: none;
+  position: relative;
+}
+
+.topicos .topico .linha::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background-color: #1a842d; /* cor da linha */
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+
+}
+
+.topicos .topico:hover .linha::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.topicos .topico.ativo {
+  color:#1a842d;
+  font-weight: bold;
+}
+
+.topicos .topico.ativo .linha::after {
+  transform: scaleX(1);
 }
 
 .descricoes .paragrafos {
   display: flex;
   flex-direction: row;
   min-height: 12.4rem;
-  background-color: #617c4a;
+  background-color: #617C4A;
 }
 
 .descricoes .paragrafos p {
   margin: 1rem;
-  color: #fff;
+  color: #FFFFFF;
 }
 
 .beneficios-popups-container {
   display: flex;
   flex-direction: column;
-  margin-top: 1px;
+  margin-top: 60px;
   padding: 20px;
 }
 
@@ -97,8 +144,8 @@
 
 .cards {
   display: flex;
+  align-items: center;
   flex-direction: row;
-  margin-bottom: -20px;
 }
 
 .alunos {
@@ -107,54 +154,27 @@
   justify-content: space-between;
   padding: 1%;
   background-color: #798871;
-
 }
-
-.topicos .linha {
-  border-color: transparent;
-}
-
-.topicos .linha::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #50d002;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease-out;
-}
-
-.linha:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-/* --- Media Query para Responsividade --- */
 
 @media (max-width: 768px) {
   .objetivos-conteudo {
-    flex-direction: column; /* Em telas pequenas, os elementos ficam um abaixo do outro */
+    flex-direction: column;
     width: 90%;
   }
 
   .objetivos-conteudo p,
   .objetivos-conteudo iframe {
-    max-width: 100%; /* Ocupa a largura total */
-    margin: 1rem 0; /* Adiciona margem entre os elementos */
+    max-width: 100%;
+    margin: 1rem 0;
   }
 
   .objetivos h1 {
-    font-size: 1.5em; /* Ajusta o tamanho do título em telas menores */
+    font-size: 1.5em;
   }
 
-  /* ... o restante das suas media queries */
   .descricoes .topicos {
     flex-direction: column;
     align-items: center;
-    --font--varela: 'Varela', sans-serif;
   }
 
   .descricoes .topicos a {
@@ -169,9 +189,13 @@
     margin: 1rem;
   }
 
+  .beneficios-popups {
+    flex-direction: column;
+  }
+
   .cards {
     flex-direction: column;
-    font-family: "Varela";
+    padding-inline: 10px;
   }
 
   .alunos {

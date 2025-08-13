@@ -18,6 +18,7 @@ export default function Inicio() {
   const [titulo, setTitulo] = useState(["", "", "", ""]);
   const [mudar, setMudar] = useState("");
   const [openPopup, setOpenPopup] = useState(null);
+  const [clicado, setClicado] = useState([false, false, false, false]);
 
   // Dados para os novos pop-ups na seção de Benefícios
   const beneficiosPopups = [
@@ -55,7 +56,6 @@ export default function Inicio() {
 
   useEffect(() => {
     MudarParagrafo1();
-    MudarTitulo1();
   }, []);
 
   function MudarParagrafo1() {
@@ -65,6 +65,15 @@ export default function Inicio() {
       "Buscamos adquirir conhecimento e incentivar os usuários a terem essa incrível e necessária curiosidade, construindo, assim, uma troca que visa o bem-estar geral e a boa convivência com o espaço em que vivemos.",
       "Temos como princípio sempre incluir e melhorar a experiência de usabilidade para todos os tipos de usuário, usando ferramentas de integração para daltônicos e ajudando a criar um ambiente favorável para quaisquer pessoas."
     ]);
+
+    setTitulo([
+      "Apoiar usuários de diversos lugares:",
+      "Disponibilizar informação:",
+      "Incentivar o aprendizado:",
+      "Incluir todas as pessoas:"
+    ]);
+
+    setClicado([true, false, false, false])
   }
 
   function MudarParagrafo2() {
@@ -74,6 +83,15 @@ export default function Inicio() {
       "Queremos que nossos usuários continuem conosco, sabendo que respeitamos o tempo que dedicaram a nós. Por meio de nosso constante investimento, conseguimos essa confiança.",
       "Nossa missão consiste em facilitar o acesso à informação, o aprendizado e a utilização de nossa ferramenta, usando uma linguagem simples, porém correta, de modo que, desde grandes empresas a pessoas comuns, todos possam acessar sem problemas."
     ]);
+
+    setTitulo([
+      "Fazer parte da campanha sustentável:",
+      "Apresentar claramente:",
+      "Valorizar o que importa:",
+      "Simplificar o complicado:"
+    ]);
+
+    setClicado([false, true, false, false])
   }
 
   function MudarParagrafo3() {
@@ -83,6 +101,15 @@ export default function Inicio() {
       "Pensamos no financeiro de nossos usuários utilizando um sistema de filtragem de preços para que possam buscar o que desejam com consciência e segurança.",
       "Nossos questionários são totalmente seguros; nenhuma pessoa terá acesso às respostas fornecidas ao nosso sistema, apenas o próprio usuário."
     ]);
+
+    setTitulo([
+      "Dados protegidos:",
+      "Aparelhos seguros:",
+      "Segurança financeira:",
+      "Questionários anônimos:"
+    ]);
+
+    setClicado([false, false, true, false])
   }
 
   function MudarParagrafo4() {
@@ -92,6 +119,15 @@ export default function Inicio() {
       "Criamos um ambiente respeitoso, sem a intromissão de quaisquer tipos de ofensas ou mensagens subliminares que poderiam gerar desconforto. O respeito mútuo é a base para uma boa relação e para um ambiente com credibilidade.",
       "No E4u, priorizamos a facilidade, a velocidade e a praticidade em todas as ações a serem realizadas, devido ao tempo precioso de todos, buscando ‘poupar’ esse tempo que poderia ser desperdiçado sem nossa ajuda."
     ]);
+
+    setTitulo([
+      "Enfatizar os detalhes:",
+      "Confirmar todas as informações:",
+      "Respeitar os usuários:",
+      "Priorizar a excelência:"
+    ]);
+
+    setClicado([false, false, false, true])
   }
 
   function MudarTitulo1() {
@@ -171,19 +207,19 @@ export default function Inicio() {
           </div>
         </div>
 
-        <div className="descricoes">
+                <div className="descricoes">
           <div className="topicos">
-            <a onClick={MudarParagrafo1}>
-              <span className="linha">1. Auxílio ao usuário</span>
+            <a onClick={MudarParagrafo1} className={`topico ${clicado[0] ? "ativo" : ""}`}>
+              <span className="linha"> Auxílio ao usuário</span>
             </a>
-            <a onClick={MudarParagrafo2}>
-              <span className="linha">2. Ambiente limpo e agradável</span>
+            <a onClick={MudarParagrafo2} className={`topico ${clicado[1] ? "ativo" : ""}`}>
+              <span className="linha"> Ambiente limpo e agradável</span>
             </a>
-            <a onClick={MudarParagrafo3}>
-              <span className="linha">3. Segurança</span>
+            <a onClick={MudarParagrafo3} className={`topico ${clicado[2] ? "ativo" : ""}`}>
+              <span className="linha"> Segurança</span>
             </a>
-            <a onClick={MudarParagrafo4}>
-              <span className="linha">4. Seriedade</span>
+            <a onClick={MudarParagrafo4} className={`topico ${clicado[3] ? "ativo" : ""}`}>
+              <span className="linha"> Seriedade</span>
             </a>
           </div>
 

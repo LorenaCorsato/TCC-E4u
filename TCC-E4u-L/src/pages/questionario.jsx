@@ -79,10 +79,16 @@ export default function Questionario() {
                 <div className="questionario-titulo">
                     <h1>Questionário</h1>
                 </div>
+
+                <div className="texto">
+                    <h1>Para a realização do questionário responda todas as perguntas, e para um resultado mais próximo da sua realidade responda com sinceridade.</h1>
+                </div>
+
                 <form className="perguntas" onSubmit={validarFormulario}>
                     <div className="card-pergunta">
                         <div className="pergunta-content">
-                            <p className="pergunta-enunciado">Selecione o veículo e o tempo médio de uso:</p>
+                            <p className="pergunta-enunciado">Selecione os veículos e o tempo médio deles :</p>
+                            
                             <div className="veiculo-tempo-container">
                                 <select
                                     value={veiculoSelecionado}
@@ -90,16 +96,18 @@ export default function Questionario() {
                                     className="pergunta-texto"
                                 >
                                     <option value="">Selecione o veículo</option>
-                                    {veiculos.map((v, idx) => (
-                                        <option key={idx} value={v}>{v}</option>
-                                    ))}
+                                    {veiculos
+                                        .filter(v => !veiculosTempos.some(item => item.veiculo === v))
+                                        .map((v, idx) => (
+                                            <option key={idx} value={v}>{v}</option>
+                                        ))}
                                 </select>
                                 <select
                                     value={tempoSelecionado}
                                     onChange={e => setTempoSelecionado(e.target.value)}
                                     className="pergunta-texto"
                                 >
-                                    <option value="">Tempo médio</option>
+                                    <option value="">Tempo médio diário</option>
                                     {tempos.map((t, idx) => (
                                         <option key={idx} value={t}>{t}</option>
                                     ))}
@@ -129,7 +137,7 @@ export default function Questionario() {
                         </div>
                     </div>
 
-                    <div className="card-pergunta">
+                    <div className="card-pergunta2">
                         <label htmlFor="valorGas" className="pergunta-enunciado" style={{ marginBottom: "1rem" }}>
                             Informe o valor gasto em gás (R$):
                         </label>
@@ -145,7 +153,7 @@ export default function Questionario() {
                         />
                     </div>
 
-                    <div className="card-pergunta">
+                    <div className="card-pergunta2">
                         <label htmlFor="valorEletricidade" className="pergunta-enunciado" style={{ marginBottom: "1rem" }}>
                             Informe o valor gasto em eletricidade (R$):
                         </label>
@@ -166,6 +174,7 @@ export default function Questionario() {
                         enunciadoPergunta="Realizou alguma viagem aérea esse mês?"
                         alternativas={["Sim", "Nao"]}
                         onChange={e => setRespostaPergunta5(e.target.value)}
+                        
                     />
 
                     {respostaPergunta5 === "Sim" && (
@@ -178,9 +187,9 @@ export default function Questionario() {
                     )}
 
                     {respostaPergunta5 === "Sim" && (
-                        <div className="card-pergunta">
+                        <div className="card-pergunta2">
                             <label htmlFor="numeroPessoas" className="pergunta-enunciado" style={{ marginBottom: "1rem" }}>
-                                Informe quantas viajaram com você?:
+                                Informe quantas pessoas viajaram com você?:
                             </label>
                             <input
                                 type="number"
