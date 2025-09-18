@@ -1,0 +1,39 @@
+.pagPegCarbono {
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.textoCarbono {
+    width: 50%;
+    float: left;
+    display: block;
+    margin-top: 1px;
+}
+
+.textoCarbono h1 {
+    white-space: nowrap;
+}
+
+.pagPegCarbono .questionario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pagPegCarbono .questionario button {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .pagPegCarbono {
+        flex-direction: column;
+        margin: 0.5rem;
+    }
+
+    .textoCarbono {
+        width: 100%;
+    }
+}

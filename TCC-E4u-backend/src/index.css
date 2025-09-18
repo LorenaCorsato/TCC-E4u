@@ -1,0 +1,93 @@
+
+@font-face {
+  font-family: 'Alexandria';
+  src: url('./fonts/Alexandria-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Importando a fonte Varela */
+@font-face {
+  font-family: 'Varela';
+  src: url('./fonts/Varela-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.conteudo-com-navbar {
+    padding-top: 80px; /* Ajuste este valor se a altura da sua navbar for diferente */
+}
+
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+h1 {
+    color: #234F1E;
+    font-size: 4rem;
+    font-family: 'Alexandria';
+}
+
+h2 {
+   color: #234F1E;
+   font-size: 4vh;
+   font-family: 'Alexandria';
+}
+
+p {
+  font-size: 1.2rem;
+  font-family: 'Varela'
+}
+
+a {
+  font-family: 'Varela';
+}
+
+.linha {
+  border-bottom: 2px solid #234F1E;
+  position: relative;
+}
+
+:root {
+  --font--alexandria: 'Alexandria', sans-serif;
+  --font--varela: 'Varela', sans-serif;
+}
+
+.temaEscuro {
+  --corFundo: #000000;
+  --corLetra: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Aplica o filtro de Protanopia a todo o conteúdo da página */
+.filtro-protanopia {
+    filter: url('/filtrosDaltonismo.svg#protanopia');
+}
+
+/* Aplica o filtro de Deuteranopia */
+.filtro-deuteranopia {
+    filter: url('/filtrosDaltonismo.svg#deuteranopia');
+}
+
+/* Aplica o filtro de Tritanopia */
+.filtro-tritanopia {
+    filter: url('/filtrosDaltonismo.svg#tritanopia');
+}
+
+/* Aplica o filtro de Acromatopsia (escala de cinza) */
+.filtro-acromatopsia {
+    filter: url('/filtrosDaltonismo.svg#acromatopsia');
+}

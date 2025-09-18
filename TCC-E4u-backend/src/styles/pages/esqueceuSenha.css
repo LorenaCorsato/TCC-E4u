@@ -1,0 +1,127 @@
+.esqueceu-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #d0e7d060;
+    font: 1em sans-serif;
+}
+
+
+
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.2rem auto 0 auto;
+    gap: 0.3rem; /* aproxima o texto da logo */
+}
+
+.logo4 img {
+    width: 100px;    /* tamanho pequeno */
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.logo .esqueceu-text {
+    margin-top: 0.1rem;
+    font-size: 0.95rem;
+    color: #555;
+    text-align: center;
+}
+
+.esqueceu-popup {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.esqueceu-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #222;
+    text-align: center;
+}
+
+.esqueceu-text {
+    color: #555;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.esqueceu-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.esqueceu-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.esqueceu-input-group label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.esqueceu-input-group input {
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.esqueceu-input-group input:focus {
+    border: 1.5px solid #327d33;
+}
+
+.esqueceu-button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    background:#327d33;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+}
+
+.esqueceu-button:hover {
+    background:#327d33;
+}
+
+.esqueceu-mensagem {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 1rem;
+}
+
+.esqueceu-link {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.esqueceu-link a {
+    color: #327d33;
+    text-decoration: none;
+    font-weight: 500;
+}

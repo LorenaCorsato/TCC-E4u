@@ -1,0 +1,55 @@
+{
+  "placas_solares": [
+    {
+      "id": 1,
+      "modelo": "ZTP-010MI",
+      "fabricante": "ZTROON",
+      "potencia_pico": 10,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 20.3,
+      "tensao_maxima_potencia_vmp": 41.1,
+      "corrente_maxima_potencia_imp": 10.96,
+      "dimensoes": {
+        "altura_mm": 270,
+        "largura_mm": 240,
+        "profundidade_mm": 17
+      },
+      "peso_kg": 24.9,
+      "imagem_url": "caminho/para/sua/imagem_padrao.jpg"
+    },
+    {
+      "id": 2,
+      "modelo": "JAM72S30-545/MR",
+      "fabricante": "JA Solar",
+      "potencia_pico": 545,
+      "tipo_celula": "Monocristalino PERC",
+      "eficiencia": 21.1,
+      "tensao_maxima_potencia_vmp": 41.80,
+      "corrente_maxima_potencia_imp": 13.04,
+      "dimensoes": {
+        "altura_mm": 2279,
+        "largura_mm": 1134,
+        "profundidade_mm": 35
+      },
+      "peso_kg": 28.6,
+      "imagem_url": "caminho/para/sua/imagem_padrao.jpg"
+    },
+    {
+      "id": 3,
+      "modelo": "LR5-72HPH-540M",
+      "fabricante": "LONGi Solar",
+      "potencia_pico": 540,
+      "tipo_celula": "Monocristalino",
+      "eficiencia": 21.1,
+      "tensao_maxima_potencia_vmp": 41.65,
+      "corrente_maxima_potencia_imp": 12.97,
+      "dimensoes": {
+        "altura_mm": 2256,
+        "largura_mm": 1133,
+        "profundidade_mm": 35
+      },
+      "peso_kg": 27.2,
+      "imagem_url": "caminho/para/sua/imagem_padrao.jpg"
+    }
+  ]
+}

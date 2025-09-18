@@ -1,0 +1,38 @@
+
+.cabecalhoContainer {
+    width: 100%;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: linear-gradient(to right, rgba(69, 177, 3, 0.85), rgba(0, 116, 59, 0.85));
+}
+
+.logoPublico img {
+    height: 80px; 
+    margin-left: 20px;
+
+}
+
+.botaoEntrar {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    font-family: 'Varela', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    margin-right: 50px;
+}
+
+.botaoEntrar:hover {
+    background-color: darkgreen;
+
+}

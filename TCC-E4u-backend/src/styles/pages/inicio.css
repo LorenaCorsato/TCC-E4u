@@ -1,0 +1,479 @@
+.inicio {
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f6f2;
+}
+
+.artigosInicial {
+    display: flex;
+    height: 50vh;
+}
+
+/* SEÇÃO DE OBJETIVOS */
+.objetivos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 50px 0; /* Espaço para a seção */
+    padding: 0 1rem;
+}
+
+/* CONTEÚDO DENTRO DE OBJETIVOS */
+.objetivos-conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* Alinha pelo topo */
+    gap: 30px;
+    max-width: 1200px;
+    width: 90%;
+    margin-top: 2rem;
+}
+
+/* ESTILO PARA O IFRAME (VÍDEO) */
+.objetivos-conteudo iframe {
+    flex: 1 1 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 50%;
+    min-width: 320px;
+}
+
+/* CONTEINER PARA O TEXTO E O CARROSSEL (NOVO) */
+.texto-e-carrossel {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 50%;
+    min-width: 320px;
+    text-align: left;
+    margin-left: 0;
+}
+
+/* ESTILOS PARA O CONTEÚDO DE TEXTO */
+.objetivos-conteudo .texto-e-carrossel p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+}
+
+/* ESTILOS DO SWIPER */
+.swiper-container2 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.swiper-container2 .mySwiper {
+    width: 120px;
+    height: 120px;
+    padding-bottom: 30px;
+}
+
+.swiper-container2 .swiper-slide {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.swiper-container2 .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Efeito de zoom só no Swiper pequeno */
+.swiper-container2 .swiper-slide-active {
+    transform: scale(1.1);
+}
+
+
+/* SEÇÃO DE DESCRIÇÕES */
+.descricoes {
+    display: flex;
+    flex-direction: column;
+}
+
+.descricoes .topicos {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    border-bottom: 2px solid #ddd;
+}
+
+.descricoes .topicos:hover {
+    cursor: pointer;
+}
+
+.topicos .topico {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 0;
+    position: relative;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.topicos .topico .linha {
+    border: none;
+    position: relative;
+}
+
+.topicos .topico .linha::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 3px;
+    background-color: #1a842d; /* cor da linha */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.topicos .topico:hover .linha::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.topicos .topico.ativo {
+    color: #1a842d;
+    font-weight: bold;
+}
+
+.topicos .topico.ativo .linha::after {
+    transform: scaleX(1);
+}
+
+.descricoes .paragrafos {
+    display: flex;
+    flex-direction: row;
+    min-height: 12.4rem;
+    background-color: #617C4A;
+}
+
+.descricoes .paragrafos p {
+    margin: 1rem;
+    color: #FFFFFF;
+}
+
+/* POP-UPS DE BENEFÍCIOS */
+.beneficios-popups-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    padding: 20px;
+}
+
+.beneficios-titulo {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.beneficios-popups {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+/* SEÇÃO DE ALUNOS */
+.alunos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1%;
+    background-color: #798871;
+}
+
+/* SEÇÃO DE EXPLICAÇÃO */
+.explicacao {
+    display: flex;
+    width: 100%;
+    max-width: 1800px;
+    height: 900px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.explicacao-left {
+    background-color: #668213;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.explicacao-item {
+    background-color: #f3f6f2;
+    border-radius: 10px;
+    padding: 40px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.explicacaoTitulo {
+    background-color: #f3f6f2;
+    border-radius: 10px;
+    padding: 50px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.explicacao-item img {
+    width: 30px;
+    height: 30px;
+}
+
+.explicacao-item p {
+    font-size: 0.95rem;
+    color: #333;
+    margin: 0;
+}
+
+.explicacao-right {
+    width: 50%;
+    background-image: url('src/assets/imgEx.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.explicacao-right h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #00000080;
+    color: #fff;
+    align-items: start;
+}
+
+.conteinerExplicacao {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 40px 0 40px 0;
+    padding: 0 2vw;
+    box-sizing: border-box;
+}
+
+.explicacaoImagem {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* NOVAS CLASSES PARA OS CARDS DOS PARÁGRAFOS */
+.paragrafos-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.paragrafo-card {
+    background: #f3f6f2;
+    border-radius: 12px;
+     box-shadow: 15px 8px 2px rgba(78, 78, 78, 0.18);
+    padding: 1.5rem 1.2rem;
+    width: 20px;
+   height: 280px;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: box-shadow 0.2s;
+    margin-right: 50px;
+    margin-left: 30px;
+}
+
+.paragrafo-card:hover {
+  
+     box-shadow: 15px 15px 0px #668213;
+}
+
+.paragrafo-titulo {
+    font-weight: bold;
+    color: #1a842d;
+    margin-bottom: 0.7rem;
+    font-size: 1.08rem;
+    display: block;
+    font-family: "alexandria", sans-serif;
+}
+
+.paragrafo-texto {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: "varela";
+}
+
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
+@media (max-width: 1024px) {
+    /* Ajustes para o layout de objetivos em telas menores */
+    .objetivos-conteudo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .objetivos-conteudo iframe,
+    .texto-e-carrossel {
+        flex: auto;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .objetivos-conteudo {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .objetivos-conteudo p,
+    .objetivos-conteudo iframe {
+        max-width: 100%;
+        margin: 1rem 0;
+    }
+
+    .objetivos h1 {
+        font-size: 1.5em;
+    }
+
+    .descricoes .topicos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .descricoes .topicos a {
+        margin: 0.5rem;
+    }
+
+    .descricoes .paragrafos {
+        flex-direction: column;
+    }
+
+    .descricoes .paragrafos p {
+        margin: 1rem;
+    }
+
+    .beneficios-popups {
+        flex-direction: column;
+    }
+
+    .cards {
+        flex-direction: column;
+        padding-inline: 10px;
+    }
+
+    .alunos {
+        flex-direction: column;
+    }
+}
+
+.texto-e-carrosseis {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 50%;
+    min-width: 320px;
+    text-align: left;
+    margin-left: 0;
+}
+
+.texto-ao-lado {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    width: 100%;
+}
+
+.mini-swipers-row {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.mini-swiper-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+}
+
+.mini-swiper-col .mySwiper {
+    width: 120px;
+    height: 120px;
+    padding-bottom: 20px;
+}
+
+.mini-swiper-col .swiper-slide {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.mini-swiper-col .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mini-swiper-col .swiper-slide-active {
+    transform: scale(1.1);
+}
+
+.mini-swiper-text {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    min-height: 2.5em;
+    color: #333;
+}

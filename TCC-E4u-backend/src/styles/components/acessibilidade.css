@@ -1,0 +1,95 @@
+.acessibilidade {
+    position: fixed;
+    bottom: 2rem; /* Ajustei a posição para não ficar tão alto */
+    right: 2rem;  /* Adicionei uma posição na direita */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.btnAcessibilidade {
+    height: 3rem;  /* Aumentei um pouco para melhor clique */
+    width: 3rem;
+    padding: 0;
+    display: flex; /* Para centralizar a imagem */
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 50%; /* Um botão redondo fica mais moderno */
+    background-color: #668213;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btnAcessibilidade:hover {
+    transform: scale(1.1);
+}
+
+.btnAcessibilidade img {
+    height: 2.2rem;
+    width: 2.2rem;
+}
+
+.acessibilidadeDropDown {
+    /* Escondido por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+
+    /* Estilização do menu */
+    position: absolute;
+    bottom: 110%; /* Posiciona acima do botão principal */
+    right: 0;
+    width: 180px; /* Largura para caber os botões */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espaçamento entre os botões */
+}
+
+.acessibilidadeDropDown.aberto {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.acessibilidadeDropDown h4 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    text-align: center;
+}
+
+/* Estilo para os botões dentro do dropdown */
+.acessibilidadeDropDown button {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: left;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.acessibilidadeDropDown button:hover {
+    background-color: #e9e9e9;
+    border-color: #bbb;
+}
+
+/* Estilo para o botão do filtro que está ativo */
+.acessibilidadeDropDown button.ativo {
+    background-color: #234F1E; /* Verde para indicar seleção */
+    color: white;
+    border-color: #234F1E;
+    font-weight: bold;
+}
+
+
+.acessibilidadeDropDown .divisor {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 0.75rem 0;
+}

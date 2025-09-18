@@ -1,0 +1,52 @@
+.rodape {
+    height: 25vh;
+    width: 100%;
+    color: #FFFFFF;
+    background-color:#668213;
+    flex-direction: column;
+
+}
+
+
+
+.parteSuperior {
+font-family: "Alexandria", sans-serif;
+ height: 5h;
+
+}
+
+.parteInferior {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: "Varela", sans-serif;
+    height: 5h;
+}
+
+.direitosReservados {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end
+}
+
+.duvidas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.duvidas a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.duvidas a:hover {
+    text-decoration: underline;
+}
+
+.redesSociais {
+    justify-content: center;
+    align-items: center;
+}
