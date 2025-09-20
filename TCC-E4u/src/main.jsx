@@ -20,6 +20,7 @@ import ArtigosSol from './pages/artigosSol.jsx';
 import Grafico from './pages/grafico.jsx';
 import Historico from './pages/historico.jsx';
 import Resultado from './pages/resultadoCarbono.jsx';
+import ResultadoSolar from './pages/resultadoSolar.jsx';
 
 
 import EsqueceuSenha from './pages/esqueceuSenha.jsx'; // Importe da nova página
@@ -58,6 +59,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="/grafico" element={<Grafico />} />
             <Route path="/historico" element={<Historico />} />
                 <Route path="/resultado" element={<Resultado />} />
+                   <Route path="/resultadoSolar" element={<ResultadoSolar />} />
 
           </Route>
 

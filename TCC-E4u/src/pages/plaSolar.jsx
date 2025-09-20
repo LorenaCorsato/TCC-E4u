@@ -3,6 +3,7 @@ import Header from '../components/cabecalho'
 import Footer from '../components/rodape'
 import Form from '../components/escrever'
 import Button from '../components/botao'
+
 import NavBar from '../components/navegacao'
 import '../styles/pages/plaSolar.css'
 
@@ -28,10 +29,13 @@ export default function PagSolar() {
                     <form>
                         <Form type="number" formValor="Média kWh consumidos" id="mediaConsumida" />
                         <Form type="number" formValor="Espaço disponível" id="espacoDisponivel" />
-                        <Button btnNome="Procurar" />
+                        <Form type="number" formValor="CEP" id="cep" />{/*adicionar o botao de nao sei meu cep*/}
+                        
+                          <Button href="/resultadoSolar" btnNome="Enviar"/>
                     </form>
                 </div>
             </div>
+           
         </>
     )
 }

@@ -1,0 +1,44 @@
+.containerHeader {
+    width: 100vw;          /* Ocupa toda a largura da tela */
+    max-width: 100%;      /* Garante que não fique limitado */
+    margin-top: 40px;      /* Menor margem superior */
+    padding: 0;            /* Remove espaçamento interno */
+    box-sizing: border-box;
+}
+
+/* É fundamental que o próprio Swiper tenha uma largura e altura definidas */
+.containerHeader .swiper {
+    width: 100vw;          /* Ocupa toda a largura da tela */
+    max-width: 100%;
+    height: 400px;
+    margin: 0;             /* Remove margem lateral */
+    border-radius: 0px;      /* Remove bordas arredondadas, se houver */
+    overflow: hidden;
+}
+
+
+.containerHeader .swiper-slide {
+  /* Não defina largura fixa aqui. Ele deve ocupar 100% da largura do Swiper. */
+  width: 100%; /* Cada slide ocupa 100% da largura do Swiper */
+  height: 100% !important; /* Cada slide ocupa 100% da altura do Swiper */
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerHeader .slider-item {
+  width: 100%; /* A imagem preenche a largura da slide */
+  height: 100%; /* A imagem preenche a altura da slide */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer, cortando se necessário */
+  pointer-events: none; /* Mantém como está, útil para evitar arrastar a imagem em vez do Swiper */
+}
+
+.containerHeader .swiper-button-next,
+.containerHeader .swiper-button-prev {
+  color: green !important;
+  fill: green !important;
+}
+
+.containerHeader .swiper-pagination-bullet {
+  background: green !important; /* Cor dos bullets */
+}
