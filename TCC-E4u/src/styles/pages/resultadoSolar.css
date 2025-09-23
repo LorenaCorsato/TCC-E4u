@@ -20,6 +20,15 @@
     padding: 2rem 1rem 4rem 1rem; /* Padding horizontal para telas menores */
 }
 
+.resultado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    position: relative; /* Adicione esta linha */
+}
+
 .questionario-titulo h1 {
     font-family: var(--fonte-titulo);
     color: var(--cor-principal);

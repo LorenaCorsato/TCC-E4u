@@ -323,109 +323,104 @@ export default function Inicio() {
               allowFullScreen
             ></iframe>
 
-            <div className="texto-e-carrosseis">
-              <p className="texto-ao-lado">
-                Nós do E4U nos propusemos a desenvolver uma aplicação com a finalidade de informar e conscientizar sobre os benefícios da energia fotovoltaica e a pegada de carbono na atmosfera.
-              </p>
-              <div className="mini-swipers-row">
-                {/* Swiper 1 */}
-                <div className="mini-swiper-col">
-                  <Swiper
-                    effect="coverflow"
-                    grabCursor={false}
-                    centeredSlides={true}
-                    slidesPerView="auto"
-                    coverflowEffect={{
-                      rotate: 50,
-                      stretch: 0,
-                      depth: 100,
-                      modifier: 1,
-                      slideShadows: true,
-                    }}
-                    
-                    autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false }}
-                    modules={[EffectCoverflow, Pagination, Autoplay]}
-                    className="mySwiper"
-                    onSlideChange={swiper => setSlideAtivo1(swiper.realIndex)}
-                  >
-                    <SwiperSlide>
-                      <img src={funcaoImg} alt="Lorena C. Programadora" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src={funcaoImg2} alt="Gustavo M. Designer" />
-                    </SwiperSlide>
-                  </Swiper>
-                  <p className="mini-swiper-text">{textosSlides1[slideAtivo1]}</p>
-                </div>
+            <div className="texto-e-carrosseis">
+              <p className="texto-ao-lado">
+                Nós do E4U nos propusemos a desenvolver uma aplicação com a finalidade de informar e conscientizar sobre os benefícios da energia fotovoltaica e a pegada de carbono na atmosfera.
+              </p>
+              <div className="mini-swipers-row">
+                {/* Swiper 1 */}
+                <div className="mini-swiper-col">
+                  <Swiper
+                    effect="coverflow"
+                    grabCursor={false}
+                    centeredSlides={true}
+                    slidesPerView="auto"
+                    coverflowEffect={{
+                      rotate: 50,
+                      stretch: 0,
+                      depth: 100,
+                      modifier: 1,
+                      slideShadows: true,
+                    }}
+                    autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false }}
+                    modules={[EffectCoverflow, Pagination, Autoplay]}
+                    className="mySwiper"
+                    onSlideChange={swiper => setSlideAtivo1(swiper.realIndex)}
+                  >
+                    <SwiperSlide>
+                      <img src={funcaoImg} alt="Lorena C. Programadora" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={funcaoImg2} alt="Gustavo M. Designer" />
+                    </SwiperSlide>
+                  </Swiper>
+                  <p className="mini-swiper-text">{textosSlides1[slideAtivo1]}</p>
+                </div>
 
-                {/* Swiper 2 */}
-                <div className="mini-swiper-col">
-                  <Swiper
-                    effect="coverflow"
-                    grabCursor={false}
-                    centeredSlides={true}
-                    slidesPerView="auto"
-                    coverflowEffect={{
-                      rotate: 50,
-                      stretch: 0,
-                      depth: 100,
-                      modifier: 1,
-                      slideShadows: true,
-                    }}
-              
-                    autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false }}
-                    modules={[EffectCoverflow, Pagination, Autoplay]}
-                    className="mySwiper"
-                    onSlideChange={swiper => setSlideAtivo2(swiper.realIndex)}
-                  >
-                    <SwiperSlide>
-                      <img src={funcaoImg3} alt="Lyncon S. Programador" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src={funcaoImg4} alt="Lavinía K. Documentadora" />
-                    </SwiperSlide>
-                  </Swiper>
-                  <p className="mini-swiper-text">{textosSlides2[slideAtivo2]}</p>
-                </div>
+                {/* Swiper 2 */}
+                <div className="mini-swiper-col">
+                  <Swiper
+                    effect="coverflow"
+                    grabCursor={false}
+                    centeredSlides={true}
+                    slidesPerView="auto"
+                    coverflowEffect={{
+                      rotate: 50,
+                      stretch: 0,
+                      depth: 100,
+                      modifier: 1,
+                      slideShadows: true,
+                    }}
+                    autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false }}
+                    modules={[EffectCoverflow, Pagination, Autoplay]}
+                    className="mySwiper"
+                    onSlideChange={swiper => setSlideAtivo2(swiper.realIndex)}
+                  >
+                    <SwiperSlide>
+                      <img src={funcaoImg3} alt="Lyncon S. Programador" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={funcaoImg4} alt="Lavinía K. Documentadora" />
+                    </SwiperSlide>
+                  </Swiper>
+                  <p className="mini-swiper-text">{textosSlides2[slideAtivo2]}</p>
+                </div>
 
-                {/* Swiper 3 */}
-                <div className="mini-swiper-col">
-                  <Swiper
-                    effect="coverflow"
-                    grabCursor={false}
-                    centeredSlides={true}
-                    slidesPerView="auto"
-                    coverflowEffect={{
-                      rotate: 50,
-                      stretch: 0,
-                      depth: 100,
-                      modifier: 1,
-                      slideShadows: true,
-                    }}
-            
-                    autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false }}
-                    modules={[EffectCoverflow, Pagination, Autoplay]}
-                    className="mySwiper"
-                    onSlideChange={swiper => setSlideAtivo3(swiper.realIndex)}
-                  >
-                    <SwiperSlide>
-                      <img src={funcaoImg5} alt="Raphael S. Programador" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src={funcaoImg6} alt="Gabriela Documentadora" />
-                    </SwiperSlide>
-                  </Swiper>
-                  <p className="mini-swiper-text">{textosSlides3[slideAtivo3]}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                <div className="mini-swiper-col">
+                  <Swiper
+                    effect="coverflow"
+                    grabCursor={false}
+                    centeredSlides={true}
+                    slidesPerView="auto"
+                    coverflowEffect={{
+                      rotate: 50,
+                      stretch: 0,
+                      depth: 100,
+                      modifier: 1,
+                      slideShadows: true,
+                    }}
+                    autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false }}
+                    modules={[EffectCoverflow, Pagination, Autoplay]}
+                    className="mySwiper"
+                    onSlideChange={swiper => setSlideAtivo3(swiper.realIndex)}
+                  >
+                    <SwiperSlide>
+                      <img src={funcaoImg5} alt="Raphael S. Programador" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={funcaoImg6} alt="Gabriela Documentadora" />
+                    </SwiperSlide>
+                  </Swiper>
+                  <p className="mini-swiper-text">{textosSlides3[slideAtivo3]}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> {/* fim da div.inicio */}
 
-      </div> {/* fim da div.inicio */}
-
-      <Acessibilidade />
-      <Footer />
-    </>
-  );
+      <Acessibilidade />
+      <Footer />
+    </>
+  );
 }

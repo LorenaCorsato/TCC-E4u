@@ -1,7 +1,7 @@
 .containerHeader {
     width: 100vw;          /* Ocupa toda a largura da tela */
     max-width: 100%;      /* Garante que não fique limitado */
-    margin-top: 40px;      /* Menor margem superior */
+    margin-top: -15px;      /* Menor margem superior */
     padding: 0;            /* Remove espaçamento interno */
     box-sizing: border-box;
 }
@@ -24,6 +24,7 @@
   display: flex !important;
   justify-content: center;
   align-items: center;
+ 
 }
 
 .containerHeader .slider-item {

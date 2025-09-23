@@ -8,7 +8,7 @@ import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import { EffectFade, Navigation, Pagination } from 'swiper/modules'
+import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 const data = [
   {id: 1, img: energia, title: "Energia", },
@@ -26,7 +26,8 @@ export default function Header() {
                 fadeEffect={{ crossFade: true }}
                 pagination={{ clickable: true }}
                 navigation
-                modules={[EffectFade, Navigation, Pagination]}
+                autoplay={{ delay: 5000, disableOnInteraction: false }}
+                modules={[EffectFade, Navigation, Pagination, Autoplay]}
             >
                 {data.map((item) => (
                     <SwiperSlide key={item.id}>

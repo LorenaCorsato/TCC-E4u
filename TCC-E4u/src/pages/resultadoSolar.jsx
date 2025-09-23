@@ -15,10 +15,11 @@ export default function ResultadoSolar() {
         <>
             <NavBar />
             <div className="questionario">
-                <div className="questionario-titulo"><h1>Questionário</h1></div>
-                <div className="texto"><h1>Responda com sinceridade para um resultado mais próximo da sua realidade.</h1></div>
+                <div className="questionario-titulo"><h1>Resultado</h1></div>
+                <div className="texto"><h1>encontramos o melhor resultado para você</h1></div>
+                <div className="resultado">
      <CardSlide />
-        
+        </div>
             </div>
         </>
     );
