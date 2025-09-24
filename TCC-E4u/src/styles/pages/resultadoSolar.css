@@ -1,247 +1,149 @@
-/* Importando as fontes (garanta que seu CSS global ou este arquivo as tenha) */
-@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&family=Varela+Round&display=swap');
+/* src/styles/pages/resultadoSolar.css */
 
-:root {
-    --cor-principal: #234F1E; /* Verde escuro para botões e destaques */
-    --cor-principal-hover: #1A3A16; /* Verde mais escuro para hover */
-    --cor-fundo-card: #FFFFFF; /* Fundo do card branco para contraste */
-    --cor-fundo-pagina: #F7F9F7; /* Um branco levemente esverdeado para o fundo */
-    --cor-texto-principal: #222222;
-    --cor-texto-secundario: #555555;
-    --sombra-card: 0 8px 25px rgba(0, 0, 0, 0.1);
-    --borda-radius: 12px;
-    --fonte-titulo: 'Alexandria', sans-serif;
-    --fonte-corpo: 'Varela Round', sans-serif; /* Varela Round é mais suave */
+.resultado-container {
+    padding: 2rem 1rem;
+    text-align: center;
+    min-height: 80vh;
 }
 
-/* --- Layout Geral da Página --- */
-.questionario {
-    background-color: var(--cor-fundo-pagina);
-    padding: 2rem 1rem 4rem 1rem; /* Padding horizontal para telas menores */
+.resultado-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
 }
 
-.resultado {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.resultado-container p {
+    font-size: 1.1rem;
+    color: #555;
     margin-bottom: 2rem;
-    border-radius: 10px;
-    position: relative; /* Adicione esta linha */
 }
 
-.questionario-titulo h1 {
-    font-family: var(--fonte-titulo);
-    color: var(--cor-principal);
-    text-align: center;
-    margin-bottom: 0.5rem;
-}
-
-.texto h1 {
-    font-family: var(--fonte-corpo);
-    font-size: 1.1rem;
-    color: var(--cor-texto-secundario);
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: 3rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-}
-
-/* Container do formulário */
-.perguntas {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem; /* Aumenta o espaço entre os cards */
-    align-items: center;
+/* Container que centraliza o Swiper e dá espaço para as setas */
+.swiper-container-resultados {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Card de Pergunta Unificado */
-.card-pergunta {
-    background: var(--cor-fundo-card);
-    border-radius: var(--borda-radius);
-    box-shadow: var(--sombra-card);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    border: 1px solid #EAEFEC;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: var(--fonte-corpo);
-    font-size: 1.1rem;
-}
-
-.pergunta-enunciado {
-    margin: 0;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--cor-texto-principal);
-    font-family: var(--fonte-titulo);
-}
-
-
-
-/* Estilo para Inputs e Selects */
-input[type="text"],
-input[type="number"],
-select {
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    font-family: var(--fonte-corpo);
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-select:focus {
-    outline: none;
-    border-color: var(--cor-principal);
-    box-shadow: 0 0 0 3px rgba(35, 79, 30, 0.2);
-}
-
-/* Container de Veículos */
-.veiculo-tempo-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-    width: 100%;
-}
-
-.veiculo-tempo-container select {
-    flex: 1; /* Faz os selects crescerem para ocupar o espaço */
-    min-width: 200px;
-}
-
-/* Botão Adicionar Veículo */
-.veiculo-tempo-container button {
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    border: none;
-    background: var(--cor-principal);
-    color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
-    font-family: var(--fonte-corpo);
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.veiculo-tempo-container button:hover {
-    background: var(--cor-principal-hover);
-}
-
-/* Lista de Veículos Adicionados */
-.veiculo-tempo-lista {
-    margin-top: 1rem;
-    padding-left: 0;
-    list-style: none;
-    width: 100%;
-}
-
-.veiculo-tempo-lista li {
-    background: #E9F0E8;
-    border-left: 4px solid var(--cor-principal);
-    border-radius: 6px;
-    padding: 0.8rem 1rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.05rem;
-}
-
-.veiculo-tempo-lista button {
-    background: #e74c3c;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 0.3rem 0.8rem;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-left: 1rem;
-    transition: background 0.2s;
-}
-
-.veiculo-tempo-lista button:hover {
-    background: #c0392b;
-}
-
-/* Alternativas de Múltipla Escolha (Radio buttons) */
-.alternativas {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start;
-    gap: 1.2rem;
-    margin-top: 0.5rem;
-}
-
-.alternativa {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-    font-size: 1.05rem;
-}
-
-.alternativa input[type="radio"] {
-    appearance: none;
-    width: 1.3em;
-    height: 1.3em;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    cursor: pointer;
+    max-width: 1280px; /* ALTERAÇÃO AQUI: Aumentado de 1100px para 1280px */
+    margin: 2rem auto;
     position: relative;
-    transition: border-color 0.2s;
+    display: flex;
+    align-items: center;
 }
 
-.alternativa input[type="radio"]:checked {
-    border-color: var(--cor-principal);
+.mySwiper {
+    width: 100%;
+    padding: 20px 0 50px 0; /* Espaço para sombra e paginação */
 }
 
-.alternativa input[type="radio"]:checked::before {
-    content: '';
-    display: block;
-    width: 0.7em;
-    height: 0.7em;
-    background-color: var(--cor-principal);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* Estilo para cada slide/card */
+.placa-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #EAEFEC;
+    padding: 1.8rem; /* Aumentado de 1.5rem */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 800px; /* Aumentado de 520px */
+    box-sizing: border-box;
+    margin: 0 10px; /* Pequena margem para garantir o espaçamento */
 }
 
-/* Estilos para Checkbox de Veículos */
-.alternativa input[type="checkbox"] {
-    width: 1.3em;
-    height: 1.3em;
-    accent-color: var(--cor-principal); /* Muda a cor do 'check' */
+.placa-imagem {
+    max-width: 180px; /* Aumentado de 160px */
+    height: 180px; /* Aumentado de 160px */
+    object-fit: contain;
+    margin-bottom: 1rem;
 }
 
-.botao-adicionar{
-        height: 6vh;
-    width: 30vh;
-    margin-bottom: 10px;
-    border-radius: 25px;
-    border: 2px solid #DCDCDC;
-    font-size: 15pt;
-    font-weight: bold;
+.badge {
+    background-color: #234F1E;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.cardTitle {
+    font-size: 1.2rem;
+    color: #222;
+    font-weight: 700;
     text-align: center;
-    color: #FFFFFF;
-    background-color: #234f1e;
+    min-height: 45px;
 }
 
-.botao-adicionar:hover {
-    background-color: #668213;
+.fabricante {
+    font-size: 0.9rem;
+    color: #777;
+    text-align: center;
+    margin-top: -0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.cardDetails {
+    margin: 0.3rem 0;
+    text-align: left;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.cardDetails p {
+    margin: 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cardDetails p:last-child {
+    border-bottom: none;
+}
+
+.cardButton {
+    margin-top: auto;
+    padding: 12px 20px;
+    width: 50%;
+    font-weight: bold;
+    background-color: #234F1E;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.2s;
     cursor: pointer;
+}
+
+.cardButton:hover {
+    background-color: #1A3A16;
+}
+
+/* --- SETAS DE NAVEGAÇÃO CUSTOMIZADAS --- */
+.custom-swiper-arrow {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.custom-swiper-arrow:hover {
+    color: #234F1E;
+    transform: scale(1.1);
+}
+
+.custom-swiper-prev {
+    margin-right: 10px; /* Espaço entre a seta e o carrossel */
+}
+
+.custom-swiper-next {
+    margin-left: 10px; /* Espaço entre o carrossel e a seta */
+}
+
+/* Paginação (bolinhas) */
+.swiper-pagination-bullet-active {
+    background: #234F1E !important;
 }

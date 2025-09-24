@@ -4,52 +4,265 @@
       "id": 1,
       "modelo": "ZTP-010MI",
       "fabricante": "ZTROON",
+      "preco_medio": 90.00,
       "potencia_pico": 10,
       "tipo_celula": "Silício Monocristalino",
-      "eficiencia": 20.3,
-      "tensao_maxima_potencia_vmp": 41.1,
-      "corrente_maxima_potencia_imp": 10.96,
+      "eficiencia": 15.4,
+      "tensao_maxima_potencia_vmp": 21.25,
+      "corrente_maxima_potencia_imp": 0.48,
       "dimensoes": {
         "altura_mm": 270,
         "largura_mm": 240,
         "profundidade_mm": 17
       },
-      "peso_kg": 24.9,
-      "imagem_url": "caminho/para/sua/imagem_padrao.jpg"
-    },
+      "peso_kg": 0.25,
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-10w-monocristalina-ztroon-ztp-010mi.html"},
     {
       "id": 2,
-      "modelo": "JAM72S30-545/MR",
-      "fabricante": "JA Solar",
-      "potencia_pico": 545,
-      "tipo_celula": "Monocristalino PERC",
-      "eficiencia": 21.1,
-      "tensao_maxima_potencia_vmp": 41.80,
-      "corrente_maxima_potencia_imp": 13.04,
+      "modelo": "ZTP-020MI",
+      "fabricante": "ZTROON",
+      "preco_medio": 119.00,
+      "potencia_pico": 30,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 16.2,
+      "tensao_maxima_potencia_vmp": 21.25,
+      "corrente_maxima_potencia_imp": 0.95,
       "dimensoes": {
-        "altura_mm": 2279,
-        "largura_mm": 1134,
-        "profundidade_mm": 35
+        "altura_mm": 275,
+        "largura_mm": 450,
+        "profundidade_mm": 17
       },
-      "peso_kg": 28.6,
-      "imagem_url": "caminho/para/sua/imagem_padrao.jpg"
-    },
+      "peso_kg": 1.25,
+      "imagem_url": "http://localhost:3001/images/placas.png" ,
+      "link": "https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-20w-monocristalina-ztroon-ztp-020m-mi.html"    },
     {
-      "id": 3,
-      "modelo": "LR5-72HPH-540M",
-      "fabricante": "LONGi Solar",
-      "potencia_pico": 540,
-      "tipo_celula": "Monocristalino",
-      "eficiencia": 21.1,
-      "tensao_maxima_potencia_vmp": 41.65,
-      "corrente_maxima_potencia_imp": 12.97,
+      "id":3,
+      "modelo": "ZTP-030M",
+      "fabricante": "ZTROON",
+      "preco_medio": 190.00,
+      "potencia_pico": 30,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 13.85,
+      "tensao_maxima_potencia_vmp": 19.50,
+      "corrente_maxima_potencia_imp": 1.59,
       "dimensoes": {
-        "altura_mm": 2256,
-        "largura_mm": 1133,
+        "altura_mm": 664,
+        "largura_mm": 338,
+        "profundidade_mm": 18
+      },
+      "peso_kg": 2.4,
+      "imagem_url": "http://localhost:3001/images/placas.png",
+       "link": "https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-30w-monocristalina-ztroon-ztp-030m.html"    },
+
+      {
+      "id":4,
+      "modelo": "ZTP-060M",
+      "fabricante": "ZTROON",
+      "preco_medio": 209.00,
+      "potencia_pico": 60,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 17.89,
+      "tensao_maxima_potencia_vmp": 18.62,
+      "corrente_maxima_potencia_imp": 3.20,
+      "dimensoes": {
+        "altura_mm": 452,
+        "largura_mm": 742, 
+        "profundidade_mm": 25
+      },
+      "peso_kg": 3.6,
+      "imagem_url": "http://localhost:3001/images/placas.png" ,
+       "link": "Placa Solar Fotovoltaica 60Wp Monocristalina - ZTROON - ZTP-060M - R$209,00 https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-60w-monocristalina-ztroon-ztp-060m.html"  },
+
+    {
+      "id":5,
+      "modelo": "ZTP-160MI",
+      "fabricante": "ZTROON",
+      "preco_medio": 399.00,
+      "potencia_pico": 160,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 19.57,
+      "tensao_maxima_potencia_vmp": 19.57,
+      "corrente_maxima_potencia_imp": 8.20,
+      "dimensoes": {
+        "altura_mm": 1220,
+        "largura_mm": 670, 
+        "profundidade_mm": 30
+      },
+      "peso_kg": 8.1,
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-160w-monocristalina-ztroon-ztp-160mi.html"    },
+  
+  {
+      "id":6,
+      "modelo": "ZTP-210M",
+      "fabricante": "ZTROON",
+      "preco_medio": 499.00,
+      "potencia_pico": 210,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 19.83,
+      "tensao_maxima_potencia_vmp": 21.96,
+      "corrente_maxima_potencia_imp": 11.20,
+      "dimensoes": {
+        "altura_mm": 1210,
+        "largura_mm": 875, 
+        "profundidade_mm": 30
+      },
+      "peso_kg": 11.9,
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-210w-monocristalina-ztroon-ztp-210m.html"},
+    
+      {
+      "id":7,
+      "modelo": "LR5-28HTH 225M",
+      "fabricante": "LONGi",
+      "preco_medio": 449.00,
+      "potencia_pico": 225,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 21.60,
+      "tensao_maxima_potencia_vmp": 17.24,
+      "corrente_maxima_potencia_imp": 13.06,
+      "dimensoes": {
+        "altura_mm": 1354,
+        "largura_mm": 767, 
+        "profundidade_mm": 30
+      },
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/painel-solar-fotovoltaico-225w-longi-lr5-54hth-225m.html"},
+        
+      {
+      "id":8,
+      "modelo": "ZTP-260M",
+      "fabricante": "ZTROON",
+      "preco_medio": 469.00,
+      "potencia_pico": 260,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 19.32,
+      "tensao_maxima_potencia_vmp": 21.96,
+      "corrente_maxima_potencia_imp": 7.98,
+      "dimensoes": {
+        "altura_mm": 1538,
+        "largura_mm": 875, 
+        "profundidade_mm": 30
+      },
+      "peso_kg": 14.20 ,
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-260w-monocristalina-ztroon-ztp-260m.html"},
+      
+      {
+      "id":9,
+      "modelo": "ZTP-310MI",
+      "fabricante": "ZTROON",
+      "preco_medio": 499.00,
+      "potencia_pico": 310,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 21.30,
+      "tensao_maxima_potencia_vmp": 34.63,
+      "corrente_maxima_potencia_imp": 8.95,
+      "dimensoes": {
+        "altura_mm": 1650,
+        "largura_mm": 880, 
+        "profundidade_mm": 30
+      },
+      "peso_kg": 15,
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-310w-monocristalina-ztroon-ztp-310mi.html"},
+    
+          {
+      "id":10,
+      "modelo": "ZTP-340MI",
+      "fabricante": "ZTROON",
+      "preco_medio": 549.00,
+      "potencia_pico": 340,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 17.21,
+      "tensao_maxima_potencia_vmp": 37.57,
+      "corrente_maxima_potencia_imp": 9.05,
+      "dimensoes": {
+        "altura_mm": 1992,
+        "largura_mm": 992, 
         "profundidade_mm": 35
       },
-      "peso_kg": 27.2,
-      "imagem_url": "caminho/para/sua/imagem_padrao.jpg"
-    }
-  ]
-}
+      "peso_kg": 20.05,
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-340w-policristalina-ztroon-ztp-340p.html"},
+    
+  
+      {
+      "id":11,
+      "modelo": "LR5-54HTH-435M",
+      "fabricante": "LONGi",
+      "preco_medio": 599.00,
+      "potencia_pico": 435,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 22.30,
+      "tensao_maxima_potencia_vmp": 33.04,
+      "corrente_maxima_potencia_imp": 13.17,
+      "dimensoes": {
+        "altura_mm": 1722,
+        "largura_mm": 1134, 
+        "profundidade_mm": 30
+      },
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/painel-solar-fotovoltaico-435w-longi-lr5-54hth-435m.html"},
+    
+      {
+      "id":12,
+      "modelo": "ZXMR-UHLD132",
+      "fabricante": "ZnShine",
+      "preco_medio": 749.00,
+      "potencia_pico": 565,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 21.87,
+      "tensao_maxima_potencia_vmp": 38.70,
+      "corrente_maxima_potencia_imp": 14.60,
+      "dimensoes": {
+        "altura_mm": 2278,
+        "largura_mm": 1134, 
+        "profundidade_mm": 30
+      },
+      "peso_kg": 32.50,
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/painel-solar-fotovoltaico-565w-znshine-zxmr-uhld132.html"},
+    
+ 
+            {
+      "id":13,
+      "modelo": "DHN-66Z16/DG",
+      "fabricante": "DAH Solar"      ,
+      "preco_medio": 799.00,
+      "potencia_pico": 620,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 22.50,
+      "tensao_maxima_potencia_vmp": 41.30,
+      "corrente_maxima_potencia_imp": 15.10,
+      "dimensoes": {
+        "altura_mm": 2382,
+        "largura_mm": 1134, 
+        "profundidade_mm": 30
+      },
+      "peso_kg": 32.50,
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-620w-monocristalina-dah-620m-24964.html"},
+        
+      {
+      "id":14,
+      "modelo": "DHJ-66Y18-DG",
+      "fabricante": "DAH Solar",
+      "preco_medio": 849.00,
+      "potencia_pico": 700,
+      "tipo_celula": "Silício Monocristalino",
+      "eficiencia": 22.53,
+      "tensao_maxima_potencia_vmp": 40.00,
+      "corrente_maxima_potencia_imp":  17.50,
+      "dimensoes": {
+        "altura_mm": 2384,
+        "largura_mm": 1303, 
+        "profundidade_mm": 33
+      },
+      "peso_kg": 36.70,
+      "imagem_url": "http://localhost:3001/images/placas.png",
+      "link": "https://www.neosolar.com.br/loja/placa-solar-fotovoltaica-700w-monocristalina-dah-700m.html"}
+    
+    ]
+  }

@@ -5,6 +5,8 @@ import { useAuth } from '../context/AuthContext';
 import Button from "../components/botao";
 import NavBar from "../components/navegacao";
 import '../styles/pages/questionario.css';
+import Footer from '../components/rodape';
+
 
 function PerguntaMultiplaEscolha({ enunciado, name, alternativas, onChange, valorSelecionado }) {
     return (
@@ -171,7 +173,7 @@ export default function Questionario() {
                         alternativas={energiaOpcoes} valorSelecionado={tipoEnergia} onChange={(e) => setTipoEnergia(e.target.value)}
                     />
                     
-                    {tipoEnergia === "Elétrica (hidrelétrica)" && (
+                    {tipoEnergia === "Elétrica" && (
                         <div className="card-pergunta">
                             <p className="pergunta-enunciado">Qual o seu consumo de eletricidade?</p>
                             <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
@@ -234,6 +236,8 @@ export default function Questionario() {
                     </div>
                 </form>
             </div>
+            <Footer />
+
         </>
     );
 }

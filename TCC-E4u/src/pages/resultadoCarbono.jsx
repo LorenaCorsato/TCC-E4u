@@ -3,6 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import './../styles/pages/resultadoCarbono.css'; // 1. Importe o novo CSS
 
 
+
 export default function Resultado() {
     const location = useLocation();
     const resultado = location.state?.resultado;
@@ -31,6 +32,9 @@ export default function Resultado() {
                 <p>A média de emissões por pessoa no Brasil é de cerca de 2.2 toneladas por ano.</p>
             </div>
             <Link to="/historico">Ver meu histórico</Link>
+
         </div>
+        
+        
     );
 }
