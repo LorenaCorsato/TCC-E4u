@@ -29,7 +29,6 @@
 .navLogo img {
     height: 5rem;
     width: 6rem;
-
 }
 
 .navDropdown {
@@ -74,7 +73,7 @@
 .navDropdown:hover .dropArtigos {
     opacity: 1;
     transform: translateY(0);
-  }
+}
 
 .navInicio, .navPSolar, .navPCarbono {
     display: inline-block;
@@ -90,7 +89,7 @@
     margin: 0.5rem;
 }
 
-.navLogout {
+.navPerfil {
     display: inline-block;
     padding: 10px 25px;
     text-decoration: underline #FFFFFF;
@@ -100,12 +99,15 @@
     border-radius: 30px;
     transition: background-color 0.3s ease;
     margin-right: 20px;
-  
+    cursor: pointer;
 }
 
-.navLogout a {
+.navPerfil a {
     margin: 0.5rem;
-    
+}
+
+.navPerfil:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .navConfig {
@@ -132,6 +134,128 @@
     margin: 1vh;
 }
 
+/* Estilos do Modal */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    z-index: 2000;
+}
+
+.modalContent {
+    background: #F7F9F7;
+    border-radius: 5px;
+    padding: 25px;
+    width: 250px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0;
+    animation: slideDown 0.3s ease;
+    height: 40vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    margin-top: 67px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalFechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modalFechar:hover {
+    color: #234F1E;
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #668213;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    color: #234F1E;
+    font-family: 'Alexandria', sans-serif;
+}
+
+.modalHeader svg {
+    color: #668213;
+}
+
+.modalBody {
+    margin-bottom: 25px;
+}
+
+.perfilInfo {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.perfilInfo p {
+    margin: 10px 0;
+    color: #333;
+    font-family: 'Alexandria', sans-serif;
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.btnSair {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #668213, #234F1E);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Varela', sans-serif;
+}
+
+.btnSair:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 130, 19, 0.3);
+}
+
+.btnSair:active {
+    transform: translateY(0);
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: block;
@@ -151,22 +275,31 @@
 
     .navDropdown, .navPSolar, .navPCarbono, .navLogin {
         margin: 1vh 0;
-      }
+    }
     
-      .dropEquipe, .dropArtigos {
+    .dropEquipe, .dropArtigos {
         position: static;
         background-color: transparent;
         box-shadow: none;
         border: none;
-      }
+    }
     
-      .dropEquipe a, .dropArtigos a {
+    .dropEquipe a, .dropArtigos a {
         color: black;
         padding-left: 15px;
-      }
+    }
     
-      .navBar {
+    .navBar {
         flex-direction: column;
         align-items: flex-start;
-      }
+    }
+
+    .modalContent {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .modalHeader h2 {
+        font-size: 1.3rem;
+    }
 }

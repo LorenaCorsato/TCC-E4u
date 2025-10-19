@@ -1,7 +1,9 @@
+/* --- Layout Principal da Página --- */
+
 .pagPlaSolar {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    height: 90vh;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -12,31 +14,81 @@
     margin-bottom: 10%;
 }
 
-.textoSolar p {
-    font-size: 20px;
-    font-weight: 500;
+.textoSolar h1 {
+    white-space: nowrap;
 }
 
 .calculoSolar form {
     display: flex;
     flex-direction: column;
+    width: 450px;
+    align-items: center;
 }
+
+
+
+.input-container {
+  position: relative;
+  width: 100%; /* Faz o container ocupar todo o espaço do form */
+  margin: 22px 0 10px 0; /* Espaçamento entre os campos */
+}
+
+.input-container input {
+  background-color: white; /* Garante fundo branco */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 12px 10px;
+  width: 100%;
+  font-size: 1rem;
+  box-sizing: border-box;
+  color: #333;
+  font-family: Alexandria;
+}
+
+.input-container label {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  color: #999;
+  background-color: white; /* Essencial para cobrir a borda do input */
+  padding: 0 5px;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+    font-family: Alexandria;
+
+}
+
+/* Efeito do label flutuando */
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 5px;
+  font-size: 0.8rem;
+  color: #234F1E; 
+}
+
+/* Estilo de foco no input */
+.input-container input:focus {
+  outline: none;
+  border-color: #234F1E;
+}
+
 
 @media (max-width: 768px) {
     .pagPlaSolar {
         margin: 0.5rem;
         flex-direction: column;
+        height: auto; /* Altura automática para conteúdo empilhado */
+        padding: 2rem 0; /* Adiciona um respiro */
     }
 
     .textoSolar {
-        width: 100%;
+        width: 90%;
+        margin-bottom: 2rem; /* Aumenta o espaço antes do formulário */
+        text-align: center;
     }
 
     .calculoSolar form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
+        width: 90%;
     }
 }

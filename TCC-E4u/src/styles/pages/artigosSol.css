@@ -1,23 +1,96 @@
-.artigosSol {
+.artigos {
     margin-top: 5vh;
     padding: 1rem;
+    position: relative; /* Adicionado para permitir posicionamento absoluto dos filhos */
+}
+
+.artigosTopo {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5vh;
+}
+
+.artigosTopo .cardBotao {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    border: 0;
+}
+
+.artigosTopo .cardBotao h5 {
+    position: absolute;
+    font-size: 1.4rem;
+    top: 70%;
+    left: 2%;
+    color: #FFFFFF;
+}
+
+.artigosTopo .cardBotao p {
+    position: absolute;
+    font-size: 1rem;
+    top: 20%;
+    left: 2%;
+    color: #FFFFFF;
+}
+
+.artigosTopo > .cardBotao h5 {
+    top: 10%;
+    left: 2%;
+    color: #FFFFFF;
+}
+
+.artigosTopo > div .cardBotao h5 {
+    top: 60%;
+    left: 4%;
+    color: #FFFFFF;
+}
+
+.artigosTopo .cardBotao img {
+    display: block;
+    width: 100%;
+    padding: 0;
 }
 
 .artigosCards {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
     margin: 1%;
+    font-size: 1.2rem;
+
 }
 
-.artigosCards .btnIcone {
-    height: 20rem;
-    width: 10rem;
+.artigosCards .cardBotao {
+    border: 0
 }
 
-.artigosCards .btnIcone .imgBtnIcone {
-    height: 100%;
-    width: 100%;
+.artigosArea {
+    position: absolute; /* Posiciona o elemento de forma absoluta */
+    top: 1; /* Ajuste conforme necessário */
+    right: 0; /* Alinha à direita */
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    width: 25vw;
+    align-items: center;
+    border-radius: 25px;
+    box-sizing: border-box;
+    background-color: #e8e6e6;
+    margin-right: 23px;
+}
+
+.artigosArea image {
+    border-radius: 2500px;
+}
+
+.artigosArea .cardBotao {
+    flex-direction: row-reverse;
+}
+
+.artigosArea h5 {
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    justify-self: center;
 }
 
 @media (max-width: 768px) {
@@ -25,3 +98,4 @@
         flex-direction: column;
         }
 }
+

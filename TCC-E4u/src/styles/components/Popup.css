@@ -48,12 +48,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50vw; 
-  height: 20vw;
- 
-  overflow-y: auto; 
+  height: auto;
+  max-height: 80vh;
+  overflow: visible;
   background-color: #f2fff2;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1000; 
+  padding: 32px 28px 40px 28px; /* Aumenta o espaçamento interno no desktop */
 }
 
 /* Estilos para o conteúdo completo */
@@ -67,7 +68,8 @@
 /* Estilos para o conteúdo completo quando o pop-up está expandido */
 .popup-card.expanded .full-content {
   opacity: 1;
-  max-height: 80vh; 
+  max-height: none;
+  overflow: visible;
   transition: opacity 0.5s ease-in-out 0.2s, max-height 0.5s ease-in-out;
 }
 
@@ -86,4 +88,47 @@
 
 .popup-close-btn:hover {
   color: #1a842d;
+}
+
+/* Responsividade para popups no mobile */
+@media (max-width: 600px) {
+  .popup-container {
+    flex-wrap: wrap;
+    gap: 1px;
+    margin: 0.5rem;
+  }
+  .popup-card {
+    width: 48vw;
+    min-width: 140px;
+    max-width: 49vw;
+    height: 18vh;
+    min-height: 110px;
+    margin: 0 0 8px 0;
+    font-size: 0.95rem;
+    padding: 6px 2px;
+  }
+  .popup-card.expanded {
+    width: 90vw;
+    min-width: unset;
+    max-width: 90vw;
+    height: auto;
+    min-height: 70vh;
+    max-height: 90vh;
+    padding: 24px 18px 32px 18px; /* Aumenta o espaçamento interno */
+    font-size: 1.05rem;
+    z-index: 1000;
+    overflow: visible;
+  }
+  .popup-card.expanded .full-content {
+    overflow: visible;
+  }
+  .popup-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .popup-card p,
+  .popup-card .full-content p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
 }

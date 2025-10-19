@@ -299,53 +299,49 @@
     align-items: center;
 }
 
-/* NOVAS CLASSES PARA OS CARDS DOS PARÁGRAFOS */
+/* MELHORIA: Cards dos parágrafos */
 .paragrafos-cards {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: stretch;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 1.5rem 1rem; /* Adicionado padding */
+  background-color: #617c4a00;
 }
 
 .paragrafo-card {
-    background: #f3f6f2;
-    border-radius: 12px;
-     box-shadow: 15px 8px 2px rgba(78, 78, 78, 0.18);
-    padding: 1.5rem 1.2rem;
-    width: 20px;
-   height: 280px;
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: box-shadow 0.2s;
-    margin-right: 50px;
-    margin-left: 30px;
+  background: #f3f6f2;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 1.2rem;
+  flex: 1 1 280px; /* Base flexível para os cards */
+  max-width: 350px; /* Largura máxima para consistência */
+  min-height: 280px; /* Altura mínima para alinhar */
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .paragrafo-card:hover {
-  
-     box-shadow: 15px 15px 0px #668213;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 20px #00000060;
 }
 
 .paragrafo-titulo {
-    font-weight: bold;
-    color: #1a842d;
-    margin-bottom: 0.7rem;
-    font-size: 1.08rem;
-    display: block;
-    font-family: "alexandria", sans-serif;
+  font-weight: bold;
+  color: #1a842d;
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+  font-family: "alexandria", sans-serif;
 }
 
 .paragrafo-texto {
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.5;
-    font-family: "varela";
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "varela";
 }
+
 
 /* MEDIA QUERIES PARA RESPONSIVIDADE */
 @media (max-width: 1024px) {
@@ -379,12 +375,20 @@
     }
 
     .descricoes .topicos {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
         align-items: center;
+        border-bottom: 2px solid #ddd;
     }
 
-    .descricoes .topicos a {
-        margin: 0.5rem;
+    .topicos .topico {
+        margin: 0 10px;
+        padding: 8px 0;
+        font-size: 0.98rem;
+        min-width: unset;
+        white-space: nowrap;
     }
 
     .descricoes .paragrafos {

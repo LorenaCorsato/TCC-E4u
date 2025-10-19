@@ -42,7 +42,7 @@ export default function Login() {
     useEffect(() => {
         if (usuario) {
             // Navega para a landing page
-            navigate('/landingPage');
+            navigate('/home' );
         }
     }, [usuario, navigate]); 
 

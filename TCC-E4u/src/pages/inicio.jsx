@@ -53,7 +53,7 @@ export default function Inicio() {
   const [slideAtivo2, setSlideAtivo2] = useState(0);
   const [slideAtivo3, setSlideAtivo3] = useState(0);
 
-  // Dados para os novos pop-ups na seção de Benefícios
+  // Dados para os novos pop-ups 
   const beneficiosPopups = [
     {
       title: "Para o Meio Ambiente",

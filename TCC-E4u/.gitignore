@@ -1,2 +1,4 @@
 # Arquivos de credenciais e configuração
 backend/serviceAccountKey.json
+backend/node_modules
+node_modules

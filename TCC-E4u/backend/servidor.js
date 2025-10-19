@@ -7,6 +7,7 @@ const calculadoraRotas = require('./src/routes/calculadoraRotas');
 
 
 const authRotas = require('./src/routes/authRotas');
+const placaSolarRotas = require('./src/routes/placaSolarRotas');
 
 const app = express();
 const PORTA = process.env.PORT || 3001;
@@ -18,6 +19,7 @@ app.use('/api/auth', authRotas);
 app.use('/api/calculator', calculadoraRotas); // 
 
 app.use('/api/auth', authRotas);
+app.use('/api/solar', placaSolarRotas);
 
 app.get('/', (req, res) => {
   res.send('API está funcionando! 🚀');

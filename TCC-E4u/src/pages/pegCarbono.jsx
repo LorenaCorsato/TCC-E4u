@@ -5,6 +5,7 @@ import Button from '../components/botao.jsx'
 import '../styles/pages/pegCarbono.css'
 import { Link, useNavigate } from 'react-router-dom' 
 
+
 export default function PagCarbono() {
     const navigate = useNavigate();
     return (
@@ -25,6 +26,8 @@ export default function PagCarbono() {
                     <Button href="/grafico" btnNome="Histórico"/>
                 </div>
             </div>
+            <Footer />
+
         </>
     )
 }

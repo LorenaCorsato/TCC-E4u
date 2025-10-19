@@ -1,0 +1,85 @@
+.inicio {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.inicio h5 {
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+}
+.cardArtigosPreview {
+  display: flex;
+  flex-direction: row;
+}
+
+.cardArtigosPreview .cardBotao:first-child {
+  height: 100%;
+  width: 50%;
+}
+
+.cardArtigosPreview .cardBotao:first-child img {
+  height: 100%;
+  width: 100%;
+}
+
+.cardArtigosPreview .cardBotao:first-child h5 {
+    position: absolute;
+    font-size: 1.4rem;
+    top: 50%;
+    left: 2%;
+    color: #FFFFFF;
+}
+
+.cardArtigosPreview .cardBotao:first-child p {
+  width: 50%;
+    position: absolute;
+    font-size: 1rem;
+    top: 60%;
+    left: 2%;
+    color: #FFFFFF;
+}
+
+.cardArtigosPreview .cardBotao p{
+  margin: 0;
+  padding: 0.5;
+}
+
+.cardArtigosPreview .cardBotao h5{
+  margin: 0;
+  padding: 0.5;
+}
+
+.cardArtigosPreview .cardBotao {
+  position: relative;
+  flex-direction: column;
+  height: 50%;
+  width: 20%;
+  border: none
+}
+
+.graficoPreview img{
+  height: 30vh;
+  width: 20vw;
+  margin-bottom: 2vh;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .cardArtigosPreview {
+    flex-direction: column;
+    justify-self: center
+  }
+  .cardArtigosPreview .cardBotao {
+    width: 100%;
+  }
+
+  .cardArtigosPreview .cardBotao:first-child {
+  height: 100%;
+  width: 80%;
+}
+
+  .cardBotao:first-child img{
+    width: 100%;
+  }
+}

@@ -1,64 +1,74 @@
 .cardBotao {
-    height: auto;
-    width: 20vw;
     display: flex;
-    flex-direction: column;
-    border-radius: 5px;
+    flex-direction: row;
+    height: 25%;
+    width: 90%;
     margin: 1rem;
     padding: 0.5rem;
+    border-bottom: 1px solid black;
     transition: all 0.3s;
-    background-color: #234F1E;
-
+    box-sizing: border-box;
+    flex-grow: 0;
+    
 }
 
-/*.cardBotao:hover {
-    box-shadow: 4px 4px 0px 4px rgba(0,116,59,1);
--webkit-box-shadow: 4px 4px 0px 4px rgba(0,116,59,1);
--moz-box-shadow: 4px 4px 0px 4px rgba(0,116,59,1);
-}*/
+.cardBotao:hover {
+    cursor: pointer
+}
 
-.imagemCardBotao {
-    height: 100%;
+.cardBotao:hover p {
+    text-decoration: underline;
+}
+
+.cardBotao:hover img {
+    opacity: 0.9;
+}
+
+.cardBotao img {
+    height: auto;
     width: auto;
-    border-radius: 5px;
+    margin-right: 1rem;
     padding: 0.5%;
-    object-fit: cover;
-}
-
-.conteudoCardBotao {
-    display: flex;
-    flex-direction: column;
-    margin: 0.5%;
-}
-
-.textoCardBotao {
-    width: 100%;
-    font-size: 1.5rem;
-    padding: 1%;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.cardBotao .btn {
-    height: 2rem;
-    width: 30%;
-    font-size: 1rem;
     border-radius: 25px;
-    border: 2px solid #DCDCDC;
+    object-fit: cover;
+    flex-grow: 0;
+}
+
+.cardBotao h5 {
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     padding: 1%;
-    color: #FFFFFF;
-    background-color: #668213;
+    font-family: "alexandria", sans-serif;
+   
+}
+
+.cardBotao p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 1%;
+    font-family: "varela";
 }
 
 @media (max-width: 768px) {
     .cardBotao {
-        width: 100%;
+        flex-direction: column;
+        min-height: max-content;
         justify-self: center;
+        align-self: center;
         margin: 0.5rem;
     }
 
-    .cardBotao .btn {
-        width: 80%;
-        align-self: center;
+    .cardBotao h5 {
+        font-size: 1rem;
+    }
+
+    .cardBotao p {
+        font-size: 0.8rem;
+    }
+    
+    .cardBotao img {
+        max-width: fit-content;
     }
 }
