@@ -7,6 +7,8 @@ import CardSlide from "../components/cardSlide"
 import Acessibilidade from "../components/acessibilidade";
 import "../styles/pages/home.css";
 
+//home
+
 export default function Inicio() {
   return (
     <>
