@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import Button from '../components/botao';
 import NavBar from '../components/navegacao';
-import '../styles/pages/plaSolar.css'; // Mantenha a importação do seu CSS
+import '../styles/pages/plaSolar.css'; 
 import Footer from '../components/rodape';
 
 export default function PagSolar() {
@@ -26,7 +26,7 @@ export default function PagSolar() {
         const dadosFormulario = {
             mediaConsumoKwh: parseFloat(mediaConsumoKwh),
             espacoDisponivelM2: parseFloat(espacoDisponivelM2),
-            cep: cep.replace(/\D/g, '') // Remove traços e pontos do CEP
+            cep: cep.replace(/\D/g, '')
         };
 
         setMensagem("Calculando...");
@@ -56,7 +56,6 @@ export default function PagSolar() {
 
                 <div className="calculoSolar">
                     <form onSubmit={handleSubmit}>
-                        {/* Campo Média kWh */}
                         <div className="input-container">
                             <input 
                                 id="mediaConsumo"
@@ -69,7 +68,6 @@ export default function PagSolar() {
                             <label htmlFor="mediaConsumo">Média kWh consumidos/mês</label>
                         </div>
                         
-                        {/* Campo Espaço Disponível */}
                         <div className="input-container">
                             <input 
                                 id="espacoDisponivel"

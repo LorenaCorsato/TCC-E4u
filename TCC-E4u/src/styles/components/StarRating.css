@@ -1,0 +1,28 @@
+
+.star-rating-container {
+  display: inline-flex !important; 
+  align-items: center !important;  
+  justify-content: center !important;
+  line-height: 1 !important;
+}
+
+.star-rating-container .star {
+  margin: 0 1px;
+  padding: 0;
+  transition: color 0.2s;
+  line-height: 1 !important;
+  
+  font-size: 1.8rem !important; 
+}
+
+.star-rating-container .empty-star {
+  color: #e4e5e9 !important; 
+}
+
+.star-rating-container .full-star {
+  color: #FFC107 !important; 
+}
+
+.star-rating-container .half-star {
+  color: #FFC107 !important; 
+}

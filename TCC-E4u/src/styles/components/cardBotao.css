@@ -9,8 +9,15 @@
     transition: all 0.3s;
     box-sizing: border-box;
     flex-grow: 0;
-    
 }
+
+.cardsBotao img {
+    max-height: 176px;
+    min-height: 176px;
+    max-width: 308px;
+    min-width: 308px;
+}
+
 
 .cardBotao:hover {
     cursor: pointer
@@ -25,7 +32,7 @@
 }
 
 .cardBotao img {
-    height: auto;
+    height: 100%;
     width: auto;
     margin-right: 1rem;
     padding: 0.5%;
@@ -39,8 +46,6 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     padding: 1%;
-    font-family: "alexandria", sans-serif;
-   
 }
 
 .cardBotao p {
@@ -48,7 +53,6 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     padding: 1%;
-    font-family: "varela";
 }
 
 @media (max-width: 768px) {

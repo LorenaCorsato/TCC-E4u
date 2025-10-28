@@ -6,9 +6,9 @@ export default function Button({ href, btnNome, onClick }) {
 
     const handleClick = () => {
         if (onClick) {
-            onClick(); // executa ação personalizada (ex: enviar formulário)
+            onClick();
         } else if (href) {
-            navigate(href); // redireciona
+            navigate(href); 
         }
     };
 

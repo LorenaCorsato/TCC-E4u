@@ -18,25 +18,19 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
 
-             // ==========================================================
-        // MODO DE DESENVOLVIMENTO: Pula o login com um usuário falso
-        // ==========================================================
-        // A variável import.meta.env.DEV é fornecida pelo Vite e só é 'true' durante o desenvolvimento
+          // MODO DE DESENVOLVIMENTO
         if (import.meta.env.DEV && !localStorage.getItem('authToken')) {
             console.warn(
               "MODO DE DESENVOLVIMENTO ATIVO: Usuário falso foi injetado para pular o login."
             );
-            // Crie um objeto de usuário falso com os dados que suas páginas precisam
             setUsuario({
                 nome: "Usuário Dev",
                 email_usuario: "dev@teste.com",
                 tipo_usuario: "admin",
-                // adicione quaisquer outros campos que seus componentes esperem
             });
             setLoading(false);
-            return; // Impede a execução da lógica de login real
+            return; 
         }
-        // --- Fim do atalho de desenvolvimento ---
 
         const carregarDadosUsuario = async () => {
             const tokenAtual = localStorage.getItem('authToken');

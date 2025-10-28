@@ -14,13 +14,11 @@ export default function Acessibilidade() {
     const [filtroAtivo, setFiltroAtivo] = useState('nenhum');
     
   
-    // Lógica para aplicar filtros de cor
     const aplicarFiltro = (idFiltro) => {
         setFiltroAtivo(idFiltro);
     };
 
    
-    // useEffect para os filtros de cor (sem alteração)
     useEffect(() => {
         const elementoHtml = document.documentElement;
         tiposDeFiltro.forEach(filtro => {

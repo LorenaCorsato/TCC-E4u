@@ -34,25 +34,27 @@ export default function Artigos() {
           </div>
         </div>
 
+        {/* Área de artigos de coluna */}
+
         <div style={{display: "flex", flexDirection: "row"}}>
           <div className="artigosCards">
             <CardBotao
               hrefCardBotao="/artigo01"
-              srcCardBotao="src/assets/Ecologia.jpg"
+              srcCardBotao="src/assets/energia.jpg"
               tituloCardBotao="O futuro das energias renováveis no Brasil: Desafios e incentivos"
               textoCardBotao="Explore os caminhos para um Brasil mais sustentável."
             />
 
             <CardBotao
               hrefCardBotao="/artigo02"
-              srcCardBotao="src/assets/Ecologia.jpg"
+              srcCardBotao="src/assets/co2.jpg"
               tituloCardBotao="Pegada de carbono: o que é, como calcular e como reduzir?"
               textoCardBotao="Aprenda a medir e diminuir seu impacto ambiental."
             />
 
             <CardBotao
               hrefCardBotao="/artigo03"
-              srcCardBotao="src/assets/Ecologia.jpg"
+              srcCardBotao="src/assets/mercado.jpg"
               tituloCardBotao="Mercado sustentável: Como a sustentabilidade impacta na economia nacional?"
               textoCardBotao="Descubra como práticas sustentáveis estão transformando a economia."
             />
@@ -86,6 +88,16 @@ export default function Artigos() {
             />
           </div>
 
+
+
+
+
+
+
+
+
+
+            {/* Área de artigos pequenos à direita */}
           <div style={{width: "400px", height: "200px"}}>
             <div className="artigosArea">
               <CardBotao

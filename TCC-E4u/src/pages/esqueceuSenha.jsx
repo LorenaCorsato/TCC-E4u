@@ -21,7 +21,6 @@ export default function EsqueceuSenha() {
         setTipoMensagem('');
 
         try {
-            // Envia o email de redefinição
             await sendPasswordResetEmail(auth, email);
             
             setMensagem('Se este email estiver cadastrado, um link para redefinir a senha foi enviado para sua caixa de entrada.');

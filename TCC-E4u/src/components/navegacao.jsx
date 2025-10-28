@@ -63,6 +63,7 @@ export default function NavBar() {
         try {
             await logout();
             setModalPerfilAberto(false);
+            navigate('/landingPage');
         } catch (erro) {
             console.error("Erro ao fazer logout:", erro);
         }

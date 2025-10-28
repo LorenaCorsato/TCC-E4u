@@ -1,13 +1,29 @@
-import Header from '../components/cabecalho'
-import Footer from '../components/rodape'
-import NavBar from '../components/navegacao.jsx'
-import Button from '../components/botao.jsx'
-import '../styles/pages/pegCarbono.css'
-import { Link, useNavigate } from 'react-router-dom' 
-
+import React from 'react'; 
+import Footer from '../components/rodape';
+import Button from '../components/botao.jsx';
+import '../styles/pages/pegCarbono.css';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext'; 
 
 export default function PagCarbono() {
     const navigate = useNavigate();
+    const { usuario } = useAuth(); 
+    const handleQuestionarioClick = () => {
+        if (!usuario) {
+            navigate('/login');
+            return;
+        }
+
+        if (usuario.tipo_usuario === 'fisica') {
+            navigate('/questionario');
+        } else if (usuario.tipo_usuario === 'juridica') {
+            navigate('/questionarioJ');
+        } else {
+            alert("Tipo de usuário não reconhecido.");
+            navigate('/landingPage');
+        }
+    };
+
     return (
         <>
             <div className="pagPegCarbono">
@@ -22,12 +38,11 @@ export default function PagCarbono() {
                 </div>
 
                 <div className="questionario">
-                    <Button href="/questionario" btnNome="Questionário"/>
-                    <Button href="/grafico" btnNome="Histórico"/>
+                    <Button onClick={handleQuestionarioClick} btnNome="Questionário"/>
+                    <Button href="/historico" btnNome="Histórico"/>
                 </div>
             </div>
             <Footer />
-
         </>
-    )
+    );
 }

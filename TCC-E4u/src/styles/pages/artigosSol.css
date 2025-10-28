@@ -1,7 +1,7 @@
 .artigos {
     margin-top: 5vh;
     padding: 1rem;
-    position: relative; /* Adicionado para permitir posicionamento absoluto dos filhos */
+    position: relative;
 }
 
 .artigosTopo {
@@ -57,7 +57,13 @@
     flex-direction: column;
     margin: 1%;
     font-size: 1.2rem;
+}
 
+.artigosCards img {
+    max-height: 176px;
+    min-height: 176px;
+    max-width: 308px;
+    min-width: 308px;
 }
 
 .artigosCards .cardBotao {
@@ -98,4 +104,3 @@
         flex-direction: column;
         }
 }
-

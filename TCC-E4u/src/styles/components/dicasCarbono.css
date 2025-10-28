@@ -1,0 +1,39 @@
+.dicas-container {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dicas-container h3 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-principal);
+    margin-top: 0;
+}
+
+.lista-dicas {
+    list-style: none;
+    padding-left: 0;
+}
+
+.lista-dicas li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.lista-dicas li::before {
+    content: '✔';
+    color: var(--cor-principal);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+}

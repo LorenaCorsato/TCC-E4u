@@ -1,17 +1,21 @@
-.historicos {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1%;
+.historico-container {
+    padding: 2rem;
+    text-align: center;
+    min-height: 150vh;
 }
 
-.historicos .btn {
-    height: 6vh;
-    width: 80vh;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 2px solid #DCDCDC;
-    font-size: 1.9rem;
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: #36A108;
+.historico-container h1 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-principal);
+    margin-bottom: 2rem;
+}
+
+.chart-wrapper {
+    max-width: 1300px;
+    max-height: 1500vh;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
 }

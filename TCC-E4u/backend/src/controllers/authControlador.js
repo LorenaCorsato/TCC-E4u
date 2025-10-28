@@ -1,40 +1,53 @@
 const admin = require('../config/firebase');
 const db = require('../config/database');
 
-//Cadastro de Pessoa física 
-exports.cadastrarPF = async (req, res) => {
-    const { email, cpf, senha, googleUid, nome } = req.body;
+    function capitalizarNome(str) {
+    return str.split(' ') 
+              .map(part => part.charAt(0).toUpperCase() + part.slice(1)) 
+              .join(' '); 
+    }
 
-    // Cadastro via Google (sem senha)
+// Cadastro de Pessoa física 
+exports.cadastrarPF = async (req, res) => {
+    const { email, cpf, senha, googleUid, nome: nomeGoogle } = req.body;
+
+    //  Cadastro via Google 
     if (googleUid) {
-        if (!email || !cpf || !googleUid) {
-            return res.status(400).send({ mensagem: 'Email, CPF e Google UID são obrigatórios.' });
+        if (!email || !cpf || !googleUid || !nomeGoogle) {
+            return res.status(400).send({ mensagem: 'Email, CPF, Nome e Google UID são obrigatórios.' });
         }
         try {
             const consultaSQL = `
               INSERT INTO usuario(email_usuario, cpf_usuario, nome, tipo_usuario, firebase_uid)
-              VALUES($1, $2, $3, 'fisica', $4)
-              RETURNING *;
+              VALUES($1, $2, $3, 'fisica', $4) RETURNING *;
             `;
-            const valores = [email, cpf, nome, googleUid];
+            const valores = [email, cpf, nomeGoogle, googleUid];
             const { rows } = await db.query(consultaSQL, valores);
             return res.status(201).send({ mensagem: 'Usuário físico criado com sucesso via Google!', usuario: rows[0] });
         } catch (erro) {
-            console.error("Erro ao criar usuário físico com Google:", erro);
-            if (erro.code === '23505') { 
-                return res.status(409).send({ mensagem: 'Este usuário já está cadastrado.' });
-            }
+            if (erro.code === '23505') return res.status(409).send({ mensagem: 'Este usuário já está cadastrado.' });
             return res.status(500).send({ mensagem: "Ocorreu um erro no servidor." });
         }
     } else {
-
-        // Cadastro com email e senha
+        // Cadastro com email e senha 
         if (!email || !cpf || !senha) {
             return res.status(400).send({ mensagem: 'Email, CPF e senha são obrigatórios.' });
         }
         try {
+           
+            let nome = email.split('@')[0]              
+                         .replace(/[^a-zA-Z.]/g, '') 
+                         .replace(/\./g, ' ');       
+            
+            nome = capitalizarNome(nome);
+
+            if (nome.trim().length === 0) {
+                nome = 'Usuario'; 
+            }
+
             const registroDeUsuario = await admin.auth().createUser({ email: email, password: senha, displayName: nome });
             const { uid } = registroDeUsuario;
+            
             const consultaSQL = `
               INSERT INTO usuario(email_usuario, cpf_usuario, nome, tipo_usuario, firebase_uid)
               VALUES($1, $2, $3, 'fisica', $4)
@@ -55,11 +68,12 @@ exports.cadastrarPF = async (req, res) => {
 
 // Cadastro de Pessoa jurídica 
 exports.cadastrarPJ = async (req, res) => {
-    const { email, cnpj, senha, googleUid, nome } = req.body;
+    const { email, cnpj, senha, googleUid, nome: nomeGoogle } = req.body;
 
+    // Cadastro via Google 
     if (googleUid) {
-        if (!email || !cnpj || !googleUid) {
-            return res.status(400).send({ mensagem: 'Email, CNPJ e Google UID são obrigatórios.' });
+        if (!email || !cnpj || !googleUid || !nomeGoogle) {
+            return res.status(400).send({ mensagem: 'Email, CNPJ, Nome e Google UID são obrigatórios.' });
         }
         try {
             const consultaSQL = `
@@ -67,24 +81,33 @@ exports.cadastrarPJ = async (req, res) => {
               VALUES($1, $2, $3, 'juridica', $4)
               RETURNING *;
             `;
-            const valores = [email, cnpj, nome, googleUid];
+            const valores = [email, cnpj, nomeGoogle, googleUid];
             const { rows } = await db.query(consultaSQL, valores);
             return res.status(201).send({ mensagem: 'Usuário jurídico criado com sucesso via Google!', usuario: rows[0] });
         } catch (erro) {
-            console.error("Erro ao criar usuário jurídico com Google:", erro);
-            if (erro.code === '23505') {
-                return res.status(409).send({ mensagem: 'Este usuário já está cadastrado.' });
-            }
+            if (erro.code === '23505') return res.status(409).send({ mensagem: 'Este usuário já está cadastrado.' });
             return res.status(500).send({ mensagem: "Ocorreu um erro no servidor." });
         }
     } else {
-        //Cadastro  com email e senha
+        // Cadastro com email e senha 
         if (!email || !cnpj || !senha) {
             return res.status(400).send({ mensagem: 'Email, CNPJ e senha são obrigatórios.' });
         }
         try {
+           
+            let nome = email.split('@')[0]
+                         .replace(/[^a-zA-Z.]/g, '')
+                         .replace(/\./g, ' ');
+            
+            nome = capitalizarNome(nome);
+
+            if (nome.trim().length === 0) {
+                nome = 'UsuarioEmpresarial';
+            }
+
             const registroDeUsuario = await admin.auth().createUser({ email: email, password: senha, displayName: nome });
             const { uid } = registroDeUsuario;
+
             const consultaSQL = `
               INSERT INTO usuario(email_usuario, cnpj_usuario, nome, tipo_usuario, firebase_uid)
               VALUES($1, $2, $3, 'juridica', $4)
@@ -102,4 +125,3 @@ exports.cadastrarPJ = async (req, res) => {
         }
     }
 };
-

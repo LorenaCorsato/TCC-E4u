@@ -6,12 +6,12 @@ export default function Card({ srcCard, textoCard, tituloCard }) {
 
     return (
         <>
-            <div className="card" onMouseEnter={() => setHoverAtivo(true)} onMouseLeave={() => setHoverAtivo(false)}>
-                <img className={`imagemCard ${hoverAtivo ? "aberto" : ""}`} src={srcCard} />
+            <div className="card1" onMouseEnter={() => setHoverAtivo(true)} onMouseLeave={() => setHoverAtivo(false)}>
+                <img className={`imagemCard1 ${hoverAtivo ? "aberto" : ""}`} src={srcCard} />
 
-                <p className="tituloCard" >{tituloCard}</p>
-                <div className={`conteudoCard ${hoverAtivo ? "aberto" : ""}`}>
-                    <p className="textoCard">{textoCard}</p>
+                <p className="tituloCard1">{tituloCard}</p>
+                <div className={`conteudoCard1 ${hoverAtivo ? "aberto" : ""}`}>
+                    <p className="textoCard1">{textoCard}</p>
                 </div>
             </div>
         </>

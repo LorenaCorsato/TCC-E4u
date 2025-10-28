@@ -1,11 +1,9 @@
-/* Container dos popups */
 .popup-container {
   display: flex;
   justify-content: center;
   margin: 1rem;
 }
 
-/* Estilos do card */
 .popup-card {
   background-color: #F3F6F2;
   border-radius: 10px;
@@ -26,14 +24,11 @@
   position: relative;
 }
 
-/* Estilos do conteúdo inicial - aqui é onde adicionamos o efeito de hover */
 .popup-card > div:not(.full-content) {
   padding: 10px;
-  /* Transição para o efeito de iluminação */
   transition: all 0.3s ease-in-out;
 }
 
-/* Efeito de iluminação quando o mouse passa sobre o texto inicial */
 .popup-card > div:not(.full-content):hover h3,
 .popup-card > div:not(.full-content):hover p {
   text-shadow: 0px 0px 0px #6e964d, 0px 0px 0px #5d7e42;
@@ -41,7 +36,6 @@
   transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-/* Estilos quando o pop-up está expandido */
 .popup-card.expanded {
   position: fixed; 
   top: 50%;
@@ -54,10 +48,9 @@
   background-color: #f2fff2;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1000; 
-  padding: 32px 28px 40px 28px; /* Aumenta o espaçamento interno no desktop */
+  padding: 32px 28px 40px 28px; 
 }
 
-/* Estilos para o conteúdo completo */
 .full-content {
   opacity: 0;
   max-height: 0;
@@ -65,7 +58,6 @@
   transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
 }
 
-/* Estilos para o conteúdo completo quando o pop-up está expandido */
 .popup-card.expanded .full-content {
   opacity: 1;
   max-height: none;
@@ -90,7 +82,6 @@
   color: #1a842d;
 }
 
-/* Responsividade para popups no mobile */
 @media (max-width: 600px) {
   .popup-container {
     flex-wrap: wrap;
@@ -114,7 +105,7 @@
     height: auto;
     min-height: 70vh;
     max-height: 90vh;
-    padding: 24px 18px 32px 18px; /* Aumenta o espaçamento interno */
+    padding: 24px 18px 32px 18px; 
     font-size: 1.05rem;
     z-index: 1000;
     overflow: visible;

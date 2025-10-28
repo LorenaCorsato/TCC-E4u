@@ -1,25 +1,39 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react'; 
 import { useLocation, Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import StarRating from '../components/StarRating';
+import ModalAvaliacoes from '../components/ModalAvaliacoes';
 
-import placaSolarImage from '../assets/Editado.png'; 
+import placaSolarImage from '../assets/editado.png'; 
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import '../styles/pages/resultadoSolar.css';
-// Apague a importação do cardSlide.css se ela existir, vamos usar só um arquivo
 
 import NavBar from '../components/navegacao';
 import Footer from '../components/rodape';
 
 export default function ResultadoSolar() {
     const location = useLocation();
-    const swiperRef = useRef(null); // useRef para controlar o Swiper
+    const swiperRef = useRef(null); 
     
     const resultados = location.state?.resultado?.recomendacoes;
     const dadosGerais = location.state?.resultado;
+
+    const [modalAberta, setModalAberta] = useState(false);
+    const [placaSelecionada, setPlacaSelecionada] = useState(null);
+
+    const abrirModal = (placa) => {
+        setPlacaSelecionada(placa);
+        setModalAberta(true);
+    };
+
+    const fecharModal = () => {
+        setModalAberta(false);
+        setPlacaSelecionada(null);
+    };
 
     if (!Array.isArray(resultados) || resultados.length === 0) {
         return (
@@ -48,15 +62,14 @@ export default function ResultadoSolar() {
                 <h1>Você precisa de aproximadamente <strong>{dadosGerais?.potenciaNecessariaWp} Wp</strong> de potência.</h1>
                 <p>Estas são as opções do nosso catálogo. As melhores estão destacadas como recomendadas.</p>
                 
-                {/* A estrutura do container com os botões por fora */}
                 <div className="swiper-container-resultados">
                     <button className="custom-swiper-arrow custom-swiper-prev" onClick={() => swiperRef.current?.slidePrev()}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                     </button>
 
                     <Swiper
-                        onSwiper={(swiper) => { swiperRef.current = swiper; }} // Forma correta de pegar a instância
-                        modules={[Pagination]} // Módulos necessários
+                        onSwiper={(swiper) => { swiperRef.current = swiper; }}
+                        modules={[Pagination]}
                         loop={resultadosOrdenados.length > 3}
                         spaceBetween={30}
                         pagination={{ clickable: true, dynamicBullets: true }}
@@ -74,6 +87,12 @@ export default function ResultadoSolar() {
                                     {item.recomendado && <div className="badge">Recomendado</div>}
                                     <h2 className="cardTitle">{item.modelo}</h2>
                                     <p className="fabricante">Marca: {item.fabricante}</p>
+                                    
+                                    <div className="avaliacao-trigger" onClick={() => abrirModal(item)} title="Ver ou adicionar avaliações">
+                                        <StarRating rating={item.media_nota} />
+                                        <span>({item.total_avaliacoes})</span>
+                                    </div>
+
                                     <div className="cardDetails">
                                         <p><strong>Quantidade:</strong> {item.quantidade_necessaria} placas</p>
                                         <p><strong>Custo Total:</strong> {parseFloat(item.custo_total).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
@@ -87,15 +106,26 @@ export default function ResultadoSolar() {
                                     </a>
                                 </div>
                             </SwiperSlide>
+
                         ))}
                     </Swiper>
+                
                     
                     <button className="custom-swiper-arrow custom-swiper-next" onClick={() => swiperRef.current?.slideNext()}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                     </button>
                 </div>
+                <p className='aviso_telhado'>ATENÇÃO: Certifique-se de que a estrutura do seu telhado suporta o peso dos módulos solares antes da compra.</p>
             </div>
-            {/* O Footer estava faltando */}
+
+            {placaSelecionada && (
+                <ModalAvaliacoes
+                    placa={placaSelecionada}
+                    isOpen={modalAberta}
+                    onClose={fecharModal}
+                />
+            )}
+            
             <Footer />
         </>
     );

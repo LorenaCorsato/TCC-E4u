@@ -1,4 +1,3 @@
-/* --- Layout Principal da Página --- */
 
 .pagPlaSolar {
     display: flex;
@@ -29,12 +28,13 @@
 
 .input-container {
   position: relative;
-  width: 100%; /* Faz o container ocupar todo o espaço do form */
-  margin: 22px 0 10px 0; /* Espaçamento entre os campos */
+  width: 100%;
+  margin: 22px 0 10px 0;
 }
 
 .input-container input {
-  background-color: white; /* Garante fundo branco */
+  background-color: white; 
+
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 12px 10px;
@@ -50,7 +50,7 @@
   top: 12px;
   left: 10px;
   color: #999;
-  background-color: white; /* Essencial para cobrir a borda do input */
+  background-color: white; 
   padding: 0 5px;
   transition: all 0.2s ease-in-out;
   pointer-events: none;
@@ -58,7 +58,6 @@
 
 }
 
-/* Efeito do label flutuando */
 .input-container input:focus + label,
 .input-container input:not(:placeholder-shown) + label {
   top: -10px;
@@ -67,7 +66,6 @@
   color: #234F1E; 
 }
 
-/* Estilo de foco no input */
 .input-container input:focus {
   outline: none;
   border-color: #234F1E;
@@ -78,13 +76,13 @@
     .pagPlaSolar {
         margin: 0.5rem;
         flex-direction: column;
-        height: auto; /* Altura automática para conteúdo empilhado */
-        padding: 2rem 0; /* Adiciona um respiro */
+        height: auto; 
+        padding: 2rem 0; 
     }
 
     .textoSolar {
         width: 90%;
-        margin-bottom: 2rem; /* Aumenta o espaço antes do formulário */
+        margin-bottom: 2rem; 
         text-align: center;
     }
 

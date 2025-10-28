@@ -6,7 +6,7 @@ export default function PerguntasCarb({
   enunciadoPergunta,
   alternativas,
   onChange,
-  selectedValue, // Adicione para controlar o valor selecionado
+  selectedValue, 
 }) {
   return (
     <div className="card-pergunta">
@@ -19,7 +19,7 @@ export default function PerguntasCarb({
               name={name}
               value={alternativa}
               onChange={onChange}
-              checked={selectedValue === alternativa} // Controla qual opção está marcada
+              checked={selectedValue === alternativa} 
             />
             <span>{alternativa === "Nao" ? "Não" : alternativa}</span>
           </label>

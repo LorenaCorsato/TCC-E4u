@@ -2,9 +2,9 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import NavBar from './navegacao';
-import CabecalhoPublico from './cabecalhoPublico'; // 1. Importe o novo cabeçalho
+import CabecalhoPublico from './cabecalhoPublico'; 
 import { useAuth } from '../context/AuthContext';
-import Acessibilidade from './Acessibilidade'; // 1. IMPORTE O COMPONENTE AQUI
+import Acessibilidade from './Acessibilidade'; 
 import '../styles/components/layout.css'
 
 

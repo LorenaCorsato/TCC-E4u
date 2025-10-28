@@ -4,24 +4,11 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Navigation, Pagination } from 'swiper/modules'
-import React, { useRef } from 'react'
 
 export default function CardSlide() {
-    const swiperRef = useRef(null);
-
     return (
-        <div className="containerSlide1" style={{ position: 'relative' }}>
-            <button
-                className="custom-swiper-prev"
-                onClick={() => swiperRef.current.swiper.slidePrev()}
-                style={{ position: 'absolute', left: '-70px', top: '50%', zIndex: 20, transform: 'translateY(-50%)' }}
-            >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-            </button>
+        <div className="container">
             <Swiper
-                ref={swiperRef}
                 loop={true}
                 spaceBetween={30}
                 pagination={{
@@ -46,68 +33,59 @@ export default function CardSlide() {
                 
                 <SwiperSlide className="cardItem">
                     <a href="#" className="cardLink">
-                        <img src="src/assets/Editado.png" alt="card image" className="cardImage" />
+                        <img src="src/assets/Ecologia.jpg" alt="card image" className="cardImage" />
                         <p className="badge">Planta</p>
-                        <h2 className="cardTitle">conheça nossas placas</h2>
-                        <button className="cardButton material-symbols-rounded">
-                            comprar
-                        </button>
+                        <h2 className="cardTitle">jdf sdfps dgjjrgos xse soij ofjesio</h2>
+                        <span className="cardButton material-symbols-rounded">
+                            arrow_forward
+                        </span>
                     </a>
                 </SwiperSlide>
                 
                 <SwiperSlide className="cardItem">
                     <a href="#" className="cardLink">
-                        <img src="src/assets/Editado.png" alt="card image" className="cardImage" />
+                        <img src="src/assets/Ecologia.jpg" alt="card image" className="cardImage" />
                         <p className="badge">Planta</p>
-                        <h2 className="cardTitle">conheça nossas placas</h2>
-                        <button className="cardButton material-symbols-rounded">
-                        comprar
-                        </button>
+                        <h2 className="cardTitle">jdf sdfps dgjjrgos xse soij ofjesio</h2>
+                        <span className="cardButton material-symbols-rounded">
+                            arrow_forward
+                        </span>
                     </a>
                 </SwiperSlide>
 
                 <SwiperSlide className="cardItem">
                     <a href="#" className="cardLink">
-                        <img src="src/assets/Editado.png" alt="card image" className="cardImage" />
+                        <img src="src/assets/Ecologia.jpg" alt="card image" className="cardImage" />
                         <p className="badge">Planta</p>
-                        <h2 className="cardTitle">conheça nossas placas</h2>
-                        <button className="cardButton material-symbols-rounded">
-                             comprar
-                        </button>
+                        <h2 className="cardTitle">jdf sdfps dgjjrgos xse soij ofjesio</h2>
+                        <span className="cardButton material-symbols-rounded">
+                            arrow_forward
+                        </span>
                     </a>
                 </SwiperSlide>
 
                 <SwiperSlide className="cardItem">
                     <a href="#" className="cardLink">
-                        <img src="src/assets/Editado.png" alt="card image" className="cardImage" />
-                        <p className="badge">Melhor custo</p>
-                        <h2 className="cardTitle">conheça nossas placas</h2>
-                        <button className="cardButton material-symbols-rounded">
-                            comprar
-                        </button>
+                        <img src="src/assets/Ecologia.jpg" alt="card image" className="cardImage" />
+                        <p className="badge">Planta</p>
+                        <h2 className="cardTitle">jdf sdfps dgjjrgos xse soij ofjesio</h2>
+                        <span className="cardButton material-symbols-rounded">
+                            arrow_forward
+                        </span>
                     </a>
                 </SwiperSlide>
 
                 <SwiperSlide className="cardItem">
                     <a href="#" className="cardLink">
-                        <img src="src/assets/Editado.png" alt="card image" className="cardImage" />
+                        <img src="src/assets/Ecologia.jpg" alt="card image" className="cardImage" />
                         <p className="badge">Planta</p>
-                        <h2 className="cardTitle">conheça nossas placas</h2>
-                        <button className="cardButton material-symbols-rounded">
-                             comprar
-                        </button>
+                        <h2 className="cardTitle">jdf sdfps dgjjrgos xse soij ofjesio</h2>
+                        <span className="cardButton material-symbols-rounded">
+                            arrow_forward
+                        </span>
                     </a>
                 </SwiperSlide>                
             </Swiper>
-            <button
-                className="custom-swiper-next"
-                onClick={() => swiperRef.current.swiper.slideNext()}
-                style={{ position: 'absolute', right: '-70px', top: '50%', zIndex: 20, transform: 'translateY(-50%)' }}
-            >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-            </button>
         </div>
     )
 }

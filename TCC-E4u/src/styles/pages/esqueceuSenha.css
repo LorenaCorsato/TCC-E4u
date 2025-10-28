@@ -17,11 +17,11 @@
     align-items: center;
     justify-content: center;
     margin: 0.2rem auto 0 auto;
-    gap: 0.3rem; /* aproxima o texto da logo */
+    gap: 0.3rem;
 }
 
 .logo4 img {
-    width: 100px;    /* tamanho pequeno */
+    width: 100px;    
     height: auto;
     object-fit: contain;
     display: block;

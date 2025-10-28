@@ -38,7 +38,7 @@ export default function CadastroFisico() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [usuarioGoogle, setUsuarioGoogle] = useState(null);
-    const [cpfModal, setCpfModal] = useState(''); // CPF digitado dentro do modal
+    const [cpfModal, setCpfModal] = useState(''); 
 
 
     const { login, startGoogleSignUp, setToken, usuario } = useAuth();
@@ -46,7 +46,7 @@ export default function CadastroFisico() {
 
     useEffect(() => {
         if (usuario) {
-            navigate('/landingPage');
+            navigate('/home');
         }
     }, [usuario, navigate]); 
 
@@ -62,10 +62,9 @@ export default function CadastroFisico() {
     const handleGoogleSignUp = async () => {
         try {
         const usuarioFirebase = await startGoogleSignUp();
-        setUsuarioGoogle(usuarioFirebase); // Apenas guarda os dados do Google
-        setIsModalOpen(true);              // E abre o modal
+        setUsuarioGoogle(usuarioFirebase); 
+        setIsModalOpen(true);            
     } catch (error) {
-        // Mostra a mensagem no formulário principal se a autenticação com Google falhar
         setMensagem('Falha ao autenticar com o Google.'); 
     }
 };
@@ -87,12 +86,11 @@ export default function CadastroFisico() {
         try {
             await axios.post('http://localhost:3001/api/auth/cadastrar/pf', payload);
             
-            // Lógica de login após o sucesso
             const novoToken = await auth.currentUser.getIdToken();
             localStorage.setItem('authToken', novoToken);
-            setToken(novoToken); // Isso vai logar e disparar o useEffect para redirecionar
+            setToken(novoToken); 
 
-            setIsModalOpen(false); // Fecha o modal
+            setIsModalOpen(false); 
         } catch (erro) {
             const msgErro = erro.response?.data?.mensagem || 'Ocorreu um erro.';
             alert(`Erro: ${msgErro}`);
@@ -126,10 +124,10 @@ export default function CadastroFisico() {
             payload = { email, cpf, senha };
         }
 
-        setMensagem('Cadastrando...');
+        setMensagem('Cadastrando.');
         try {
             await axios.post('http://localhost:3001/api/auth/cadastrar/pf', payload);
-            setMensagem("Cadastro realizado! Fazendo login...");
+            setMensagem("Cadastro realizado! Fazendo login.");
             
         if (usuarioGoogle) {
             const novoToken = await auth.currentUser.getIdToken();
@@ -191,7 +189,14 @@ export default function CadastroFisico() {
                     </form>
                 </div>
                 
-                {mensagem && <p style={{ marginTop: '15px', color: 'red' }}>{mensagem}</p>}
+                {mensagem && (
+                    <p style={{ 
+                        marginTop: '15px', 
+                        color: mensagem.includes('Cadastrando') || mensagem.includes('Fazendo login') ? 'green' : 'red' 
+                    }}>
+                        {mensagem}
+                    </p>
+                )}
 
                 <h3>Ou</h3>
                  <div>
@@ -204,13 +209,13 @@ export default function CadastroFisico() {
 
                 <div className="cadastrar">
                     <img src='src/assets/Pessoa juridica.png' class="iconPessoa"/>
-                  <p>Pessoa Jurídica?&nbsp;</p>
-                  <Link to="/cadastroPessoaJuridica">Inscreva-se</Link>
-                 </div>
+                  <p>Pessoa Jurídica?&nbsp;</p>
+                  <Link to="/cadastroPessoaJuridica">Inscreva-se</Link>
+                 </div>
 
                 <div className="cadastrar">
                     <p>Já tem uma conta?&nbsp;</p>
-                  <Link to="/login">Faça login</Link>
+                  <Link to="/login">Faça login</Link>
                 </div>
 
                 <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>

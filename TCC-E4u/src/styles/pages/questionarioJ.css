@@ -1,23 +1,21 @@
-/* Importando as fontes (garanta que seu CSS global ou este arquivo as tenha) */
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&family=Varela+Round&display=swap');
 
 :root {
-    --cor-principal: #234F1E; /* Verde escuro para botões e destaques */
-    --cor-principal-hover: #1A3A16; /* Verde mais escuro para hover */
-    --cor-fundo-card: #FFFFFF; /* Fundo do card branco para contraste */
-    --cor-fundo-pagina: #F7F9F7; /* Um branco levemente esverdeado para o fundo */
+    --cor-principal: #234F1E; 
+    --cor-principal-hover: #1A3A16; 
+    --cor-fundo-card: #FFFFFF; 
+    --cor-fundo-pagina: #F7F9F7; 
     --cor-texto-principal: #222222;
     --cor-texto-secundario: #555555;
     --sombra-card: 0 8px 25px rgba(0, 0, 0, 0.1);
     --borda-radius: 12px;
     --fonte-titulo: 'Alexandria', sans-serif;
-    --fonte-corpo: 'Varela Round', sans-serif; /* Varela Round é mais suave */
+    --fonte-corpo: 'Varela Round', sans-serif;
 }
 
-/* --- Layout Geral da Página --- */
 .questionario {
     background-color: var(--cor-fundo-pagina);
-    padding: 2rem 1rem 4rem 1rem; /* Padding horizontal para telas menores */
+    padding: 2rem 1rem 4rem 1rem; 
 }
 
 .questionario-titulo h1 {
@@ -40,18 +38,16 @@
     line-height: 1.6;
 }
 
-/* Container do formulário */
 .perguntas {
     display: flex;
     flex-direction: column;
-    gap: 2rem; /* Aumenta o espaço entre os cards */
+    gap: 2rem;
     align-items: center;
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Card de Pergunta Unificado */
 .card-pergunta {
     background: var(--cor-fundo-card);
     border-radius: var(--borda-radius);
@@ -77,7 +73,6 @@
 
 
 
-/* Estilo para Inputs e Selects */
 input[type="text"],
 input[type="number"],
 select {
@@ -99,7 +94,6 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(35, 79, 30, 0.2);
 }
 
-/* Container de Veículos */
 .veiculo-tempo-container {
     display: flex;
     flex-wrap: wrap;
@@ -109,11 +103,10 @@ select:focus {
 }
 
 .veiculo-tempo-container select {
-    flex: 1; /* Faz os selects crescerem para ocupar o espaço */
+    flex: 1;
     min-width: 200px;
 }
 
-/* Botão Adicionar Veículo */
 .veiculo-tempo-container button {
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
@@ -131,7 +124,6 @@ select:focus {
     background: var(--cor-principal-hover);
 }
 
-/* Lista de Veículos Adicionados */
 .veiculo-tempo-lista {
     margin-top: 1rem;
     padding-left: 0;
@@ -167,7 +159,6 @@ select:focus {
     background: #c0392b;
 }
 
-/* Alternativas de Múltipla Escolha (Radio buttons) */
 .alternativas {
     display: flex;
     flex-direction: column; 
@@ -212,11 +203,10 @@ select:focus {
     transform: translate(-50%, -50%);
 }
 
-/* Estilos para Checkbox de Veículos */
 .alternativa input[type="checkbox"] {
     width: 1.3em;
     height: 1.3em;
-    accent-color: var(--cor-principal); /* Muda a cor do 'check' */
+    accent-color: var(--cor-principal); 
 }
 
 .botao-adicionar{

@@ -41,7 +41,6 @@ export default function Login() {
 };
     useEffect(() => {
         if (usuario) {
-            // Navega para a landing page
             navigate('/home' );
         }
     }, [usuario, navigate]); 
@@ -55,7 +54,6 @@ export default function Login() {
         }
 
         try {
-            setMensagem('Entrando...');
             await login(email, senha); 
         } catch (erro) {
             setMensagem('Email ou senha inválidos. Tente novamente.');

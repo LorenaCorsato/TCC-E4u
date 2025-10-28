@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import Button from "../components/botao";
 import NavBar from "../components/navegacao";
 import '../styles/pages/questionario.css';
+import Footer from '../components/rodape'; 
 
 function PerguntaMultiplaEscolha({ enunciado, name, alternativas, onChange, valorSelecionado }) {
     return (
@@ -29,33 +30,29 @@ function PerguntaMultiplaEscolha({ enunciado, name, alternativas, onChange, valo
     );
 }
 
-export default function Questionario() {
-    // --- Estados para as seções do formulário ---
+export default function QuestionarioJuridico() {
     const [veiculosAdicionados, setVeiculosAdicionados] = useState([]);
     const [maquinasAdicionadas, setMaquinasAdicionadas] = useState([]);
     const [botijoesGas, setBotijoesGas] = useState('');
     const [consumoEletricidade, setConsumoEletricidade] = useState('');
     const [tipoConsumoEletricidade, setTipoConsumoEletricidade] = useState('R$/mês');
-    const [quantidadeCO2, setQuantidadeCO2] = useState('0');
-    const [tipoEnergia, setTipoEnergia] = useState('Elétrica (hidrelétrica)');
+    const [quantidadeMaquinas, setQuantidadeMaquinas] = useState(0); 
+    const [tipoEnergia, setTipoEnergia] = useState('Elétrica');
 
-    // --- Estados temporários para os formulários de adição ---
     const [veiculoAtual, setVeiculoAtual] = useState({ tipo: '', tempo: '', combustivel: '', motor: '' });
     const [maquinaAtual, setMaquinaAtual] = useState({ tipo: '', consumo: '', combustivel: '' });
 
     const { token } = useAuth();
     const navigate = useNavigate();
 
-    // --- Listas de Opções ---
     const veiculosOpcoes = ["Carro", "Moto", "Ônibus", "Caminhão"];
     const maquinasOpcoes = ["Tipo de maquina 1", "Tipo de maquina 2", "Tipo de maquina 3", "Tipo de maquina 4", "Tipo de maquina 5", "Tipo de maquina 6"];
     const tempoOpcoes = ["-30 minutos", "30 minutos", "1-3 horas", "4-6 horas", "7-9 horas", "10+ horas"];
     const combustivelOpcoes = ["Diesel", "Etanol", "Gasolina", "GNV", "Elétrico", "Híbrido"];
     const combustivelOpcoesMaquinas = ["Diesel", "Etanol", "Gasolina", "Carvão", "Elétrico"];
     const motorOpcoes = ["1.0 a 1.5", "1.6 a 2.0", "Maior que 2.0", "Não possuo conhecimento"];
-    const energiaOpcoes = ["Elétrica (hidrelétrica)", "Solar", "Eólica", "Biomassa"];
+    const energiaOpcoes = ["Elétrica", "Solar", "Eólica", "Biomassa"];
 
-    // --- Funções para a Seção de Veículos ---
     const handleVeiculoAtualChange = (campo, valor) => {
         setVeiculoAtual(v => ({ ...v, [campo]: valor }));
     };
@@ -71,35 +68,46 @@ export default function Questionario() {
             return;
         }
         setVeiculosAdicionados([...veiculosAdicionados, veiculoAtual]);
-        setVeiculoAtual({ tipo: '', tempo: '', combustivel: '', motor: '' }); // Limpa
+        setVeiculoAtual({ tipo: '', tempo: '', combustivel: '', motor: '' }); 
     };
 
     const removerVeiculo = (index) => {
         setVeiculosAdicionados(veiculosAdicionados.filter((_, i) => i !== index));
     };
 
-    // --- Funções para a Seção de Máquinas ---
     const handleMaquinaAtualChange = (campo, valor) => {
         setMaquinaAtual(m => ({ ...m, [campo]: valor }));
     };
 
     const adicionarMaquina = (e) => {
         e.preventDefault();
-        if (!maquinaAtual.tipo || !maquinaAtual.consumo || !maquinaAtual.combustivel) {
-            alert("Selecione a máquina, o combustível e informe o consumo."); 
+        if (maquinasAdicionadas.length >= quantidadeMaquinas) {
+            alert("Você já adicionou a quantidade total de máquinas informada.");
+            return;
+        }
+        if (!maquinaAtual.consumo || !maquinaAtual.combustivel) {
+            alert("Selecione o combustível e informe o consumo da máquina."); 
             return;
         }
         setMaquinasAdicionadas([...maquinasAdicionadas, maquinaAtual]);
-        setMaquinaAtual({ tipo: '', consumo: '', combustivel: '' }); // Limpa
+        setMaquinaAtual({ consumo: '', combustivel: '' }); 
     };
 
     const removerMaquina = (index) => {
         setMaquinasAdicionadas(maquinasAdicionadas.filter((_, i) => i !== index));
     };
 
-    // --- Função Principal de Envio ---
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (parseInt(quantidadeMaquinas, 10) > 0 && maquinasAdicionadas.length !== parseInt(quantidadeMaquinas, 10)) {
+            alert(`Você informou ${quantidadeMaquinas} máquinas, mas adicionou ${maquinasAdicionadas.length}. Por favor, adicione todas as máquinas.`);
+            return;
+        }
+        if (!botijoesGas || (tipoEnergia === 'Elétrica' && !consumoEletricidade)) {
+            alert("Por favor, preencha os campos de consumo de Gás e Eletricidade.");
+            return;
+        }
         
         const dadosFormulario = { 
             veiculosAdicionados, 
@@ -107,13 +115,13 @@ export default function Questionario() {
             botijoesGas, 
             consumoEletricidade, 
             tipoConsumoEletricidade, 
-            quantidadeCO2, 
+            quantidadeMaquinas, 
             tipoEnergia
         };
         
         try {
             const resposta = await axios.post(
-                'http://localhost:3001/api/calculator/calculate', 
+                'http://localhost:3001/api/calculator/calculate/juridica', 
                 dadosFormulario, 
                 { headers: { 'Authorization': `Bearer ${token}` } }
             );
@@ -128,12 +136,11 @@ export default function Questionario() {
         <>
             <NavBar />
             <div className="questionario">
-                <div className="questionario-titulo"><h1>Questionário</h1></div>
+                <div className="questionario-titulo"><h1>Questionário Empresarial</h1></div>
                 <div className="texto"><h1>Responda com sinceridade para um resultado mais próximo da sua realidade.</h1></div>
 
                 <form className="perguntas" onSubmit={handleSubmit}>
                     
-                    {/* --- SEÇÃO DE VEÍCULOS --- */}
                     <div className="card-pergunta">
                         <p className="pergunta-enunciado">Quais veículos sua empresa utiliza? (Adicione um por um)</p>
                         <div className="veiculo-tempo-container">
@@ -173,65 +180,64 @@ export default function Questionario() {
                         )}
                     </div>
 
-                          {/* --- SEÇÃO DE QUANTIDADE DE MAQUINAS --- */}
                     <div className="card-pergunta">
-                        <label htmlFor="quantidadeCO2" className="pergunta-enunciado">Qual a quantidade de máquinas emissoras de CO2 sua empresa possui?</label>
-                        <input id="quantidadeCO2" type="number" min="1" className="pergunta-texto" value={quantidadeCO2} onChange={(e) => setQuantidadeCO2(e.target.value)} required />
+                        <label htmlFor="quantidadeMaquinas" className="pergunta-enunciado">Qual a quantidade de máquinas (com emissão direta) sua empresa possui?</label>
+                        <input id="quantidadeMaquinas" type="number" min="0" placeholder="0" className="pergunta-texto" value={quantidadeMaquinas} onChange={(e) => setQuantidadeMaquinas(e.target.value)} required />
                     </div>
 
-                    {/* --- SEÇÃO DE MÁQUINAS --- */}
-                    <div className="card-pergunta">
-                        <p className="pergunta-enunciado">Qual o consumo das suas máquinas? (Adicione o tipo)</p>
-                        <div className="veiculo-tempo-container">
-                            <select value={maquinaAtual.tipo} onChange={(e) => handleMaquinaAtualChange('tipo', e.target.value)}>
-                                <option value="">Selecione a máquina</option>
-                                {maquinasOpcoes.map(v => <option key={v} value={v}>{v}</option>)}
-                            </select>
-                            <select value={maquinaAtual.combustivel} onChange={(e) => handleMaquinaAtualChange('combustivel', e.target.value)}>
-                                <option value="">Tipo de combustível</option>
-                                {combustivelOpcoesMaquinas.map(c => <option key={c} value={c}>{c}</option>)}
-                            </select>
-                            <input
-                                type="number"
-                                min="0"
-                                placeholder={
-                                    maquinaAtual.combustivel.toLowerCase() === "carvão"
-                                        ? "Consumo (kg/mês)"
-                                        : maquinaAtual.combustivel.toLowerCase() === "elétrico"
-                                            ? "Consumo (kWh/mês)"
-                                            : "Consumo (litros/mês)"
-                                }
-                                value={maquinaAtual.consumo}
-                                onChange={(e) => handleMaquinaAtualChange('consumo', e.target.value)}
-                            />
+                    {quantidadeMaquinas > 0 && (
+                        <div className="card-pergunta">
+                            <p className="pergunta-enunciado">Adicione o consumo MENSAL de cada máquina ({maquinasAdicionadas.length} de {quantidadeMaquinas} adicionadas):</p>
+                            <div className="veiculo-tempo-container">
+                                <select value={maquinaAtual.combustivel} onChange={(e) => handleMaquinaAtualChange('combustivel', e.target.value)}>
+                                    <option value="">Tipo de combustível</option>
+                                    {combustivelOpcoesMaquinas.map(c => <option key={c} value={c}>{c}</option>)}
+                                </select>
+                                <input
+                                    type="number"
+                                    min="0"
+                                    placeholder={
+                                        maquinaAtual.combustivel.toLowerCase() === "carvão" ? "Consumo (kg/mês)"
+                                        : maquinaAtual.combustivel.toLowerCase() === "elétrico" ? "Consumo (kWh/mês)"
+                                        : "Consumo (litros/mês)"
+                                    }
+                                    value={maquinaAtual.consumo}
+                                    onChange={(e) => handleMaquinaAtualChange('consumo', e.target.value)}
+                                    className="pergunta-texto"
+                                />
+                            </div>
+                            <div style={{textAlign: 'right', marginTop: '1rem'}}>
+                                <button 
+                                    type="button" 
+                                    className="botao-adicionar" 
+                                    onClick={adicionarMaquina}
+                                    disabled={maquinasAdicionadas.length >= quantidadeMaquinas}
+                                >
+                                    Adicionar Máquina
+                                </button>
+                            </div>
+                            {maquinasAdicionadas.length > 0 && (
+                                <ul className="veiculo-tempo-lista">
+                                    {maquinasAdicionadas.map((item, idx) => (
+                                        <li key={idx}>
+                                            <span>
+                                                <strong>Máquina {idx + 1} ({item.combustivel})</strong>: {item.consumo} {
+                                                    item.combustivel.toLowerCase() === "carvão" ? "kg/mês"
+                                                    : item.combustivel.toLowerCase() === "elétrico" ? "kWh/mês"
+                                                    : "L/mês"
+                                                }
+                                            </span>
+                                            <button type="button" onClick={() => removerMaquina(idx)}>Remover</button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
-                        <div style={{textAlign: 'right', marginTop: '1rem'}}>
-                            <button type="button" className="botao-adicionar" onClick={adicionarMaquina}>Adicionar Máquina</button>
-                        </div>
-                        {maquinasAdicionadas.length > 0 && (
-                            <ul className="veiculo-tempo-lista">
-                                {maquinasAdicionadas.map((item, idx) => (
-                                    <li key={idx}>
-                                        <span>
-                                            <strong>{item.tipo}</strong> - {item.consumo} {
-                                                item.combustivel.toLowerCase() === "carvão"
-                                                    ? "kg/mês"
-                                                    : item.combustivel.toLowerCase() === "elétrico"
-                                                        ? "kWh/mês"
-                                                        : "L/mês"
-                                            } {item.combustivel && `(${item.combustivel})`}
-                                        </span>
-                                        <button type="button" onClick={() => removerMaquina(idx)}>Remover</button>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
+                    )}
                     
-                    {/* --- SEÇÃO DE Empresa --- */}
                     <div className="card-pergunta">
                         <label htmlFor="botijoesGas" className="pergunta-enunciado">Qual o consumo de gás de cozinha na sua empresa? (botijões por ano)</label>
-                        <input id="botijoesGas" type="number" min="0" placeholder="Ex: 4" className="pergunta-texto" value={botijoesGas} onChange={(e) => setBotijoesGas(e.target.value)} required />
+                        <input id="botijoesGas" type="number" min="0" placeholder="Ex: 12" className="pergunta-texto" value={botijoesGas} onChange={(e) => setBotijoesGas(e.target.value)} required />
                     </div>
 
                     <PerguntaMultiplaEscolha
@@ -239,7 +245,7 @@ export default function Questionario() {
                         alternativas={energiaOpcoes} valorSelecionado={tipoEnergia} onChange={(e) => setTipoEnergia(e.target.value)}
                     />
                     
-                    {tipoEnergia === "Elétrica (hidrelétrica)" && (
+                    {tipoEnergia === "Elétrica" && (
                         <div className="card-pergunta">
                             <p className="pergunta-enunciado">Qual o seu consumo de eletricidade?</p>
                             <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
@@ -252,14 +258,12 @@ export default function Questionario() {
                         </div>
                     )}
 
-
-
-
                     <div style={{ marginTop: '2rem' }}>
                         <Button btnNome="Calcular pegada" type="submit" />
                     </div>
                 </form>
             </div>
+            <Footer />
         </>
     );
 }

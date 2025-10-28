@@ -11,7 +11,7 @@ export default function RotaProtegida({ children }) {
     }
 
     if (!usuario) {
-        return <Navigate to="/login" state={{ from: location }} replace />;
+        return <Navigate to="/landingPage" state={{ from: location }} replace />;
     }
 
     return children;

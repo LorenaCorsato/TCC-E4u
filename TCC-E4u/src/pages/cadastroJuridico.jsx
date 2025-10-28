@@ -5,7 +5,8 @@ import { useAuth } from '../context/AuthContext';
 import Button from '../components/botao.jsx';
 import '../styles/pages/login.css'; 
 import { auth } from '../firebase';
-import Modal from '../components/modal.jsx'; 
+import Modal from '../components/modal.jsx';
+
 // Ícones de Olho
 const IconeOlhoAberto = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -27,25 +28,22 @@ function Redirect({ redCaminho, RedDescricao }) {
 }
 
 export default function CadastroJuridico() {
-    // Estados para o formulário principal (email/senha)
     const [email, setEmail] = useState('');
     const [cnpj, setCnpj] = useState('');
     const [senha, setSenha] = useState('');
     const [mensagem, setMensagem] = useState('');
     const [senhaVisivel, setSenhaVisivel] = useState(false);
     
-    // Estados para o fluxo do Modal com Google
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [usuarioGoogle, setUsuarioGoogle] = useState(null);
-    const [cnpjModal, setCnpjModal] = useState(''); // Estado para o CNPJ dentro do modal
+    const [cnpjModal, setCnpjModal] = useState(''); 
 
     const { login, startGoogleSignUp, setToken, usuario } = useAuth();
     const navigate = useNavigate();
 
-    // useEffect cuida da navegação após o login
     useEffect(() => {
         if (usuario) {
-            navigate('/landingPage');
+            navigate('/home');
         }
     }, [usuario, navigate]); 
 
@@ -59,7 +57,6 @@ export default function CadastroJuridico() {
             .replace(/(-\d{2})\d+?$/, '$1');
     };
 
-    // Função para o botão "Cadastrar com Google", que apenas abre o modal
     const handleGoogleSignUp = async () => {
         try {
             const usuarioFirebase = await startGoogleSignUp();
@@ -70,7 +67,6 @@ export default function CadastroJuridico() {
         }
     };
 
-    // Função para o formulário DENTRO do modal
     const handleCompleteGoogleRegistration = async (evento) => {
         evento.preventDefault();
         if (!cnpjModal) {
@@ -88,7 +84,7 @@ export default function CadastroJuridico() {
             
             const novoToken = await auth.currentUser.getIdToken();
             localStorage.setItem('authToken', novoToken);
-            setToken(novoToken); // Dispara o useEffect para redirecionar
+            setToken(novoToken); 
 
             setIsModalOpen(false);
         } catch (erro) {
@@ -97,7 +93,6 @@ export default function CadastroJuridico() {
         }
     };
     
-    // Função APENAS para o cadastro com email e senha
     const handleCadastroJuridico = async (evento) => {
         evento.preventDefault();
         if (!email || !cnpj || !senha) {
@@ -111,10 +106,10 @@ export default function CadastroJuridico() {
         
         const payload = { email, cnpj, senha, nome: email.split('@')[0] };
 
-        setMensagem('Cadastrando...');
+        setMensagem('Cadastrando.');
         try {
             await axios.post('http://localhost:3001/api/auth/cadastrar/pj', payload);
-            setMensagem("Cadastro realizado! Fazendo login...");
+            setMensagem('Cadastro realizado! Fazendo login.');
             await login(email, senha);
         } catch (erro) {
             const msgErro = erro.response?.data?.mensagem || 'Ocorreu um erro.';
@@ -133,7 +128,6 @@ export default function CadastroJuridico() {
             <div className="formulario">
                 <h1>Cadastro</h1>
                 <div className="insertEnter">
-                    {/* Formulário principal para email/senha */}
                     <form onSubmit={handleCadastroJuridico}>
                         <input
                             type="email"
@@ -161,7 +155,14 @@ export default function CadastroJuridico() {
                         <Button btnNome="Cadastrar" type="submit" />
                     </form>
                 </div>
-                {mensagem && <p style={{ marginTop: '15px', color: 'red' }}>{mensagem}</p>}
+                {mensagem && (
+                    <p style={{ 
+                        marginTop: '15px', 
+                        color: mensagem.includes('Cadastrando') || mensagem.includes('Fazendo login') ? 'green' : 'red' 
+                    }}>
+                        {mensagem}
+                    </p>
+                )}
                 <h3>Ou</h3>
                 <div>
                    <button type="button" className="googleBotao" onClick={handleGoogleSignUp}>
@@ -180,7 +181,6 @@ export default function CadastroJuridico() {
                 </div>
             </div>
 
-            {/* Modal para completar o cadastro com Google */}
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <h2>Complete seu Cadastro</h2>
                 <p>Olá, {usuarioGoogle?.displayName}! Por favor, informe seu CNPJ para finalizar.</p>

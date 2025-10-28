@@ -1,100 +1,60 @@
 const db = require('../config/database');
 
+//  Fatores de Emissão (Estimativas) 
 const FATORES = {
-  combustivel: { 
-    gasolina: 0.23,   // kg CO₂/km — Wikipedia, 2023 (2,3 kg/litro / 10 km/l)
-    etanol: 0.10,     // kg CO₂/km — IPCC & MCTI, emissão líquida menor por renovabilidade
-    diesel: 0.27,     // kg CO₂/km — EPA (2,7 kg/litro / 10 km/l)
-    gnv: 0.18,        // kg CO₂/km — IPCC (2,75 kg/m³, consumo médio convertido p/ km)
-    hibrido: 0.14,    // kg CO₂/km — média ponderada entre gasolina e elétrico
-    eletrico: 0.038   // kg CO₂/km — MCTI, 2023 (0,0385 kg/kWh × 1 kWh/100 km)
-  },
 
-  motorMultiplicador: { 
-    "1.0 a 1.5": 0.9, 
-    "1.6 a 2.0": 1.0, 
-    "maior que 2.0": 1.2, 
-    "não possuo conhecimento": 1.0 
-  },
+    //  GERAL 
+    botijaoGasKgCO2: 15,
+    eletricidadeKwhParaCO2: 0.072,
+    precoMedioKwh: 0.90,
+    tempoParaKm: { "-30 minutos": 10, "30 minutos": 20, "1-3 horas": 50, "4-6 horas": 100, "7-9 horas": 150, "10+ horas": 200 },
+    
+    //  PESSOA FÍSICA 
+    veiculosPF: { "carro": 0.122, "moto": 0.060, "ônibus": 0.030, "bicicleta elétrica": 0.002, "patinete elétrico": 0.002 },
+    combustivelPF: { "Gasolina": 1.0, "Etanol": 0.46, "Diesel": 1.35, "GNV": 0.74, "Híbrido": 0.61, "Elétrico": 0.07 },
+    motorPF: { "1.0 a 1.5": 0.9, "1.6 a 2.0": 1.0, "maior que 2.0": 1.2, "não possuo conhecimento": 1.0 },
+    viagemDistanciaParaCO2: { "até 300km": 30, "300km a 1000km": 100, "1000km a 3000km": 300, "mais de 3000km": 700 }, // <-- Nome correto
 
-  veiculosSimples: { 
-    moto: 0.072,      // kg CO₂/km — Wikipedia, 2023
-    caminhao: 0.90,   // kg CO₂/km — HBEFA, 2022 (carga pesada)
-    onibus: 0.068,    // kg CO₂/km — Wikipedia, 2023
-    bicicletaeletrica: 0.006, // kg CO₂/km — estimativa a partir de MCTI, 2023
-    patineteeletrico: 0.004   // kg CO₂/km — estimativa a partir de MCTI, 2023
-  },
-
-  tempoParaKm: { 
-    "-30 minutos": 10, 
-    "30 minutos": 20, 
-    "1-3 horas": 50, 
-    "4-6 horas": 100, 
-    "7-9 horas": 150, 
-    "10+ horas": 200 
-  },
-
-  botijaoGasKgCO2: 33, // kg CO₂/botijão 13kg — IPCC 2006 Guidelines + ANP (1 kg GLP = 2,52 kg CO₂)
-
-  eletricidadeKwhParaCO2: 0.0385, // kg CO₂/kWh — MCTI, 2023
-
-  precoMedioKwh: 0.90, // R$/kWh — ANEEL média Brasil 2024
-
-  viagemDistanciaParaCO2: { 
-    "até 300km": 40,       // kg CO₂ — Our World in Data, 2024 (0,13 kg/km × 300 km)
-    "300km a 1000km": 120, // kg CO₂ — OWID, 2024
-    "1000km a 3000km": 360,// kg CO₂ — OWID, 2024
-    "mais de 3000km": 900  // kg CO₂ — OWID, 2024
-  }
-};
-// Função para normalizar strings (minuscula + sem acento + sem espaços extras)
-const normalizar = (txt) => {
-    return (txt || "")
-        .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // remove acentos
-        .replace(/\s+/g, ""); // remove espaços extras
+    //  PESSOA JURÍDICA 
+    veiculosPJ: { "Carro": 0.122, "Moto": 0.060, "Caminhão": 1.5, "Ônibus": 0.8 },
+    combustivelPJ: { "Gasolina": 1.0, "Etanol": 0.46, "Diesel": 1.35, "GNV": 0.74, "Híbrido": 0.61, "Elétrico": 0.07 },
+    motorPJ: { "1.0 a 1.5": 0.9, "1.6 a 2.0": 1.0, "Maior que 2.0": 1.2, "Não possuo conhecimento": 1.0 },
+    maquinarioCombustivel: { "Diesel": 2.68, "Etanol": 1.51, "Gasolina": 2.3, "Carvão": 2.86, "Elétrico": 0.072 }
 };
 
-exports.calcularPegada = async (req, res) => {
+
+exports.calcularPegadaFisica = async (req, res) => {
     try {
         const { uid } = req.usuario;
         const userResult = await db.query('SELECT id_usuario FROM usuario WHERE firebase_uid = $1', [uid]);
-        if (userResult.rows.length === 0) {
-            return res.status(404).send({ mensagem: "Usuário não encontrado." });
-        }
+        if (userResult.rows.length === 0) return res.status(404).send({ mensagem: "Usuário não encontrado." });
+        
         const id_usuario = userResult.rows[0].id_usuario;
         const r = req.body;
 
-        // --- CÁLCULO DE VEÍCULOS ---
+        // 1. Veículos (Mensal)
         let co2VeiculosMensal = 0;
         if (r.veiculosAdicionados && r.veiculosAdicionados.length > 0) {
             r.veiculosAdicionados.forEach(veiculo => {
-                const tipo = normalizar(veiculo.tipo);
-                const combustivel = normalizar(veiculo.combustivel);
-                const motor = normalizar(veiculo.motor);
-
-                if (tipo === 'outros/naoutilizonhum') return;
-
+                if (veiculo.tipo === 'outros/não utilizo nenhum') return;
                 const kmDiarios = FATORES.tempoParaKm[veiculo.tempo] || 0;
                 let co2DiarioItem = 0;
-
-                if (tipo === 'carro') {
-                    const fatorCombustivel = FATORES.combustivel[combustivel] || 0;
-                    const fatorMotor = FATORES.motorMultiplicador[veiculo.motor] || 1; // motorMantémCase pq é numérico
-                    co2DiarioItem = kmDiarios * fatorCombustivel * fatorMotor;
+                if (veiculo.tipo === 'carro') {
+                    const fatorCombustivel = FATORES.combustivelPF[veiculo.combustivel] || 1.0;
+                    const fatorMotor = FATORES.motorPF[veiculo.motor] || 1.0;
+                    co2DiarioItem = kmDiarios * (FATORES.veiculosPF['carro'] * fatorCombustivel * fatorMotor);
                 } else {
-                    const fatorSimples = FATORES.veiculosSimples[tipo] || 0;
-                    co2DiarioItem = kmDiarios * fatorSimples;
+                    co2DiarioItem = kmDiarios * (FATORES.veiculosPF[veiculo.tipo] || 0); // Corrigido para 'veiculosPF'
                 }
-                co2VeiculosMensal += co2DiarioItem * 30; // mensal
+                co2VeiculosMensal += co2DiarioItem * 30;
             });
         }
+        const co2VeiculosAnual = co2VeiculosMensal * 12;
 
-        // --- CÁLCULO DE CASA ---
+        // 2. Casa (Anual)
         const co2GasAnual = (parseInt(r.botijoesGas, 10) || 0) * FATORES.botijaoGasKgCO2;
         let co2EletricidadeAnual = 0;
-
-        if (normalizar(r.tipoEnergia) === "eletrica(hidreletrica)") {
+        if (r.tipoEnergia === "elétrica (hidrelétrica)") {
             if (r.tipoConsumoEletricidade === 'R$/mês') {
                 const kwhMensal = (parseFloat(r.consumoEletricidade) || 0) / FATORES.precoMedioKwh;
                 co2EletricidadeAnual = kwhMensal * FATORES.eletricidadeKwhParaCO2 * 12;
@@ -102,36 +62,112 @@ exports.calcularPegada = async (req, res) => {
                 co2EletricidadeAnual = (parseFloat(r.consumoEletricidade) || 0) * FATORES.eletricidadeKwhParaCO2 * 12;
             }
         }
-
         const pessoas = parseInt(r.pessoasResidencia, 10) || 1;
         const co2CasaAnual = (co2GasAnual + co2EletricidadeAnual) / pessoas;
 
-        // --- CÁLCULO AÉREO ---
+        // 3. Viagens Aéreas (Pontual/Anual)
         let co2Aereo = 0;
-        if (normalizar(r.viagemAerea) === "sim" && r.viagensAdicionadas && r.viagensAdicionadas.length > 0) {
+        if (r.viagemAerea === "sim" && r.viagensAdicionadas && r.viagensAdicionadas.length > 0) {
             r.viagensAdicionadas.forEach(viagem => {
-                const distancia = FATORES.viagemDistanciaParaCO2[viagem.distancia] || 0;
-                const tipoMultiplicador = normalizar(viagem.tipo) === 'idaevolta' ? 1 : 0.5;
-                co2Aereo += distancia * tipoMultiplicador;
+                const fatorDistancia = FATORES.viagemDistanciaParaCO2[viagem.distancia] || 0;
+                const tipoMultiplicador = viagem.tipo === 'ida e volta' ? 1 : 0.5;
+                co2Aereo += (fatorDistancia * tipoMultiplicador);
             });
         }
-
-        // --- TOTAL ---
-        const co2VeiculosAnual = co2VeiculosMensal * 12;
+        
+        // 4. Total
         const co2TotalAnual = co2VeiculosAnual + co2CasaAnual + co2Aereo;
 
-        await db.query(
-            'INSERT INTO calculocarbono (id_usuario, resultado_carbono, data_carbono) VALUES ($1, $2, NOW())',
-            [id_usuario, co2TotalAnual.toFixed(2)]
-        );
-
+        await db.query('INSERT INTO calculocarbono (id_usuario, resultado_carbono, data_carbono) VALUES ($1, $2, NOW())', [id_usuario, co2TotalAnual.toFixed(2)]);
         res.status(200).send({
             mensagem: "Cálculo realizado com sucesso!",
-            resultado: { totalAnualKg: co2TotalAnual.toFixed(2) }
+            resultado: { 
+                totalAnualKg: co2TotalAnual.toFixed(2),
+                breakdown: {
+                    transporte: co2VeiculosAnual.toFixed(2),
+                    casa: co2CasaAnual.toFixed(2),
+                    viagens: co2Aereo.toFixed(2)
+                }
+            }
         });
 
     } catch (error) {
-        console.error("Erro ao calcular pegada de carbono:", error);
-        res.status(500).send({ mensagem: "Ocorreu um erro no servidor durante o cálculo." });
+        console.error("Erro no cálculo (Física):", error);
+        res.status(500).send({ mensagem: "Ocorreu um erro no servidor." });
+    }
+};
+
+
+exports.calcularPegadaJuridica = async (req, res) => {
+    try {
+        const { uid } = req.usuario;
+        const userResult = await db.query('SELECT id_usuario FROM usuario WHERE firebase_uid = $1', [uid]);
+        if (userResult.rows.length === 0) return res.status(404).send({ mensagem: "Usuário não encontrado." });
+        
+        const id_usuario = userResult.rows[0].id_usuario;
+        const r = req.body;
+
+        // 1. Veículos (Frota)
+        let co2VeiculosMensal = 0;
+        if (r.veiculosAdicionados && r.veiculosAdicionados.length > 0) {
+            r.veiculosAdicionados.forEach(veiculo => {
+                const kmDiarios = FATORES.tempoParaKm[veiculo.tempo] || 0;
+                let co2DiarioItem = 0;
+                if (veiculo.tipo === 'Carro') {
+                    const fatorCombustivel = FATORES.combustivelPJ[veiculo.combustivel] || 1.0;
+                    const fatorMotor = FATORES.motorPJ[veiculo.motor] || 1.0;
+                    co2DiarioItem = kmDiarios * (FATORES.veiculosPJ['Carro'] * fatorCombustivel * fatorMotor);
+                } else {
+                    co2DiarioItem = kmDiarios * (FATORES.veiculosPJ[veiculo.tipo] || 0);
+                }
+                co2VeiculosMensal += co2DiarioItem * 30;
+            });
+        }
+        const co2VeiculosAnual = co2VeiculosMensal * 12;
+
+        // 2. Maquinário
+        let co2MaquinasMensal = 0;
+        if (r.maquinasAdicionadas && r.maquinasAdicionadas.length > 0) {
+            r.maquinasAdicionadas.forEach(maquina => {
+                const consumo = parseFloat(maquina.consumo) || 0;
+                const fatorCombustivel = FATORES.maquinarioCombustivel[maquina.combustivel] || 0;
+                co2MaquinasMensal += consumo * fatorCombustivel;
+            });
+        }
+        const co2MaquinasAnual = co2MaquinasMensal * 12;
+
+        // 3. Consumo Geral
+        const co2GasAnual = (parseInt(r.botijoesGas, 10) || 0) * FATORES.botijaoGasKgCO2;
+        let co2EletricidadeAnual = 0;
+        if (r.tipoEnergia === "Elétrica (hidrelétrica)") {
+            if (r.tipoConsumoEletricidade === 'R$/mês') {
+                const kwhMensal = (parseFloat(r.consumoEletricidade) || 0) / FATORES.precoMedioKwh;
+                co2EletricidadeAnual = kwhMensal * FATORES.eletricidadeKwhParaCO2 * 12;
+            } else {
+                co2EletricidadeAnual = (parseFloat(r.consumoEletricidade) || 0) * FATORES.eletricidadeKwhParaCO2 * 12;
+            }
+        }
+        const co2ConsumoGeralAnual = co2GasAnual + co2EletricidadeAnual;
+        
+        // 4. Total
+        const co2TotalAnual = co2VeiculosAnual + co2MaquinasAnual + co2ConsumoGeralAnual;
+
+        await db.query('INSERT INTO calculocarbono (id_usuario, resultado_carbono, data_carbono) VALUES ($1, $2, NOW())', [id_usuario, co2TotalAnual.toFixed(2)]);
+        
+        res.status(200).send({
+            mensagem: "Cálculo realizado com sucesso!",
+            resultado: { 
+                totalAnualKg: co2TotalAnual.toFixed(2),
+                breakdown: {
+                    frota: co2VeiculosAnual.toFixed(2),
+                    maquinario: co2MaquinasAnual.toFixed(2),
+                    consumo_geral: co2ConsumoGeralAnual.toFixed(2)
+                }
+            }
+        });
+
+    } catch (error) {
+        console.error("Erro no cálculo (Jurídica):", error);
+        res.status(500).send({ mensagem: "Ocorreu um erro no servidor." });
     }
 };

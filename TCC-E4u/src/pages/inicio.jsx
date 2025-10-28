@@ -1,4 +1,3 @@
-// src/pages/Inicio.jsx
 import { useState, useEffect } from "react";
 import NavBar from "../components/navegacao";
 import Header from "../components/cabecalho";
@@ -18,28 +17,26 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 
-// Importe a imagem do carrossel aqui
-import funcaoImg from "../assets/perfil.png";
-import funcaoImg2 from "../assets/perfil.png";
-import funcaoImg3 from "../assets/perfil.png";
-import funcaoImg4 from "../assets/perfil.png";
+import funcaoImg from "../assets/lorena.jpg";
+import funcaoImg2 from "../assets/gustavo.jpg";
+import funcaoImg3 from "../assets/lyncon2.jpg";
+import funcaoImg4 from "../assets/lavinia2.jpg";
 import funcaoImg5 from "../assets/perfil.png";
-import funcaoImg6 from "../assets/perfil.png";
+import funcaoImg6 from "../assets/gabriela.png";
 
-// Arrays de textos para cada Swiper (apenas 2 textos cada)
 const textosSlides1 = [
-  "Lorena C. Programadora",
-  "Gustavo M. Designer"
+  "Lorena Corsato. Programadora",
+  "Gustavo Costa. Designer"
 
 ];
 const textosSlides2 = [
- "Lyncon S. Programador",
-  "Lavinía K. Documentadora"
+ "Lyncon Santos. Programador",
+  "Lavinía Keiller. Documentadora"
 
 ];
 const textosSlides3 = [
- "Raphael S. Programador",
-  "Gabriela C. Documentadora"
+ "Raphael Scapin. Programador",
+  "Gabriela Prado. Documentadora"
 
 ];
 
@@ -303,7 +300,7 @@ export default function Inicio() {
           </div>
         </div>
 
-        <div className="cards">
+        <div className="cards-verdes">
           <Card srcCard="src/assets/energia - lading page.png" tituloCard="Energia" textoCard="Utilize energia com aparelhos de qualidade e estabelecendo seus próprios limites. Oferecemos a oportunidade de saber com clareza a quantidade de energia que você utiliza para ajudá-lo da melhor maneira possível." />
           <Card srcCard="src/assets/Eficiencia - lading page.png" tituloCard="Eficiência" textoCard="Garantimos uma experiência positiva, que promete resultados, melhorando a geração de energia e reduzindo o nível de poluição emitido." />
           <Card srcCard="src/assets/ecologia - lading page.png" tituloCard="Ecologia" textoCard="Ao mesmo tempo em que você se beneficia, ainda ajuda a natureza com um sistema limpo e sustentável, mantendo o meio ambiente e a consciência limpos." />
@@ -328,7 +325,6 @@ export default function Inicio() {
                 Nós do E4U nos propusemos a desenvolver uma aplicação com a finalidade de informar e conscientizar sobre os benefícios da energia fotovoltaica e a pegada de carbono na atmosfera.
               </p>
               <div className="mini-swipers-row">
-                {/* Swiper 1 */}
                 <div className="mini-swiper-col">
                   <Swiper
                     effect="coverflow"
@@ -357,7 +353,6 @@ export default function Inicio() {
                   <p className="mini-swiper-text">{textosSlides1[slideAtivo1]}</p>
                 </div>
 
-                {/* Swiper 2 */}
                 <div className="mini-swiper-col">
                   <Swiper
                     effect="coverflow"
@@ -380,7 +375,7 @@ export default function Inicio() {
                       <img src={funcaoImg3} alt="Lyncon S. Programador" />
                     </SwiperSlide>
                     <SwiperSlide>
-                      <img src={funcaoImg4} alt="Lavinía K. Documentadora" />
+                      <img src={funcaoImg4} alt="Lavinía Keiller. Documentadora" />
                     </SwiperSlide>
                   </Swiper>
                   <p className="mini-swiper-text">{textosSlides2[slideAtivo2]}</p>
@@ -417,7 +412,7 @@ export default function Inicio() {
             </div>
           </div>
         </div>
-      </div> {/* fim da div.inicio */}
+      </div> 
 
       <Acessibilidade />
       <Footer />
