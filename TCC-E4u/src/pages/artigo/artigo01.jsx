@@ -4,12 +4,12 @@ import Footer from '../../components/rodape.jsx'
 export default function Artigo01() {
     return (
         <>
-        <div className="conteudoArtigo">
+        <div className="conteudoArtigo1">
             <h1>O futuro das energias renováveis no Brasil: Desafios e incentivos</h1>
 
             <p>&nbsp;O crescimento populacional e a alta demanda por energia, principalmente nos últimos anos com o avanço da tecnologia, reforçam a necessidade de uma base energética sustentável e resistente. O Brasil possui vantagens competitivas no setor energético devido à sua diversidade de fontes renováveis e o seu vasto território favorável a essas práticas, o que permite reduzir a dependência de combustíveis fósseis.</p>
             <br/>
-            <img className='imagemCheia' src="src/assets/ImgArtigos/FuturoEnergia.jpg" />
+            <img className='imagemCheia1' src="src/assets/ImgArtigos/FuturoEnergia.jpg" />
             <p>&nbsp;No contexto global, acordos internacionais como o Acordo de Paris, estabelecem metas para a redução das emissões de gases de efeito estufa (GEE). Diante disso, o Brasil tem buscado fortalecer sua estrutura regulatória para impulsionar a transição e garantir segurança energética.</p>
             <br/>
             <p>&nbsp;Este artigo explora as principais fontes renováveis utilizadas no Brasil, os desafios enfrentados para sua expansão e as medidas regulatórias adotadas para promover esse setor estratégico.</p>
@@ -40,7 +40,7 @@ export default function Artigo01() {
             <p>&nbsp;A transição para uma central energética sustentável é, de fato, uma necessidade global e estratégica para o Brasil. Apesar dos avanços no setor, é essencial promover a diversificação, fortalecer a regulação e ampliar os incentivos à inovação tecnológica. A expansão das fontes limpas não apenas contribui para a redução de emissões de carbono, mas também impulsiona o desenvolvimento econômico e a segurança energética do país.</p>        
         </div>
 
-        <div className="creditosArtigo">
+        <div className="creditosArtigo1">
             <h6>Gabriela Prado</h6>
             <p>13/08/2025</p>
         </div>

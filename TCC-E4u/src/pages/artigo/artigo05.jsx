@@ -4,12 +4,12 @@ import Footer from '../../components/rodape.jsx'
 export default function Artigo01() {
     return (
         <>
-        <div className="conteudoArtigo">
+        <div className="conteudoArtigo1">
             <h1>Sustentabilidade no cotidiano: Ações que impactam</h1>
 
             <p>&nbsp;Sustentabilidade é a capacidade de um sistema ou processo se manter, sem esgotar os recursos e sem comprometer a capacidade das gerações futuras de satisfazerem as suas próprias necessidades. O desenvolvimento sustentável pode ser tratado como a busca pelo equilíbrio entre a exploração controlada dos recursos naturais, buscando também a preservação dos mesmos e a permanência da qualidade de vida da população. Apoiando-se em três pilares interconectados: social, econômico e ambiental, o movimento sustentável se forma em nossa sociedade.</p>
             <br/>
-            <img className='imagemCheia' src="src/assets/economia - lading page.png" />
+            <img className='imagemCheia1' src="src/assets/economia - lading page.png" />
             <p>&nbsp;Os Pilares da Sustentabilidade</p>
             <br/>
             <p style={{fontWeight: "bold"}}>•	Ambiental:</p>
@@ -36,7 +36,7 @@ export default function Artigo01() {
             <p>&nbsp;Em resumo, a sustentabilidade busca um futuro onde a humanidade e a natureza possam coexistir de forma harmoniosa e duradoura, garantindo o bem-estar presente sem prejudicar as futuras gerações.</p>
         </div>
 
-        <div className="creditosArtigo">
+        <div className="creditosArtigo1">
             <h6>Gabriela Prado</h6>
             <p>27/08/2025</p>
         </div>
