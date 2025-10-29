@@ -199,7 +199,7 @@ export default function CadastroFisico() {
                 )}
 
                 <h3>Ou</h3>
-                 <div>
+                 <div >
                    <button type="button" className="googleBotao" onClick={handleGoogleSignUp}>
                     <img  src="src/assets/iconeGoogle.svg" alt="Google" class="googleIcone"/>
                     <span>Cadastrar com Google</span>

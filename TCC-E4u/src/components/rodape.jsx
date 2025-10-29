@@ -11,9 +11,9 @@ export default function Footer() {
 
                 <div className="parteInferior">
                     <div className="duvidas">
-                        <a href="#">Termos de uso e privacidade</a>
+                        <a href="/termos">Termos de uso e privacidade</a>
                         <a href="#">Segurança</a>
-                        <a href="#">Dúvidas?</a>
+                        <a href="/duvidas">Dúvidas?</a>
                     </div>
 
                     <div className="redesSociais">

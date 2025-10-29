@@ -32,6 +32,8 @@ import Resultado from './pages/resultadoCarbono.jsx';
 import ResultadoSolar from './pages/resultadoSolar.jsx';
 import Home from './pages/home.jsx';
 import EsqueceuSenha from './pages/esqueceuSenha.jsx';
+import Termos from './pages/termos.jsx';
+import Duvidas from './pages/duvidas.jsx';
 
 import Layout from './components/Layout.jsx'; 
 
@@ -52,6 +54,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route element={<Layout />}>
             <Route path="/" element={<Inicio />} />
             <Route path="/landingPage" element={<LandingPage />} />
+            <Route path="/termos" element={<Termos />} />
+            <Route path="/duvidas" element={<Duvidas />} />
           </Route>
           
           {/*Rotas privadas  */}

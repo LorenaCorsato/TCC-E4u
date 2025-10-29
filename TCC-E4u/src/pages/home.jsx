@@ -18,21 +18,21 @@ export default function Home() {
           <div className="cardArtigosPreview">
             <CardBotao
               hrefCardBotao="/artigo02"
-              srcCardBotao="src/assets/Ecologia.jpg"
+              srcCardBotao="src/assets/carbono.jpg"
               tituloCardBotao="Pegada de carbono: o que é, como calcular e como reduzir?"
               textoCardBotao="Inicie sua jornada rumo à sustentabilidade"
             />
             
             <CardBotao
               hrefCardBotao="/artigo03"
-              srcCardBotao="src/assets/mercado1.png"
+              srcCardBotao="src/assets/mercado.jpg"
               tituloCardBotao="Mercado sustentável"
               textoCardBotao="Tendências e oportunidades para negócios verdes"
             />
             
             <CardBotao
-              hrefCardBotao="artigo/06"
-              srcCardBotao="src/assets/fiscal.jpg"
+              hrefCardBotao="/artigo06"
+              srcCardBotao="src/assets/fiscal1.jpg"
               tituloCardBotao="Incentivos fiscais para sustentabilidade "
               textoCardBotao="Como funcionam e quem pode usar?"
             />
@@ -181,7 +181,7 @@ export default function Home() {
               <img src="src/assets/Energia.png" alt=""  />
             </a>
             <a href="/pegadaCarbono" className="graficoPreview">
-              <img src="src/assets/Energia.png" alt="" />
+              <img src="src/assets/card1.jpg" alt="" />
             </a>
           </div>
         </div>

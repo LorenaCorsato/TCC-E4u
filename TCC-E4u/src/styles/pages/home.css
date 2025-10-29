@@ -22,6 +22,7 @@ html, body {
   justify-content: center;
   padding: 0 1rem;
   box-sizing: border-box;
+ 
 }
 
 /* container passa a empilhar cards em coluna ocupando 100% da largura */
@@ -70,6 +71,7 @@ html, body {
 .cardArtigosPreview .cardBotao:first-child img {
   height: 100%;
   width: 100%;
+  
 }
 
 .cardArtigosPreview .cardBotao:first-child h5 {
@@ -90,7 +92,7 @@ html, body {
 }
 
 .cardArtigosPreview .cardBotao p{
-  margin: 0;
+  margin: 90;
   padding: 0.5;
 }
 
@@ -102,8 +104,8 @@ html, body {
 .cardArtigosPreview .cardBotao {
   position: relative;
   flex-direction: column;
-  height: 50%;
-  width: 20%;
+  height: 200px;
+  width: 300px;
   border: none
 }
 
@@ -113,7 +115,7 @@ html, body {
   height: 400px;
   margin-bottom: 1.5rem;
   object-fit: cover;
-  border-radius: 20px;
+
   box-shadow: 0 8px 24px rgba(0,0,0,0.14);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: block;
@@ -254,6 +256,7 @@ html, body {
   .cardArtigosPreview .cardBotao:first-child {
     height: 100%;
     width: 80%;
+
   }
 
   .cardBotao:first-child img{
