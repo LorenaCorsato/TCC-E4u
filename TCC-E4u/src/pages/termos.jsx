@@ -6,6 +6,18 @@ export default function Termos() {
     <>
       <main className="conteudoArtigo">
         <article>
+          <h1>Termos de Serviço — E4U</h1>
+          <p className="muted">Data da última atualização: 27 de outubro de 2025</p>
+
+          <h2> O que estes termos cobrem </h2>
+          <p>
+           
+Sabemos que é tentador pular estes Termos de Serviço, mas é importante estabelecer o que você pode esperar de nós ao usar os serviços do E4U e o que esperamos de você.
+Estes Termos de Serviço refletem a maneira como os negócios do E4U funcionam, as leis que se aplicam à nossa empresa e determinados pontos em que sempre acreditamos. Como resultado, estes termos ajudam a definir a relação do E4U com você na medida da sua interação com os nossos serviços. Por exemplo, estes termos incluem as seguintes seções: O que você pode esperar de nós, que descreve o modo como fornecemos e desenvolvemos nossos serviços. O que esperamos de você, que estabelece certas regras para usar nossos serviços. Conteúdo nos serviços do E4U, que descreve os direitos de propriedade intelectual com relação ao conteúdo que você encontra nos nossos serviços, seja ele pertencente a você, ao E4U ou a outras pessoas. Em caso de problemas ou discordâncias, que descreve outros direitos legais que você tem e o que esperar caso estes termos sejam violados. 
+Compreender estes termos é importante porque, para usar nossos serviços, você precisa aceitá-los. Além destes termos, também publicamos uma Política de Privacidade. Embora ela não faça parte destes termos, recomendamos que você a leia para entender melhor.
+
+          </p>
+
           <h1>Política de Privacidade e Segurança — E4U</h1>
           <p className="muted">Data da última atualização: 27 de outubro de 2025</p>
 
