@@ -178,7 +178,7 @@ export default function Home() {
           
           <div className="containerGraficos">
             <a href="/placaSolar" className="graficoPreview">
-              <img src="src/assets/Energia.png" alt=""  />
+              <img src="src/assets/placasS.png" alt=""  />
             </a>
             <a href="/pegadaCarbono" className="graficoPreview">
               <img src="src/assets/card1.png" alt="" />
