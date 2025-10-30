@@ -9,7 +9,7 @@ export default function Artigo01() {
 
             <p>&nbsp;Sustentabilidade é a capacidade de um sistema ou processo se manter, sem esgotar os recursos e sem comprometer a capacidade das gerações futuras de satisfazerem as suas próprias necessidades. O desenvolvimento sustentável pode ser tratado como a busca pelo equilíbrio entre a exploração controlada dos recursos naturais, buscando também a preservação dos mesmos e a permanência da qualidade de vida da população. Apoiando-se em três pilares interconectados: social, econômico e ambiental, o movimento sustentável se forma em nossa sociedade.</p>
             <br/>
-            <img className='imagemCheia1' src="src/assets/economia - lading page.png" />
+            <img className='imagemCheia1' src="src/assets/ImgArtigos/cotidiano.jpg" />
             <p>&nbsp;Os Pilares da Sustentabilidade</p>
             <br/>
             <p style={{fontWeight: "bold"}}>•	Ambiental:</p>

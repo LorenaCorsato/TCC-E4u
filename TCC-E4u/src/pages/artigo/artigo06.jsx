@@ -9,7 +9,7 @@ export default function Artigo01() {
 
             <p>&nbsp;O tema da sustentabilidade vem crescendo devido a uma combinação de fatores: a crescente degradação ambiental e seus impactos, a necessidade de garantir recursos para as futuras gerações e a crescente conscientização social sobre os problemas ambientais. Inevitavelmente, os incentivos fiscais estão interligados nesse contexto porque são usados para encorajar empresas e indivíduos a adotarem práticas mais sustentáveis, como reciclagem, uso de energias limpas e preservação de recursos naturais. Essa política fiscal visa tornar as práticas ambientais mais atrativas financeiramente, promovendo um desenvolvimento econômico que concilia a preservação do meio ambiente com o crescimento do país.</p>
             <br/>
-            <img className='imagemCheia1' src="src/assets/economia - lading page.png" />
+            <img className='imagemCheia1' src="src/assets/ImgArtigos/Fiscal.jpg" />
             <p>&nbsp;Quer saber mais sobre sustentabilidade? Leia mais um de nossos artigos clicando aqui (ideia de link de redirecionamento para outro artigo do site “complementar” a esse)</p>
             <br/>
             <p>&nbsp;Os incentivos fiscais para a sustentabilidade incluem dedução de despesas em pesquisa e desenvolvimento (P&D) sustentável pela Lei do Bem, créditos de carbono e de PIS/COFINS sobre materiais reciclados, redução de ICMS e ISS em alguns estados e municípios, e o benefício do IPTU Verde para imóveis com práticas sustentáveis. Entendendo um pouco mais de cada um:</p>

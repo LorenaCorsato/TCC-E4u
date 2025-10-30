@@ -6,7 +6,7 @@ export default function Artigo() {
         <>
             <div className="conteudoArtigo1">
                 <h1>Energia solar e legislação: entenda os impactos da lei 14.300/22</h1>
-                <img className='imagemCheia1' src="src/assets/economia - lading page.png" />
+                <img className='imagemCheia1' src="src/assets/ImgArtigos/legislação.jpg" />
                 <p>&nbsp;A Lei Federal nº 14.300/2022 é o Marco Legal da Geração Distribuída no Brasil, estabelecendo regras claras e segurança jurídica para a micro e minigeração de energia solar fotovoltaica, substituindo a Resolução Normativa 482/2012 da ANEEL. Ela introduziu um sistema de compensação de créditos de energia, mas também gradualmente implementou a cobrança do Fio B (O Fio B, ou fio de retorno, é um componente da tarifa de energia elétrica (TUSD) que remunera as concessionárias pelo uso da infraestrutura de distribuição de energia, como postes e cabos, mesmo quando o consumidor gera a própria energia) sobre a energia injetada na rede para os sistemas instalados após a sua entrada em vigor, com um período de transição que culmina em regras definitivas em 2029.</p>
                 <br />
 

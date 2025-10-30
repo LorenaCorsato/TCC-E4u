@@ -78,7 +78,7 @@ export default function Home() {
             <div className="itemCard">
               <a href="#" className="linkCard">
                 <div style={{position: 'relative'}}>
-                  <img src="src/assets/empresa1.png" alt="Placa Solar Alta Eficiência" className="imagemCard" />
+                  <img src="src/assets/empresa2.png" alt="Placa Solar Alta Eficiência" className="imagemCard" />
                 </div>
                 <h2 className="tituloCard">Empresa Tal</h2>
                 <div className="detalhesCard">
@@ -110,7 +110,7 @@ export default function Home() {
             <div className="itemCard">
               <a href="#" className="linkCard">
                 <div style={{position: 'relative'}}>
-                  <img src="src/assets/empresa1.png" alt="Placa Solar Durabilidade" className="imagemCard" />
+                  <img src="src/assets/empresa3.png" alt="Placa Solar Durabilidade" className="imagemCard" />
                 </div>
                 <h2 className="tituloCard">Empresa tal</h2>
                 <div className="detalhesCard">
@@ -142,7 +142,7 @@ export default function Home() {
             <div className="itemCard">
               <a href="#" className="linkCard">
                 <div style={{position: 'relative'}}>
-                  <img src="src/assets/empresa1.png" alt="Serviços Sustentáveis" className="imagemCard" />
+                  <img src="src/assets/empresa4.png" alt="Serviços Sustentáveis" className="imagemCard" />
                 </div>
                 <h2 className="tituloCard">Empresa Nova</h2>
                 <div className="detalhesCard">
@@ -174,14 +174,14 @@ export default function Home() {
         </div>
         
         <div className="pegCarbonoPreview">
-          <h5>Cálculo de pegada de carbono:</h5>
+    <br></br>
           
           <div className="containerGraficos">
             <a href="/placaSolar" className="graficoPreview">
               <img src="src/assets/Energia.png" alt=""  />
             </a>
             <a href="/pegadaCarbono" className="graficoPreview">
-              <img src="src/assets/card1.jpg" alt="" />
+              <img src="src/assets/card1.png" alt="" />
             </a>
           </div>
         </div>

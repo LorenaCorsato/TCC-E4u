@@ -61,28 +61,28 @@ export default function Artigos() {
 
             <CardBotao
               hrefCardBotao="/artigo05"
-              srcCardBotao="src/assets/Ecologia.jpg"
+              srcCardBotao="src/assets/ImgArtigos/cotidiano.jpg"
               tituloCardBotao="Sustentabilidade no cotidiano: Ações que impactam"
               textoCardBotao="Inspire-se com pequenas mudanças que fazem a diferença."
             />
 
             <CardBotao
               hrefCardBotao="/artigo06"
-              srcCardBotao="src/assets/Ecologia.jpg"
+              srcCardBotao="src/assets/ImgArtigos/Fiscal.jpg"
               tituloCardBotao="Incentivos fiscais para sustentabilidade: Como funcionam e quem pode usar?"
               textoCardBotao="Descubra como os incentivos fiscais podem impulsionar práticas sustentáveis."
             />
 
             <CardBotao
               hrefCardBotao="/artigo07"
-              srcCardBotao="src/assets/Ecologia.jpg"
+              srcCardBotao="src/assets/ImgArtigos/Direitos.jpg"
               tituloCardBotao="Direito ambiental e responsabilidade civil: o que empresas precisam saber"
               textoCardBotao="Entenda as obrigações legais e como proteger o meio ambiente."
             />
 
             <CardBotao
               hrefCardBotao="/artigo08"
-              srcCardBotao="src/assets/Ecologia.jpg"
+              srcCardBotao="src/assets/ImgArtigos/legislação.jpg"
               tituloCardBotao="Energia solar e legislação: entenda os impactos da lei 14.300/22"
               textoCardBotao="Saiba como a nova legislação afeta o setor de energia solar."
             />

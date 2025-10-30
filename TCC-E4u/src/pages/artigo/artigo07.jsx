@@ -6,7 +6,7 @@ export default function Artigo07() {
         <>
         <div className="conteudoArtigo1">
             <h1>Direito ambiental e responsabilidade civil: o que empresas precisam saber</h1>
-            <img className='imagemCheia1' src="src/assets/economia - lading page.png" />
+            <img className='imagemCheia1' src="src/assets/ImgArtigos/Direitos.jpg" />
             <p>&nbsp;O Direito Ambiental é a área jurídica que estabelece um conjunto de leis, normas e princípios para proteger, preservar e gerenciar o meio ambiente, buscando equilibrar a atividade humana com a sustentabilidade do planeta. Ele trata da conservação da biodiversidade, gestão de recursos naturais, controle da poluição e mudanças climáticas, fundamentando-se em princípios como a precaução e o poluidor-pagador, e tem grande relevância na atuação de advogados, governos e empresas. Tem como objetivos:</p>
             <p>●	Assegurar um ambiente equilibrado e sadio para as gerações presentes e futuras.</p>
             <p>●	Regulação de atividades: disciplinar o uso das terras e a exploração de recursos naturais para evitar impactos negativos.</p>
