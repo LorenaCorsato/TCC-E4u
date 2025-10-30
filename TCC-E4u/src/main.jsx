@@ -26,6 +26,8 @@ import Artigo05 from './pages/artigo/artigo05.jsx';
 import Artigo06 from './pages/artigo/artigo06.jsx';
 import Artigo07 from './pages/artigo/artigo07.jsx';
 import Artigo08 from './pages/artigo/artigo08.jsx';
+import Artigo09 from './pages/artigo/artigo09.jsx';
+import Artigo10 from './pages/artigo/artigo10.jsx';
 import Grafico from './pages/grafico.jsx';
 import Historico from './pages/historico.jsx';
 import Resultado from './pages/resultadoCarbono.jsx';
@@ -90,6 +92,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="/artigo06" element={<Artigo06 />} />
             <Route path="/artigo07" element={<Artigo07 />} />
             <Route path="/artigo08" element={<Artigo08 />} />
+            <Route path="/artigo09" element={<Artigo09 />} />
+            <Route path="/artigo10" element={<Artigo10 />} />
             <Route path="/grafico" element={<Grafico />} />
             <Route path="/historico" element={<Historico />} />
             <Route path="/resultado" element={<Resultado />} />

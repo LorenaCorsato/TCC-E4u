@@ -1,4 +1,3 @@
-import { href } from "react-router-dom";
 import BotaoIcone from "../components/botaoIcone.jsx";
 import CardBotao from "../components/cardBotao.jsx";
 import NavBar from "../components/navegacao.jsx";
@@ -23,7 +22,7 @@ export default function Artigos() {
             <CardBotao
               hrefCardBotao="/artigo07"
               srcCardBotao="src/assets/ImgArtigos/Direitos.jpg"
-              tituloCardBotao="Direito ambiental e responsabilidade civil: o que empresas precisam saber"
+              tituloCardBotao="Direito ambiental e responsabilidade civil: o que as empresas precisam saber"
                />
 
             <CardBotao
@@ -76,7 +75,7 @@ export default function Artigos() {
             <CardBotao
               hrefCardBotao="/artigo07"
               srcCardBotao="src/assets/ImgArtigos/Direitos.jpg"
-              tituloCardBotao="Direito ambiental e responsabilidade civil: o que empresas precisam saber"
+              tituloCardBotao="Direito ambiental e responsabilidade civil: o que as empresas precisam saber"
               textoCardBotao="Entenda as obrigações legais e como proteger o meio ambiente."
             />
 
@@ -85,6 +84,20 @@ export default function Artigos() {
               srcCardBotao="src/assets/ImgArtigos/legislação.jpg"
               tituloCardBotao="Energia solar e legislação: entenda os impactos da lei 14.300/22"
               textoCardBotao="Saiba como a nova legislação afeta o setor de energia solar."
+            />
+
+             <CardBotao
+              hrefCardBotao="/artigo09"
+              srcCardBotao="src/assets/ImgArtigos/mercadoS.png"
+              tituloCardBotao="A chegada do mercado sustentável ao Brasil"
+              textoCardBotao="Entenda a nova tendencia do mercado."
+            />
+
+              <CardBotao
+              hrefCardBotao="/artigo10"
+              srcCardBotao="src/assets/ImgArtigos/inversores.png"
+              tituloCardBotao="Inversores e Transformadores"
+              textoCardBotao="Saiba como os inversores e transformadores funcionam."
             />
           </div>
 
