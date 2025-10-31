@@ -1,0 +1,106 @@
+.artigos {
+    margin-top: 5vh;
+    padding: 1rem;
+    position: relative;
+}
+
+.artigosTopo {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5vh;
+}
+
+.artigosTopo .cardBotao {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    border: 0;
+}
+
+.artigosTopo .cardBotao h5 {
+    position: absolute;
+    font-size: 1.4rem;
+    top: 70%;
+    left: 2%;
+    color: #FFFFFF;
+}
+
+.artigosTopo .cardBotao p {
+    position: absolute;
+    font-size: 1rem;
+    top: 20%;
+    left: 2%;
+    color: #FFFFFF;
+}
+
+.artigosTopo > .cardBotao h5 {
+    top: 10%;
+    left: 2%;
+    color: #FFFFFF;
+}
+
+.artigosTopo > div .cardBotao h5 {
+    top: 60%;
+    left: 4%;
+    color: #FFFFFF;
+}
+
+.artigosTopo .cardBotao img {
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+
+.artigosCards {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    font-size: 1.2rem;
+}
+
+.artigosCards img {
+    max-height: 176px;
+    min-height: 176px;
+    max-width: 308px;
+    min-width: 308px;
+}
+
+.artigosCards .cardBotao {
+    border: 0
+}
+
+.artigosArea {
+    position: absolute; /* Posiciona o elemento de forma absoluta */
+    top: 1; /* Ajuste conforme necessário */
+    right: 0; /* Alinha à direita */
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    width: 25vw;
+    align-items: center;
+    border-radius: 25px;
+    box-sizing: border-box;
+    background-color: #e8e6e6;
+    margin-right: 23px;
+}
+
+.artigosArea image {
+    border-radius: 2500px;
+}
+
+.artigosArea .cardBotao {
+    flex-direction: row-reverse;
+}
+
+.artigosArea h5 {
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    justify-self: center;
+}
+
+@media (max-width: 768px) {
+    .artigosCards {
+        flex-direction: column;
+        }
+}

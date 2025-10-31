@@ -1,0 +1,296 @@
+/* evita scroll horizontal em toda a página */
+html, body {
+  overflow-x: hidden;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.home h5 { 
+  margin-left: 150px;
+  margin-bottom: 2rem;
+}
+
+.cardArtigosPreview {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+ 
+}
+
+/* container passa a empilhar cards em coluna ocupando 100% da largura */
+.containerCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;              /* mantém os cards lado a lado */
+  gap: 40px; /* aumentando o espaço entre os cards */
+  justify-content: center;        /* centraliza os cards horizontalmente */
+  align-items: stretch;
+  width: 100%;
+  overflow-x: auto;               /* permite scroll se os cards ultrapassarem a largura */
+  -webkit-overflow-scrolling: touch;
+  padding: 0 1rem;
+  margin: 0 auto 35px;
+  box-sizing: border-box;
+}
+
+/* cada card terá largura fixa para manter alinhamento em linha */
+.itemCard {
+  flex: 0 0 520px; /* aumentando para 520px */
+  max-width: 340px; /* aumentando para 520px */
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* imagem agora fica dentro do card, com altura fixa menor para parecer janela */
+.imagemCard {
+  width: 100%;
+  height: 220px;      /* altura do "pequeno visor" da imagem dentro do card */
+  object-fit: cover;
+  background: #f8f8f8;
+  display: block;
+}
+
+.cardArtigosPreview .cardBotao:first-child {
+  height: 100%;
+  width: 50%;
+}
+
+.cardArtigosPreview .cardBotao:first-child img {
+  height: 100%;
+  width: 100%;
+  
+}
+
+.cardArtigosPreview .cardBotao:first-child h5 {
+  position: absolute;
+  font-size: 1.4rem;
+  top: 50%;
+  left: 2%;
+  color: #FFFFFF;
+}
+
+.cardArtigosPreview .cardBotao:first-child p {
+  width: 50%;
+  position: absolute;
+  font-size: 1rem;
+  top: 60%;
+  left: 2%;
+  color: #FFFFFF;
+}
+
+.cardArtigosPreview .cardBotao p{
+  margin: 90;
+  padding: 0.5;
+}
+
+.cardArtigosPreview .cardBotao h5{
+  margin: 0;
+  padding: 0.5;
+}
+
+.cardArtigosPreview .cardBotao {
+  position: relative;
+  flex-direction: column;
+  height: 200px;
+  width: 300px;
+  border: none
+}
+
+/* Regra atualizada: imagens maiores, arredondadas e responsivas */
+.graficoPreview img{
+  width: 730px;
+  height: 400px;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: block;
+}
+
+.containerGraficos{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+.graficoPreview{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+/* imagem agora fica dentro do card, com altura fixa menor para parecer janela */
+.imagemCard {
+  width: 100%;
+  height: 220px;      /* altura do "pequeno visor" da imagem dentro do card */
+  object-fit: cover;
+  background: #f8f8f8;
+  display: block;
+}
+
+.selo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2d5016;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tituloCard {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin: 20px 0 10px;
+  padding: 0 20px;
+}
+
+.detalhesCard {
+  padding: 0 25px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.linhaDetalhe {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #555;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.linhaDetalhe:last-child {
+  border-bottom: none;
+}
+
+.rotuloDetalhe {
+  font-weight: 600;
+  color: #333;
+}
+
+.valorDetalhe {
+  color: #666;
+  text-align: right;
+}
+
+.botaoCard {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 50px); /* ocupa toda a largura interna do card respeitando as margens laterais */
+  margin: 0 25px 25px;
+  padding: 14px 0;
+  background: #2d5016;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-sizing: border-box;
+}
+
+.botaoCard:hover {
+  background: #1f3810;
+}
+
+.titulo{
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: -110px;
+}
+
+.artigosCardsP img {
+    max-height: 176px;
+    min-height: 176px;
+    max-width: 308px;
+    min-width: 308px;
+}
+
+/* Responsividade: empilha no mobile */
+@media (max-width: 768px) {
+  .cardArtigosPreview {
+    flex-direction: column;
+    justify-self: center
+  }
+  
+  .cardArtigosPreview .cardBotao {
+    width: 100%;
+  }
+
+  .cardArtigosPreview .cardBotao:first-child {
+    height: 100%;
+    width: 80%;
+
+  }
+
+  .cardBotao:first-child img{
+    width: 100%;
+  }
+
+  .containerCards {
+    flex-wrap: wrap;
+    margin: 0 10px 25px;
+    gap: 20px;
+  }
+  
+  .itemCard {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Responsividade: ajusta tamanho em telas menores */
+@media (max-width: 1024px) {
+  .graficoPreview img {
+    width: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerGraficos {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .graficoPreview img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+  }
+}
+

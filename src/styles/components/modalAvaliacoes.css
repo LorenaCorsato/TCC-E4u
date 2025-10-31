@@ -1,0 +1,107 @@
+.modal-avaliacoes-container {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.modal-avaliacoes-container h2 {
+    text-align: center;
+    margin-top: 0;
+    color: var(--cor-principal);
+}
+
+.form-avaliacao {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: #f9f9f9;
+}
+
+.form-avaliacao h4 {
+    margin-top: 0;
+    text-align: center;
+    font-family: var(--fonte-titulo);
+}
+
+.form-avaliacao .star-rating-input {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form-avaliacao textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--fonte-corpo);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-avaliacao button {
+    padding: 10px 20px;
+    width: 100%;
+    font-weight: bold;
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-principal); 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.form-avaliacao button:hover {
+    background-color: var(--cor-principal-hover);
+}
+
+.mensagem-form {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+.mensagem-form.erro { color: red; }
+.mensagem-form.sucesso { color: green; }
+
+.lista-avaliacoes {
+    text-align: left;
+}
+
+.lista-avaliacoes h4 {
+    font-family: var(--fonte-titulo);
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.avaliacao-item {
+    border-bottom: 1px solid #eee;
+    padding: 1.5rem 0;
+}
+.avaliacao-item:last-child {
+    border-bottom: none;
+}
+
+.avaliacao-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.avaliacao-header strong {
+    font-family: var(--fonte-titulo);
+    font-size: 1.1rem;
+}
+
+.avaliacao-opiniao {
+    font-style: italic;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.avaliacao-data {
+    font-size: 0.8rem;
+    color: #888;
+}

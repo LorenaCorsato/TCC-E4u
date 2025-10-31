@@ -1,0 +1,107 @@
+import React, { createContext, useState, useEffect, useContext } from 'react';
+import axios from 'axios';
+import { auth } from '../firebase';
+import { 
+    signInWithEmailAndPassword, 
+    signOut, 
+    GoogleAuthProvider, 
+    signInWithPopup 
+} from "firebase/auth";
+
+const AuthContext = createContext();
+
+export function AuthProvider({ children }) {
+    const [usuario, setUsuario] = useState(null);
+    const [token, setToken] = useState(localStorage.getItem('authToken'));
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(() => {
+
+          
+        const carregarDadosUsuario = async () => {
+            const tokenAtual = localStorage.getItem('authToken');
+            if (tokenAtual) {
+                try {
+                    const resposta = await axios.get('http://localhost:3001/api/auth/profile', {
+                        headers: { 'Authorization': `Bearer ${tokenAtual}` }
+                    });
+                    setUsuario(resposta.data);
+                } catch (error) {
+                    localStorage.removeItem('authToken');
+                    setToken(null);
+                    setUsuario(null);
+                    console.error("Sessão inválida. Logout forçado.");
+                }
+            }
+            setLoading(false);
+        };
+        carregarDadosUsuario();
+    }, [token]);
+
+    const login = async (email, senha) => {
+        const credencialUsuario = await signInWithEmailAndPassword(auth, email, senha);
+        const novoToken = await credencialUsuario.user.getIdToken();
+        localStorage.setItem('authToken', novoToken);
+        setToken(novoToken);
+    };
+const logout = async () => {
+    await signOut(auth);
+    localStorage.removeItem('authToken');
+    setUsuario(null);
+    setToken(null);
+};
+
+    const signInWithGoogle = async () => {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: 'select_account' });
+        try {
+            const resultado = await signInWithPopup(auth, provider);
+            const novoToken = await resultado.user.getIdToken();
+            const resposta = await axios.get('http://localhost:3001/api/auth/profile', {
+                headers: { 'Authorization': `Bearer ${novoToken}` }
+            });
+            localStorage.setItem('authToken', novoToken);
+            setToken(novoToken);
+            setUsuario(resposta.data);
+        } catch (error) {
+            if (error.response && error.response.status === 404) {
+                await signOut(auth);
+                throw new Error('Usuário não cadastrado. Por favor, use a página de cadastro.');
+            }
+            throw error;
+        }
+    };
+
+    const startGoogleSignUp = async () => {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: 'select_account' });
+        try {
+            const resultado = await signInWithPopup(auth, provider);
+            return resultado.user;
+        } catch (error) {
+            throw error;
+        }
+    };
+
+    const valor = {
+        usuario,
+        token,
+        loading,
+        login,
+        logout,
+        signInWithGoogle,
+        startGoogleSignUp,
+        setToken,
+    };
+
+    return (
+        <AuthContext.Provider value={valor}>
+            {!loading && children}
+        </AuthContext.Provider>
+    );
+}
+
+export function useAuth() {
+    return useContext(AuthContext);
+}

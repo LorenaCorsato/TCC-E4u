@@ -1,0 +1,83 @@
+@media(hover: hover) and (pointer: fine) {
+    .card1:hover {
+        width: 35vw;
+        position: relative;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.card1 {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    width: 30vw;
+    margin-bottom: 2%;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
+    background-color: #234F1E;
+}
+
+.imagemCard1 {
+    height: 40%;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.5s;
+}
+
+.conteudoCard1 {
+    opacity: 0;
+    transition: opacity 0s;
+}
+
+.conteudoCard1.aberto {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    height: 60%;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease 0.5s;
+}
+
+.tituloCard1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: "alexandria";
+}
+
+.textoCard1 {
+    height: 25%;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: "varrela", sans-serif;
+}
+
+@media (max-width: 768px) {
+    .card1 {
+        width: 100%;
+        position: static;
+    }
+
+    .conteudoCard1 {
+        opacity: 1;
+        height: 60%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: none;
+    }
+
+    .conteudoCard1.aberto {
+        opacity: 1;
+        height: 60%;
+        width: 10%;
+        display: flex;
+        flex-direction: column;
+        transition: none;
+    }
+}

@@ -1,0 +1,57 @@
+.conteudoArtigo1 {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem;
+    padding: 1rem;
+}
+
+.conteudoArtigo1 h1{
+    align-self: center;
+    margin-bottom: 2rem;
+}
+
+.conteudoArtigo1 p {
+    margin: 0.5rem;
+    font-family: "varela";
+}
+.imagemCheia1 {
+    margin: 2rem 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.imagemCheia1 img{
+    height: 50;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.creditosArtigo1 {
+    margin-bottom: 1rem;
+    border-top: 1px solid black;
+}
+
+.creditosArtigo1 p {
+    font-size: 0.8rem;
+    margin-left: 30px;
+}
+
+.creditosArtigo1 h6 {
+    font-size: 1rem;
+    margin-left: 30px;
+      font-family: "alexandria", sans-serif;
+
+}
+
+@media (max-width: 768px) {
+    .conteudoArtigo1 {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 2rem;
+    }
+}

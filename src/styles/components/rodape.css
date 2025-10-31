@@ -1,0 +1,75 @@
+.rodape {
+    height: 25vh;
+    width: 100%;
+    color: #FFFFFF;
+    background-color:#668213;
+    flex-direction: column; 
+    display: flex; 
+    justify-content: center; 
+}
+
+.parteSuperior {
+    font-family: "Alexandria", sans-serif;
+    margin-bottom: 1rem; 
+}
+
+.parteInferior {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: "Varela", sans-serif;
+        margin-bottom:15px ;
+
+}
+
+.direitosReservados {
+    width: 100%;
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center;    
+    text-align: center;
+    margin-top:10px ;
+}
+
+.direitosReservados p {
+    margin: 0.1rem 0;
+}
+
+.duvidas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.duvidas a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.duvidas a:hover {
+    text-decoration: underline;
+}
+
+.redesSociais {
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.citacao-dados {
+    font-size: 0.95rem; 
+    opacity: 0.8; 
+    margin-top: 5px;
+}
+
+.citacao-dados a {
+    color: white;
+    text-decoration: none;
+}
+
+.citacao-dados a:hover {
+    text-decoration: underline;
+}

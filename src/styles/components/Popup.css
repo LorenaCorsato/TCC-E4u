@@ -1,0 +1,125 @@
+.popup-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.popup-card {
+  background-color: #F3F6F2;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1px;
+  cursor: pointer;
+  width: 25vw;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  color: #333;
+  font-family: 'varrela', sans-serif;
+  position: relative;
+}
+
+.popup-card > div:not(.full-content) {
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.popup-card > div:not(.full-content):hover h3,
+.popup-card > div:not(.full-content):hover p {
+  text-shadow: 0px 0px 0px #6e964d, 0px 0px 0px #5d7e42;
+  color: #1a842d;
+  transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.popup-card.expanded {
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw; 
+  height: auto;
+  max-height: 80vh;
+  overflow: visible;
+  background-color: #f2fff2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000; 
+  padding: 32px 28px 40px 28px; 
+}
+
+.full-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+}
+
+.popup-card.expanded .full-content {
+  opacity: 1;
+  max-height: none;
+  overflow: visible;
+  transition: opacity 0.5s ease-in-out 0.2s, max-height 0.5s ease-in-out;
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 1.7rem;
+  color: #333;
+  cursor: pointer;
+  z-index: 1100;
+  transition: color 0.2s;
+}
+
+.popup-close-btn:hover {
+  color: #1a842d;
+}
+
+@media (max-width: 600px) {
+  .popup-container {
+    flex-wrap: wrap;
+    gap: 1px;
+    margin: 0.5rem;
+  }
+  .popup-card {
+    width: 48vw;
+    min-width: 140px;
+    max-width: 49vw;
+    height: 18vh;
+    min-height: 110px;
+    margin: 0 0 8px 0;
+    font-size: 0.95rem;
+    padding: 6px 2px;
+  }
+  .popup-card.expanded {
+    width: 90vw;
+    min-width: unset;
+    max-width: 90vw;
+    height: auto;
+    min-height: 70vh;
+    max-height: 90vh;
+    padding: 24px 18px 32px 18px; 
+    font-size: 1.05rem;
+    z-index: 1000;
+    overflow: visible;
+  }
+  .popup-card.expanded .full-content {
+    overflow: visible;
+  }
+  .popup-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .popup-card p,
+  .popup-card .full-content p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+}

@@ -1,0 +1,23 @@
+.historico-container {
+    padding: 2rem;
+    text-align: center;
+    min-height: 150vh;
+
+}
+
+.historico-container h1 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-principal);
+    margin-bottom: 1.5rem;
+    font-size: 54pt;
+}
+
+.chart-wrapper {
+    max-width: 1300px;
+    max-height: 1500vh;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
+}

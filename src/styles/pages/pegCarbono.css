@@ -1,0 +1,113 @@
+.pagPegCarbono {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    padding: 2rem 4rem;
+    padding-top: 3.6rem;
+    box-sizing: border-box;
+}
+
+.topoConteudo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 90px;
+}
+
+.tituloSaibaMais {
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: block;
+}
+
+.linkSaibaMais {
+    margin-left: 40px;
+    color: #2d5016;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.linkSaibaMais:hover {
+    color: #4a7c2a;
+    text-decoration: underline;
+    transform: translateX(5px);
+}
+
+.textoCarbono {
+    flex: 1;
+    display: block;
+    width: 60%;
+    margin-right: 120px;
+        margin-top: 1px;
+
+}
+
+.textoCarbono h1 {
+    white-space: nowrap;
+}
+
+.questionario {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #F3F6F2;
+    padding: 1.5rem;
+    border-radius: 8px;
+    gap: 1rem;
+    max-width: 280px;
+    flex-shrink: 0;
+    margin-right: 80px;
+    margin-top: 150px;
+}
+
+.pagPegCarbono .questionario button {
+    width: 100%;
+}
+
+.saibaMaisCarbono {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 70px;
+    margin-top: 5px;
+
+}
+
+.saibaMaisCarbono img {
+    max-height: 250px;
+    width: 450px;
+    object-fit: cover;
+    border-radius: 40px;
+}
+
+@media (max-width: 968px) {
+    .pagPegCarbono {
+        padding: 1rem;
+        padding-top: 2rem;
+        min-height: auto;
+        gap: 2rem;
+    }
+
+    .topoConteudo {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .textoCarbono {
+        width: 100%;
+    }
+
+    .textoCarbono h1 {
+        white-space: normal;
+    }
+
+    .questionario {
+        width: 100%;
+    }
+
+    .saibaMaisCarbono img {
+        max-height: 180px;
+    }
+}

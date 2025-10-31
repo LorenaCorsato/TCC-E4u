@@ -1,0 +1,241 @@
+@font-face {
+  font-family: 'Alexandria';
+  src: url('/fonts/Alexandria-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Varela';
+  src: url('/fonts/Varela-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  margin: 0;
+      overflow-y: auto;
+
+}
+
+
+.login{ 
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 110vh;
+    background: #234f1e;
+}
+
+.logo{
+    float: left;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    object-fit: cover;
+    height: 100rem;
+    width: 50rem;
+}
+
+.logo h1{
+    position: absolute;
+    bottom: 0;
+      font-family: 'Alexandria', sans-serif;
+
+}
+
+.login h1{
+
+  color: #234f1e
+}
+
+.formulario{
+    float: right;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+
+} 
+.formulario h1{
+  margin-top:60px;
+}
+
+
+.insertEnter form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lembrar{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+   font-family: 'Varela';
+
+}
+
+.lembrar a{
+    color:#234f1e;
+    font-family: 'Varela';
+
+}
+
+
+.mantConectado{
+    margin-left: 15px;
+}
+
+.cadastrar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Varela';
+    padding: 10px;
+
+}
+
+.cadastrar a{
+    color: #234f1e;
+    font-family: varela;
+
+}
+
+input          {
+    height: 50px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+      font-family: 'Varela';
+
+}
+
+
+.input-com-icone {
+    position: relative;
+    display: flex;
+    justify-content: center;
+      font-family: 'Varela';
+
+}
+
+.input-com-icone input {
+    width: 100%;
+    padding-right: 40px; 
+}
+.formulario input[type="text"],
+.formulario .input-com-icone {
+    width: 355px;
+}
+.formulario input[type="email"]{
+    width: 345px;
+}
+.icone-senha {
+    position: absolute;
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    cursor: pointer;
+    color: #888; 
+}
+.logoImg{
+    width: 90%;
+    height: 70%;
+    object-fit: cover;
+    margin-left: 10%;
+        margin-bottom: 10%;
+
+}
+
+.googleBotao {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px 20px;
+  font-family: varela;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  height: 6.5vh;
+  width: 39vh;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  border: 1px solid #020202;
+  text-align: center;
+}
+
+.googleBotao:hover {
+  background-color: #538dea;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.googleIcone {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+.cadastrar img{
+
+  width:30px;
+   margin-right: 5px;
+
+
+}
+
+.termos-container, .termos-container-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%; /* Ajuste conforme necessário */
+    margin: 15px 0;
+    font-size: 0.85rem;
+    font-family:'Alexandria';
+    color: #333;
+}
+
+.termos-container input[type="checkbox"],
+.termos-container-modal input[type="checkbox"] {
+    margin-right: 10px;
+    /* Reseta o estilo padrão dos inputs de texto */
+    width: auto; 
+    height: auto;
+    accent-color: #668213; /* Cor do check (verde) */
+}
+
+.termos-container label,
+.termos-container-modal label {
+    line-height: 1.3;
+}
+
+.termos-container a, 
+.termos-container-modal a {
+    color: #668213; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.termos-container a:hover,
+.termos-container-modal a:hover {
+    text-decoration: underline;
+}
+
+.termos-container-modal {
+    font-size: 0.9rem;
+    margin-top: 0;
+}
